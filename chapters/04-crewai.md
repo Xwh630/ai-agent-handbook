@@ -27,15 +27,16 @@
 | **Agent** | 具有特定角色、目标和工具的 AI 实体 |
 | **Task** | 分配给 Agent 的具体工作单元 |
 | **Crew** | 由多个 Agent 组成的协作团队 |
-| **Process** | 协作流程（顺序/层级/并行） |
+| **Process** | 协作流程（顺序/层级） |
 
-### 三种协作模式
+> ⚠️ 注意：CrewAI 的 `Process` 枚举**只有 `sequential` 和 `hierarchical` 两种**，不存在 `Process.parallel`。需要并行执行时，利用 `Task.context` 定义依赖关系——没有依赖的任务在顺序流程中会被自动并行调度（见 4.5 节）。
+
+### 两种协作模式
 
 | 模式 | 说明 | 适用场景 |
 |------|------|----------|
-| **Sequential** | 严格按顺序执行 | 流水线式任务 |
+| **Sequential** | 按依赖关系顺序/并行执行 | 流水线式任务 |
 | **Hierarchical** | Manager Agent 分配任务 | 复杂项目管理 |
-| **Parallel** | 多个 Agent 同时工作 | 并行研究/采集 |
 
 ---
 
@@ -172,8 +173,7 @@ def create_research_crew(topic: str):
         tasks=tasks,
         process=Process.sequential,  # 顺序执行
         verbose=True,
-        memory=True,  # 启用记忆功能
-        share_crew=True
+        memory=True  # 启用记忆功能
     )
     
     return crew
@@ -268,7 +268,9 @@ result = crew.kickoff()
 
 ---
 
-## 4.5 并行模式：多任务同时执行
+## 4.5 并行执行：用 context 依赖实现
+
+CrewAI 没有 `Process.parallel`，但可以通过**任务依赖（context）**实现并行：同一 Crew 中，多个互不依赖的任务会被自动并行调度，只有依赖（`context`）指定的任务才等待前序结果。
 
 ```python
 # parallel_crew.py
@@ -307,28 +309,29 @@ summarizer = Agent(
     llm=llm
 )
 
-tasks = [
-    Task(description="分析产品A的10个核心功能", agent=agent_a),
-    Task(description="收集产品B的100条用户评价", agent=agent_b),
-    Task(description="调研产品C的定价策略", agent=agent_c),
-    Task(description="汇总三份报告，生成综合对比分析",
-          agent=summarizer,
-          context=[
-              Task(description="分析产品A"),
-              Task(description="分析产品B"),
-              Task(description="分析产品C")
-          ])
-]
+# 三个分析任务互不依赖 → 会被并行执行
+task_a = Task(description="分析产品A的10个核心功能", agent=agent_a)
+task_b = Task(description="收集产品B的100条用户评价", agent=agent_b)
+task_c = Task(description="调研产品C的定价策略", agent=agent_c)
+
+# 汇总任务依赖前三个任务的结果 → 等待它们全部完成
+summary_task = Task(
+    description="汇总三份报告，生成综合对比分析",
+    agent=summarizer,
+    context=[task_a, task_b, task_c]  # 关键：通过 context 声明依赖
+)
 
 crew = Crew(
     agents=[agent_a, agent_b, agent_c, summarizer],
-    tasks=tasks,
-    process=Process.parallel,
+    tasks=[task_a, task_b, task_c, summary_task],
+    process=Process.sequential,  # 仍是 sequential，但无依赖任务并行调度
     verbose=True
 )
 
 result = crew.kickoff()
 ```
+
+> 关键点：`task_a/b/c` 之间没有 `context` 依赖，CrewAI 会将它们并行调度；`summary_task` 声明了 `context=[task_a, task_b, task_c]`，会等三者完成后才执行。
 
 ---
 
@@ -503,7 +506,9 @@ agent = Agent(
 
 ✅ 理解了 CrewAI 的三大核心概念：Agent、Task、Crew
 
-✅ 掌握了三种协作模式：顺序、层级、并行
+✅ 掌握了两种协作模式：顺序（Sequential）、层级（Hierarchical）
+
+✅ 学会了用 context 依赖实现任务并行执行
 
 ✅ 学会了集成搜索工具增强 Agent 能力
 

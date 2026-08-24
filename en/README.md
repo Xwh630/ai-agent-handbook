@@ -12,7 +12,7 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![📖 Online Docs](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
 
-> **Frameworks covered**: [LangGraph](https://github.com/langchain-ai/langgraph) 33.9K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 44K⭐ · [AutoGen](https://github.com/microsoft/autogen) 54K⭐ · [Dify](https://github.com/langgenius/dify) 130K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 40K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 26.9K⭐
+> **Frameworks covered**: [LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐
 
 <div align="center">
 
@@ -106,15 +106,15 @@ Build your first AI Agent in 10 minutes with just one Python file!
 
 | Framework | Stars | Language | Best For |
 |-----------|-------|----------|----------|
-| **LangGraph** | 33.9K ⭐ | Python/TS | Complex workflows, production systems |
-| **CrewAI** | 44K ⭐ | Python | Rapid prototyping, team simulation |
-| **AutoGen (MAF)** | 54K ⭐ | Python/.NET | Multi-agent research, iterative solving |
-| **Dify** | 130K ⭐ | Python/TS | Product validation, non-technical users |
-| **LlamaIndex** | 40K ⭐ | Python | Knowledge base Q&A, document retrieval |
-| **OpenAI Agents SDK** | 26.9K ⭐ | Python | Fast development, OpenAI ecosystem |
-| **Claude Agent SDK** | New | Python | Claude Code integration |
-| **Mastra** | 15K ⭐ | TypeScript | Frontend/fullstack developers |
-| **Ollama** | 100K ⭐ | Go | Private, offline LLM inference |
+| **LangGraph** | 40.3K ⭐ | Python/TS | Complex workflows, production systems |
+| **CrewAI** | 57.5K ⭐ | Python | Rapid prototyping, team simulation |
+| **AutoGen (MAF)** | 60.6K ⭐ | Python/.NET | Multi-agent research, iterative solving |
+| **Dify** | 153.3K ⭐ | Python/TS | Product validation, non-technical users |
+| **LlamaIndex** | 51.8K ⭐ | Python | Knowledge base Q&A, document retrieval |
+| **OpenAI Agents SDK** | 28.9K ⭐ | Python | Fast development, OpenAI ecosystem |
+| **Claude Agent SDK** | 8.0K ⭐ | Python | Claude Code integration |
+| **Mastra** | 27.4K ⭐ | TypeScript | Frontend/fullstack developers |
+| **Ollama** | 179.3K ⭐ | Go | Private, offline LLM inference |
 | **MCP** | Protocol | Multi | Standardized tool connectivity |
 
 ---

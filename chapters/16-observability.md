@@ -42,6 +42,7 @@ export LANGSMITH_TRACING="true"
 
 ```python
 # observability.py
+from openai import OpenAI
 import langsmith
 from langsmith import trace, evaluate
 from langsmith.wrappers import wrap_openai
@@ -186,6 +187,7 @@ class AgentMetrics:
 ```python
 # error_handling.py
 import time
+from functools import wraps
 from typing import Callable, Type
 
 def retry_with_backoff(func: Callable, max_retries: int = 3, 

@@ -1,34 +1,49 @@
 """
 OpenAI Agents SDK 示例
 """
+import ast
+import operator
 import os
+
 from dotenv import load_dotenv
-from openai import OpenAI
-from agents import Agent, FunctionTool, Runner
+from agents import Agent, Runner, function_tool
 
 load_dotenv()
 
-# 定义工具
+# 安全求值：只允许数字与四则运算，禁止 eval()
+_SAFE_OPS = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.USub: operator.neg,
+}
+
+
+def _safe_eval(node):
+    if isinstance(node, ast.Expression):
+        return _safe_eval(node.body)
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return node.value
+    if isinstance(node, ast.BinOp) and type(node.op) in _SAFE_OPS:
+        return _SAFE_OPS[type(node.op)](_safe_eval(node.left), _safe_eval(node.right))
+    if isinstance(node, ast.UnaryOp) and type(node.op) in _SAFE_OPS:
+        return _SAFE_OPS[type(node.op)](_safe_eval(node.operand))
+    raise ValueError(f"不允许的表达式节点: {type(node).__name__}")
+
+
+# 推荐方式：@function_tool 装饰器，自动从类型注解生成工具 Schema
+@function_tool
 def get_weather(city: str) -> str:
     """获取指定城市的天气"""
     return f"{city}今日天气：晴，气温 25°C"
 
+
+@function_tool
 def calculate(expression: str) -> float:
-    """数学计算"""
-    return eval(expression, {"__builtins__": {}}, {})
+    """执行数学表达式计算（仅支持数字与四则运算）"""
+    return _safe_eval(ast.parse(expression, mode="eval"))
 
-# 创建工具实例
-weather_tool = FunctionTool(
-    name="get_weather",
-    description="获取指定城市的天气信息",
-    fn=get_weather
-)
-
-calc_tool = FunctionTool(
-    name="calculate",
-    description="执行数学表达式计算",
-    fn=calculate
-)
 
 # 定义 Agent
 agent = Agent(
@@ -37,14 +52,16 @@ agent = Agent(
     当用户询问天气时，使用 get_weather 工具。
     当用户需要计算时，使用 calculate 工具。
     返回简洁明了的答案。""",
-    tools=[weather_tool, calc_tool]
+    tools=[get_weather, calculate]
 )
+
 
 # 运行示例
 async def main():
     query = "北京今天天气怎么样？帮我算一下 (100 + 200) * 3"
     result = await Runner.run(agent, query)
     print(f"结果: {result.final_output}")
+
 
 if __name__ == "__main__":
     import asyncio

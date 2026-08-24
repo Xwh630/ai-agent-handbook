@@ -1,6 +1,11 @@
-# 第 5 章：AutoGen / MAF 对话驱动
+# 第 5 章：AutoGen / Microsoft Agent Framework 对话驱动
 
-> Microsoft 开源的 AutoGen 是学术界和产业界都认可的多智能体对话框架。2025年微软将其与 Semantic Kernel 合并为 Microsoft Agent Framework (MAF)，本章将介绍两者。
+> Microsoft 开源的 AutoGen 是学术界和产业界都认可的多智能体对话框架。2025 年微软将其与 Semantic Kernel 合并为 **Microsoft Agent Framework (MAF)**，2026 年 MAF 已发布 1.0 GA。本章两者都介绍。
+
+> ⚠️ **版本说明（重要）**：AutoGen 在 0.4 版本经历了架构级重构（同步 API → 异步事件驱动架构），0.2.x 与 0.4+ 的 API **不兼容**。
+> - 本章 5.3–5.7 的 AutoGen 示例基于经典的 **0.2.x API**（`ConversableAgent` / `initiate_chat`），对应安装包为 `autogen-agentchat~=0.2`（或 `pyautogen`）。这些代码在 0.2.x 下可正常运行，**但无法在 0.4+ 下运行**。
+> - 如果学习新项目，建议直接使用 0.4+ 的 `autogen-agentchat`（异步 API，基于事件流）或微软推荐的 **Agent Framework**（5.5 节）。
+> - 老版本包 `pyautogen` 自 0.2.34 起已不再由微软发布，请使用 `autogen-agentchat~=0.2`。
 
 ---
 
@@ -22,12 +27,12 @@
 └─────────────────────────────────────────────┘
 ```
 
-### 核心组件
+### 核心组件（0.2.x）
 
 | 组件 | 作用 |
 |------|------|
-| **Agent** | 具有特定能力的智能体 |
 | **ConversableAgent** | 可以参与对话的智能体基类 |
+| **AssistantAgent** | 内置助手提示词的对话智能体 |
 | **UserProxyAgent** | 代表用户的代理，可以执行代码 |
 | **GroupChat** | 多智能体群组对话 |
 | **GroupChatManager** | 管理群组对话的流程 |
@@ -37,18 +42,24 @@
 ## 5.2 环境准备
 
 ```bash
-pip install pyautogen langchain-openai
+# 方式一：AutoGen 0.2.x（本章示例所用，经典 API）
+pip install "autogen-agentchat~=0.2"
+
+# 方式二：AutoGen 0.4+（新项目推荐，异步 API）
+pip install "autogen-agentchat>=0.4"
+
+# 方式三：Microsoft Agent Framework（微软当前推荐，见 5.5）
+pip install agent-framework azure-identity
 ```
 
 ---
 
-## 5.3 第一个 AutoGen 项目
+## 5.3 第一个 AutoGen 项目（0.2.x）
 
 ### 5.3.1 简单双人对话
 
 ```python
 # simple_chat.py
-import autogen
 from autogen import ConversableAgent
 
 # 配置 LLM
@@ -86,18 +97,18 @@ print(chat_result.summary)
 
 ```python
 # code_agent.py
-import autogen
+from autogen import AssistantAgent, UserProxyAgent
 
 config_list = [{"model": "gpt-4o", "api_key": "your-key"}]
 
 # 助手 Agent
-assistant = autogen.AssistantAgent(
+assistant = AssistantAgent(
     name="Assistant",
     llm_config={"config_list": config_list}
 )
 
 # 用户代理（可以执行代码）
-user_proxy = autogen.UserProxyAgent(
+user_proxy = UserProxyAgent(
     name="User",
     human_input_mode="TERMINATE",  # 输入 TERMINATE 结束对话
     max_consecutive_auto_reply=10,
@@ -116,47 +127,47 @@ user_proxy.initiate_chat(
 
 ---
 
-## 5.4 多智能体群组对话
+## 5.4 多智能体群组对话（0.2.x）
 
 ```python
 # group_chat.py
-import autogen
+from autogen import AssistantAgent, UserProxyAgent, GroupChat, GroupChatManager
 
 config_list = [{"model": "gpt-4o", "api_key": "your-key"}]
 
 # 创建多个角色 Agent
-ceo = autogen.AssistantAgent(
+ceo = AssistantAgent(
     name="CEO",
     system_message="你是公司的 CEO，关注战略和决策。",
     llm_config={"config_list": config_list}
 )
 
-cto = autogen.AssistantAgent(
+cto = AssistantAgent(
     name="CTO",
     system_message="你是公司的 CTO，关注技术选型和实施。",
     llm_config={"config_list": config_list}
 )
 
-cmo = autogen.AssistantAgent(
+cmo = AssistantAgent(
     name="CMO",
     system_message="你是公司的 CMO，关注市场和用户。",
     llm_config={"config_list": config_list}
 )
 
-user_proxy = autogen.UserProxyAgent(
+user_proxy = UserProxyAgent(
     name="User",
     human_input_mode="TERMINATE",
     max_consecutive_auto_reply=5
 )
 
 # 创建群组
-groupchat = autogen.GroupChat(
+groupchat = GroupChat(
     agents=[ceo, cto, cmo, user_proxy],
     messages=[],
     max_round=10
 )
 
-manager = autogen.GroupChatManager(groupchat=groupchat, llm_config={"config_list": config_list})
+manager = GroupChatManager(groupchat=groupchat, llm_config={"config_list": config_list})
 
 # 开始讨论
 user_proxy.initiate_chat(
@@ -169,64 +180,116 @@ user_proxy.initiate_chat(
 
 ## 5.5 Microsoft Agent Framework (MAF)
 
-### 5.5.1 迁移到 MAF
+MAF 是微软当前推荐的多 Agent 框架（AutoGen + Semantic Kernel 的统一继任者，2026 年已发布 1.0 GA），提供统一的 `Agent` 抽象、Graph 工作流、以及 MCP/A2A 协议支持。
 
-```python
-# maf_example.py
-# 微软已将 AutoGen 和 Semantic Kernel 合并为 MAF
-from azure.ai.agent_framework import AgentFrameworkClient
-from azure.identity import DefaultAzureCredential
+### 5.5.1 环境准备
 
-# 使用 Azure 认证
-client = AgentFrameworkClient(
-    credential=DefaultAzureCredential()
-)
-
-# 创建 Agent
-agent = client.create_agent(
-    name="my-agent",
-    description="一个帮助客户的服务 Agent",
-    model="gpt-4o"
-)
-
-# 运行对话
-response = client.run_agent(
-    agent_id=agent.id,
-    messages=[
-        {"role": "user", "content": "帮我安排明天的会议"}
-    ]
-)
+```bash
+pip install agent-framework azure-identity
+# 可选：OpenAI 直连（不用 Azure Foundry 时）
+pip install agent-framework-openai
 ```
 
-### 5.5.2 MAF 的优势
+### 5.5.2 创建第一个 Agent
+
+```python
+# maf_hello.py
+import asyncio
+from agent_framework import Agent
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+
+
+async def main():
+    # 使用 Azure Foundry（先执行 az login 登录）
+    client = FoundryChatClient(
+        credential=AzureCliCredential(),
+        # project_endpoint=os.environ["FOUNDRY_PROJECT_ENDPOINT"],
+        # model=os.environ["FOUNDRY_MODEL_DEPLOYMENT_NAME"],
+    )
+    agent = Agent(
+        client=client,
+        name="HelloAgent",
+        instructions="你是一个友好的助手，回答保持简洁。",
+    )
+    result = await agent.run("介绍一下 Microsoft Agent Framework")
+    print(result)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+> 不使用 Azure 时，可换用 OpenAI 直连：`from agent_framework.openai import OpenAIChatClient`（需 `pip install agent-framework-openai`）。
+
+### 5.5.3 多 Agent 顺序工作流（1.0 版本 API）
+
+```python
+# maf_workflow.py
+import asyncio
+from agent_framework import Agent
+from agent_framework.foundry import FoundryChatClient
+from agent_framework.orchestrations import SequentialBuilder
+from azure.identity import AzureCliCredential
+
+
+async def main():
+    client = FoundryChatClient(credential=AzureCliCredential())
+
+    writer = Agent(
+        client=client,
+        name="writer",
+        instructions="你是一名精炼的文案，输出一句有冲击力的营销语。",
+    )
+    reviewer = Agent(
+        client=client,
+        name="reviewer",
+        instructions="你是一名严谨的评审，对上一轮输出给出简短改进意见。",
+    )
+
+    workflow = SequentialBuilder(participants=[writer, reviewer]).build()
+    async for event in workflow.run("为一款 AI 编程助手写一句宣传语", stream=True):
+        if event.type == "output":
+            for msg in event.data:
+                print(f"[{msg.author_name}]: {msg.text}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### 5.5.4 MAF 的优势
 
 | 特性 | 说明 |
 |------|------|
-| **统一认证** | 支持 Azure AD 和企业级安全 |
-| **企业集成** | 与 Microsoft 365、Teams 等无缝集成 |
-| **合规性** | 符合企业合规要求 |
-| **托管服务** | 可用 Azure 托管部署 |
+| **统一抽象** | 合并 AutoGen + Semantic Kernel，一套 API 支持多模型 |
+| **协议支持** | 原生支持 MCP、A2A、AG-UI 三大协议标准 |
+| **编排模式** | Graph / 顺序 / 并发 / Handoff / 群聊 |
+| **可观测性** | 内置 OpenTelemetry 追踪 |
+| **多提供商** | Foundry、Azure OpenAI、OpenAI、Anthropic、Ollama 等 |
 
 ---
 
-## 5.6 AutoGen 高级特性
+## 5.6 AutoGen 高级特性（0.2.x）
 
 ### 5.6.1 工具调用
 
 ```python
 # tool_usage.py
-import autogen
 import json
+from autogen import AssistantAgent, UserProxyAgent
+
 
 def search_weather(city: str) -> str:
     """查询天气的工具函数"""
     return json.dumps({"city": city, "weather": "晴", "temp": 25})
 
-# 注册工具
+
+# 配置 LLM
 config_list = [{"model": "gpt-4o", "api_key": "your-key"}]
 
-# 创建带工具的 Agent
-agent = autogen.AssistantAgent(
+# 创建带工具的 Agent（functions 描述模型可用的工具）
+agent = AssistantAgent(
     name="WeatherAgent",
     llm_config={
         "config_list": config_list,
@@ -246,8 +309,8 @@ agent = autogen.AssistantAgent(
     }
 )
 
-# 用户代理执行工具
-user_proxy = autogen.UserProxyAgent(
+# 用户代理把函数名映射到实际 Python 函数
+user_proxy = UserProxyAgent(
     name="User",
     human_input_mode="TERMINATE",
     function_map={"search_weather": search_weather}
@@ -261,21 +324,21 @@ user_proxy.initiate_chat(agent, message="北京今天天气怎么样？")
 
 ```python
 # code_env.py
-import autogen
+from autogen import AssistantAgent, UserProxyAgent
 
 # 配置代码执行
 config = {
     "work_dir": "sandbox",
-    "use_docker": False,  # 生产环境建议用 Docker
+    "use_docker": False,  # 生产环境建议用 Docker 隔离
     "timeout": 60
 }
 
-user_proxy = autogen.UserProxyAgent(
+user_proxy = UserProxyAgent(
     name="User",
     code_execution_config=config
 )
 
-assistant = autogen.AssistantAgent(
+assistant = AssistantAgent(
     name="Assistant",
     llm_config={"config_list": [{"model": "gpt-4o", "api_key": "your-key"}]}
 )
@@ -295,7 +358,7 @@ user_proxy.initiate_chat(
 
 ```python
 # ✅ 设置合理的限制
-user_proxy = autogen.UserProxyAgent(
+user_proxy = UserProxyAgent(
     name="User",
     max_consecutive_auto_reply=10,  # 最大连续轮数
     human_input_mode="NEVER"        # 不等待人工输入
@@ -317,29 +380,36 @@ simple_llm = {"config_list": [{"model": "gpt-4o-mini", "api_key": "key"}]}
 complex_llm = {"config_list": [{"model": "gpt-4o", "api_key": "key"}]}
 
 # 简单 Agent 用便宜模型
-basic_agent = autogen.AssistantAgent(
-    name="Basic",
-    llm_config=simple_llm
-)
+basic_agent = AssistantAgent(name="Basic", llm_config=simple_llm)
 
 # 复杂 Agent 用强模型
-expert_agent = autogen.AssistantAgent(
-    name="Expert",
-    llm_config=complex_llm
-)
+expert_agent = AssistantAgent(name="Expert", llm_config=complex_llm)
 ```
+
+### 5.7.3 迁移到 0.4+ 的建议
+
+AutoGen 0.4+ 的核心变化：
+
+| 0.2.x（本章示例） | 0.4+ |
+|------|------|
+| `ConversableAgent` | `AssistantAgent` / `AgentRuntime` |
+| `initiate_chat()` 同步调用 | `await agent.run()` 异步事件流 |
+| `function_map` | `@tool` 装饰器注册工具 |
+| `GroupChatManager` | `GroupChat` + 事件驱动 |
+
+新项目建议直接学习 0.4+ 或 Agent Framework，避免技术债。
 
 ---
 
 ## 5.8 本章小结
 
-✅ 理解了 AutoGen 的对话驱动架构
+✅ 理解了 AutoGen 的对话驱动架构与 0.2.x / 0.4+ 版本差异
 
 ✅ 掌握了 UserProxyAgent 的代码执行能力
 
 ✅ 学会了多智能体群组对话的用法
 
-✅ 了解了 MAF 的企业级扩展
+✅ 掌握了 Microsoft Agent Framework 的 Agent 与顺序工作流
 
 ---
 

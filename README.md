@@ -1,6 +1,6 @@
 # 🤖 AI Agent 实战手册（中文版）
 
-> **2026 年度最全面的 AI Agent 开发指南** —— 从零搭建到生产部署
+> **面向中文开发者的 AI Agent 系统学习指南** —— 从零搭建到生产部署
 >
 > 涵盖 10+ 主流框架 · 19+ 章完整教程 · 9+ 可运行示例 · 新手零门槛
 
@@ -12,13 +12,13 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 33.9K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 44K⭐ · [AutoGen](https://github.com/microsoft/autogen) 54K⭐ · [Dify](https://github.com/langgenius/dify) 130K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 40K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 26.9K⭐
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐
 
 <div align="center">
 
 ### ⭐ 如果这份手册对你有帮助，请点亮 Star，让更多中文开发者看到它！
 
-**中文唯一** · **零门槛入门** · **10+ 框架全覆盖** · **中英双语维护**
+**零门槛入门** · **10+ 框架全覆盖** · **中英双语维护**
 
 </div>
 
@@ -202,16 +202,18 @@ python main.py
 
 | 框架 | GitHub Stars | 语言 | 定位 | 最佳场景 | 推荐指数 |
 |------|--------------|------|------|----------|----------|
-| **LangGraph** | 33.9K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
-| **CrewAI** | 44K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
-| **AutoGen (MAF)** | 54K ⭐ | Python/.NET | 对话驱动协作 | 多 Agent 研究、迭代求解 | ⭐⭐⭐⭐ |
-| **Dify** | 130K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
-| **LlamaIndex** | 40K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
-| **OpenAI Agents SDK** | 26.9K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
-| **Claude Agent SDK** | 新增 | Python | Anthropic 官方 | Claude Code 集成 | ⭐⭐⭐ |
-| **Mastra** | 15K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
-| **Ollama** | 100K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
+| **LangGraph** | 40.3K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
+| **CrewAI** | 57.5K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
+| **AutoGen (MAF)** | 60.6K ⭐ | Python/.NET | 对话驱动协作 | 多 Agent 研究、迭代求解 | ⭐⭐⭐⭐ |
+| **Dify** | 153.3K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
+| **LlamaIndex** | 51.8K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
+| **OpenAI Agents SDK** | 28.9K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
+| **Claude Agent SDK** | 8.0K ⭐ | Python | Anthropic 官方 | Claude Code 集成 | ⭐⭐⭐ |
+| **Mastra** | 27.4K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
+| **Ollama** | 179.3K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
 | **MCP** | 标准协议 | 多语言 | 工具标准化连接 | 跨框架工具互通 | ⭐⭐⭐⭐⭐ |
+
+> Stars 数据截至 2026 年 8 月，来自 GitHub。
 
 ---
 

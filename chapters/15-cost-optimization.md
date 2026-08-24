@@ -39,8 +39,11 @@ system_prompt = """你是一个助手。可用工具：search, calculate, execut
 ## 15.3 优化策略二：分层模型
 
 ```python
+# 分层模型（需导入：from langchain_openai import ChatOpenAI）
 # 简单任务用便宜模型
 cheap_llm = ChatOpenAI(model="gpt-4o-mini")
+# 中等任务用均衡模型
+medium_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.5)
 # 复杂任务用强模型
 expert_llm = ChatOpenAI(model="gpt-4o")
 
@@ -97,13 +100,13 @@ def cached_tool_call(tool_name: str, params: str) -> str:
 ## 15.6 优化策略五：对话历史压缩
 
 ```python
-def compress_history(messages: list, max_tokens: int = 1000) -> list:
+def compress_history(messages: list, llm, max_tokens: int = 1000) -> list:
     """压缩对话历史，保留关键信息"""
     # 实现总结逻辑
     summary_prompt = "请用一句话总结以下对话："
     summary = llm.invoke(summary_prompt + str(messages))
     return [
-        {"role": "system", "content": f"[历史对话摘要: {summary}]"},
+        {"role": "system", "content": f"[历史对话摘要: {summary.content}]"},
         {"role": "user", "content": messages[-1]["content"]}
     ]
 ```

@@ -37,14 +37,19 @@
 
 ## 18.2 框架对比总表
 
+> Stars 数据截至 2026 年 8 月，来自 GitHub。
+
 | 框架 | Stars | 学习曲线 | 灵活性 | 生产成熟度 | 适合场景 |
 |------|-------|----------|--------|------------|----------|
-| **LangGraph** | 33.9K | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 复杂工作流、生产级 |
-| **CrewAI** | 44K | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 多角色协作、快速原型 |
-| **AutoGen** | 54K | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 多Agent对话、研究 |
-| **Dify** | 130K | ⭐ | ⭐⭐ | ⭐⭐⭐ | 低代码、产品验证 |
-| **OpenAI SDK** | 26.9K | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 快速开发、轻量级 |
-| **Mastra** | 15K | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | TypeScript 项目 |
+| **LangGraph** | 40.3K | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 复杂工作流、生产级 |
+| **CrewAI** | 57.5K | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 多角色协作、快速原型 |
+| **AutoGen** | 60.6K | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 多Agent对话、研究 |
+| **LlamaIndex** | 51.8K | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | RAG 检索增强 |
+| **Dify** | 153.3K | ⭐ | ⭐⭐ | ⭐⭐⭐ | 低代码、产品验证 |
+| **OpenAI Agents SDK** | 28.9K | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 快速开发、轻量级 |
+| **Mastra** | 27.4K | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | TypeScript 项目 |
+| **Claude Agent SDK** | 8.0K | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | Claude 生态、MCP 集成 |
+| **Ollama** | 179.3K | ⭐ | ⭐⭐ | ⭐⭐⭐ | 本地模型部署 |
 
 ---
 
@@ -145,7 +150,7 @@ def smart_model_selection(task_type: str, complexity: float) -> str:
     if complexity < 0.3:
         return "gpt-4o-mini"
     elif "code" in task_type:
-        return "claude-sonnet"
+        return "claude-sonnet-4-5"
     else:
         return "gpt-4o"
 ```

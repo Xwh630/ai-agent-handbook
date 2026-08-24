@@ -51,45 +51,65 @@ print(result.final_output)
 
 ## 8.4 工具调用
 
+推荐使用 `@function_tool` 装饰器——只需写普通 Python 函数，SDK 会根据类型注解自动生成工具 Schema：
+
 ```python
 # tool_usage.py
-from agents import Agent, Runner, FunctionTool, RunConfig
+from agents import Agent, Runner, function_tool
 import json
 
+@function_tool
 def get_weather(city: str) -> str:
-    """查询城市天气"""
+    """查询指定城市的当前天气"""
     return json.dumps({
         "city": city,
         "temperature": 25,
         "condition": "sunny"
     })
 
-weather_tool = FunctionTool(
-    name="get_weather",
-    description="获取指定城市的当前天气",
-    params_schema={
-        "city": {"type": "str", "description": "城市名称"}
-    },
-    fn=get_weather
-)
-
 agent = Agent(
     name="Weather Assistant",
     instructions="你是一个天气助手，帮助用户查询天气信息。",
-    tools=[weather_tool]
+    tools=[get_weather]
 )
 
 result = Runner.run_sync(agent, "北京今天天气怎么样？")
 print(result.final_output)
 ```
 
+如果偏好显式声明工具（如参数需要默认值或复杂描述），也可以使用 `FunctionTool`。注意 `params_schema` 必须是完整的 **JSON Schema** 对象（`type: object` + `properties`），而不是简化的字段字典：
+
+```python
+from agents import Agent, Runner, FunctionTool
+import json
+
+def get_weather(city: str) -> str:
+    """查询指定城市的当前天气"""
+    return json.dumps({"city": city, "temperature": 25, "condition": "sunny"})
+
+weather_tool = FunctionTool(
+    name="get_weather",
+    description="获取指定城市的当前天气",
+    params_schema={
+        "type": "object",
+        "properties": {
+            "city": {"type": "string", "description": "城市名称"}
+        },
+        "required": ["city"]
+    },
+    fn=get_weather
+)
+```
+
 ---
 
 ## 8.5 多 Agent 协作
 
+OpenAI Agents SDK 通过 `handoffs`（交接）实现多 Agent 协作——主管 Agent 可以把任务交接给更专业的子 Agent，子 Agent 完成后可再交回：
+
 ```python
 # multi_agent.py
-from agents import Agent, Runner, HandoffOutput
+from agents import Agent, Runner
 
 # 研究 Agent
 researcher = Agent(
@@ -105,11 +125,12 @@ writer = Agent(
     model="gpt-4o-mini"
 )
 
-# 主管 Agent - 协调工作流
+# 主管 Agent - 通过 handoffs 将任务交接给子 Agent
 manager = Agent(
     name="Manager",
     instructions="""你负责协调研究和写作工作。
-    首先让 Researcher 收集信息，然后将结果交给 Writer 撰写报告。""",
+    首先将研究任务交接给 Researcher，然后将研究结果交给 Writer 撰写报告。""",
+    handoffs=[researcher, writer],
     model="gpt-4o"
 )
 
@@ -118,13 +139,16 @@ result = Runner.run_sync(manager, "研究 AI Agent 市场并撰写报告")
 print(result.final_output)
 ```
 
+如果需要在交接时传递结构化数据，可以使用 `handoff` 工厂函数并指定输入类型，SDK 会自动生成交接输入 Schema。运行时可在 `result` 中通过 `result.last_agent.name` 查看最终由哪个 Agent 完成。
+
 ---
 
 ## 8.6 与 LangGraph 集成
 
 ```python
 # langgraph_integration.py
-from agents import Agent
+from typing import TypedDict
+from agents import Agent, Runner
 from langgraph.graph import StateGraph, END
 
 class WorkflowState(TypedDict):

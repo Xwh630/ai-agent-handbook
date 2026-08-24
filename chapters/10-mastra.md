@@ -34,12 +34,16 @@ import { openai } from '@ai-sdk/openai';
 const agent = new Agent({
   name: 'Research Assistant',
   instructions: '你是一个研究助手，帮助用户查找和总结信息。',
+  // 也可以直接用模型字符串：model: 'openai/gpt-4o-mini'
   model: openai('gpt-4o-mini')
 });
 
-const result = await agent.prompt('总结一下 AI Agent 的发展趋势');
+// 注意：使用 generate()（旧版 API 为 prompt()，已废弃）
+const result = await agent.generate('总结一下 AI Agent 的发展趋势');
 console.log(result.text);
 ```
+
+Mastra 新版统一使用 `agent.generate()` / `agent.stream()` 方法，旧版 `agent.prompt()` 已废弃，请勿在新代码中使用。
 
 ---
 
@@ -47,6 +51,7 @@ console.log(result.text);
 
 ```typescript
 // tools.ts
+import { z } from 'zod';
 import { createTool } from '@mastra/core/tools';
 
 const searchTool = createTool({
@@ -74,11 +79,13 @@ const searchTool = createTool({
 
 ```typescript
 // workflow.ts
+import { z } from 'zod';
 import { Workflow } from '@mastra/core/workflow';
 
 const workflow = new Workflow({
   name: 'research-workflow',
-  trigger: z.object({
+  // 注意：新版参数名为 triggerSchema（旧版 trigger 已废弃）
+  triggerSchema: z.object({
     topic: z.string()
   })
 });
@@ -88,7 +95,8 @@ workflow
   .step({
     id: 'research',
     execute: async (context) => {
-      return { research: await doResearch(context.trigger.topic) };
+      // 通过 context.triggerData 访问触发数据
+      return { research: await doResearch(context.triggerData.topic) };
     }
   })
   .step({
@@ -98,6 +106,9 @@ workflow
     }
   })
   .commit();
+
+// 运行工作流
+await workflow.run({ triggerData: { topic: 'AI Agent' } });
 ```
 
 ---

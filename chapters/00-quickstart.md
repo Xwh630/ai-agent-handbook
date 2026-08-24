@@ -105,7 +105,9 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 ```python
 """你的第一个 AI Agent - 一个会查天气和算数的智能助手"""
 import os
+import ast
 import json
+import operator
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -118,9 +120,31 @@ def get_weather(city: str) -> str:
     # 真实项目这里应该调用天气 API，我们先用模拟数据
     return f"{city}今天天气：晴，气温 25°C，适合出门！"
 
+# 安全求值：禁止 eval() 直接执行用户输入！
+# 只用 AST 白名单解析"数字 + 四则运算"，恶意表达式（如 __import__）会被拒绝
+_SAFE_OPS = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.USub: operator.neg,
+}
+
+def _safe_eval(node):
+    """递归解析 AST 节点，只放行数字与四则运算"""
+    if isinstance(node, ast.Expression):
+        return _safe_eval(node.body)
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return node.value
+    if isinstance(node, ast.BinOp) and type(node.op) in _SAFE_OPS:
+        return _SAFE_OPS[type(node.op)](_safe_eval(node.left), _safe_eval(node.right))
+    if isinstance(node, ast.UnaryOp) and type(node.op) in _SAFE_OPS:
+        return _SAFE_OPS[type(node.op)](_safe_eval(node.operand))
+    raise ValueError(f"不支持的表达式元素: {type(node).__name__}")
+
 def calculator(expression: str) -> float:
-    """计算器工具"""
-    return eval(expression, {"__builtins__": {}}, {})
+    """计算器工具（只支持数字与 + - * / 等基础运算）"""
+    return _safe_eval(ast.parse(expression, mode="eval"))
 
 # 把工具"告诉"模型，让它知道能用什么
 TOOLS = [
@@ -294,7 +318,7 @@ flowchart LR
 答：在代码里加个步骤上限。我们在第 2 章手写 ReAct 时会详细讲解如何控制。
 
 ### Q5：eval 有安全风险吗？
-答：有！上面示例为了简单用了 `eval`，生产环境请使用 `ast.literal_eval` 或专门的表达式解析库。详见 docs/最佳实践。
+答：有，而且非常大！`eval` 可以执行任意代码——即使传了 `{"__builtins__": {}}` 也能通过对象链绕过（如 `().__class__.__bases__[0].__subclasses__()` 拿到任意类）。**永远不要对用户输入用 `eval`**。上面示例用的是 AST 白名单方案：只放行数字和四则运算节点，其余一律拒绝，安全且够用。更复杂的场景建议用 `ast.literal_eval`（仅限字面量）或专门的表达式解析库（如 `py_expression_eval`、`asteval`）。详见 docs/最佳实践。
 
 ---
 

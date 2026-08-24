@@ -51,7 +51,7 @@ class SuperAgent:
 
 ```python
 # 使用显式状态而非隐式状态
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional
 
 @dataclass
@@ -184,20 +184,24 @@ def get_weather(city: str) -> str:
 
 ### 4.1 输入验证
 
+> pydantic v2 中 `validator` 已改为 `field_validator`：
+
 ```python
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 class AgentInput(BaseModel):
     user_query: str
     max_steps: int = 10
     
-    @validator('user_query')
+    @field_validator('user_query')
+    @classmethod
     def validate_query(cls, v):
         if len(v) > 1000:
             raise ValueError('查询过长')
         return v
     
-    @validator('max_steps')
+    @field_validator('max_steps')
+    @classmethod
     def validate_steps(cls, v):
         if v < 1 or v > 50:
             raise ValueError('步骤数必须在 1-50 之间')
@@ -425,6 +429,7 @@ LOG_LEVEL=WARNING
 ### 8.3 监控告警
 
 ```python
+import os
 import sentry_sdk
 
 sentry_sdk.init(
@@ -432,13 +437,12 @@ sentry_sdk.init(
     traces_sample_rate=0.1
 )
 
-# 自动捕获异常
-@sync_to_async
+# 自动捕获异常（同步函数内使用 try/except 即可）
 def run_agent(query: str):
     try:
         return agent.run(query)
     except Exception as e:
-        sentry_sdk.capture_exception()
+        sentry_sdk.capture_exception(e)
         raise
 ```
 

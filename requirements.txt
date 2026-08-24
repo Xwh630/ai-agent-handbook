@@ -13,7 +13,13 @@ requests>=2.31.0        # HTTP 请求
 # ---------- LangChain 生态 ----------
 langchain>=0.1.0
 langchain-openai>=0.1.0
-langgraph>=0.0.20       # 图编排框架
+langgraph>=0.2.0         # 图编排框架（0.2+，注意 API 与 0.1 差异）
+
+# ---------- OpenAI Agents SDK（第 8 章） ----------
+openai-agents>=0.1.0
+
+# ---------- Ollama（第 12 章本地模型） ----------
+langchain-ollama>=0.1.0
 
 # ---------- CrewAI（多智能体） ----------
 crewai>=0.30.0
@@ -29,8 +35,8 @@ llama-index-embeddings-openai>=0.1.0
 llama-index-readers-file>=0.1.0
 chromadb>=0.4.0         # 向量数据库
 
-# ---------- MCP（工具协议） ----------
-mcp>=0.1.0
+# ---------- MCP（工具协议，第 11 章） ----------
+mcp>=1.0.0
 
 # ---------- Web 服务（第 17 章实战用） ----------
 fastapi>=0.109.0

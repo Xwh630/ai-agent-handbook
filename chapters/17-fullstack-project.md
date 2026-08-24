@@ -87,8 +87,8 @@ class AgentConfig(BaseModel):
     retry_times: int = 3
 
 class ResearchConfig(BaseModel):
-    llm: LLMConfig
-    agent: AgentConfig
+    llm: LLMConfig = LLMConfig()
+    agent: AgentConfig = AgentConfig()
     topics: List[str] = []
     output_format: str = "markdown"
 ```
@@ -99,6 +99,7 @@ class ResearchConfig(BaseModel):
 # agents/base.py
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional
+from datetime import datetime
 import json
 
 class BaseAgent(ABC):
@@ -180,6 +181,13 @@ class ResearcherAgent(BaseAgent):
 ```python
 # agents/analyst.py
 from agents.base import BaseAgent
+import json
+
+# 假设 call_llm 已注入（示例：from llm import call_llm）
+def call_llm(prompt: str):
+    """示例：调用 LLM 获取响应"""
+    from langchain_openai import ChatOpenAI
+    return ChatOpenAI(model="gpt-4o-mini").invoke(prompt)
 
 class AnalystAgent(BaseAgent):
     """分析师 Agent"""
@@ -382,8 +390,11 @@ def save_pdf(report: str, filename: str = "report.pdf"):
 
 ```python
 # web_app.py
+import asyncio
 from fastapi import FastAPI
 from pydantic import BaseModel
+from main import ResearchSystem
+from config import ResearchConfig
 
 app = FastAPI()
 

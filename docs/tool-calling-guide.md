@@ -66,19 +66,46 @@
 
 ### 1. 计算工具
 
+> ⚠️ **安全警示**：切勿直接使用 `eval()` 执行任意表达式（存在代码注入风险）。应使用 `ast` 模块解析，只允许白名单内的运算节点：
+
 ```python
-from typing import Callable
+import ast
+import operator
+
+# 允许的运算符白名单
+_SAFE_OPS = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.FloorDiv: operator.floordiv,
+    ast.Mod: operator.mod,
+    ast.Pow: operator.pow,
+    ast.USub: operator.neg,
+    ast.UAdd: operator.pos,
+}
 
 def calculator(expression: str) -> float:
-    """数学计算器"""
-    return eval(expression, {"__builtins__": {}}, {})
+    """安全数学计算器：只允许数字和四则运算"""
+    def _eval(node):
+        if isinstance(node, ast.Expression):
+            return _eval(node.body)
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+            return node.value
+        if isinstance(node, ast.BinOp) and type(node.op) in _SAFE_OPS:
+            return _SAFE_OPS[type(node.op)](_eval(node.left), _eval(node.right))
+        if isinstance(node, ast.UnaryOp) and type(node.op) in _SAFE_OPS:
+            return _SAFE_OPS[type(node.op)](_eval(node.operand))
+        raise ValueError(f"不允许的表达式节点: {type(node).__name__}")
+
+    return _eval(ast.parse(expression, mode="eval"))
 
 tools = [
     {
         "type": "function",
         "function": {
             "name": "calculator",
-            "description": "执行数学计算",
+            "description": "执行数学计算（仅支持数字与 + - * / 运算）",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -97,11 +124,14 @@ tools = [
 import requests
 
 def web_search(query: str, num_results: int = 5) -> list:
-    """网络搜索"""
+    """网络搜索（需先申请 Serper API Key 并设置环境变量）"""
     response = requests.get(
-        "https://api serper.dev/search",
-        params={"q": query, "num": num_results}
+        "https://api.serper.dev/search",
+        params={"q": query, "num": num_results},
+        headers={"X-API-KEY": os.getenv("SERPER_API_KEY")},
+        timeout=10
     )
+    response.raise_for_status()
     return response.json()
 
 tools = [web_search]
@@ -219,10 +249,12 @@ if response.choices[0].message.tool_calls:
 
 ### LangChain
 
+> 新版 LangChain 中 `create_openai_tools_agent` 已废弃，统一使用 `create_tool_calling_agent`：
+
 ```python
 from langchain.tools import tool
 from langchain_openai import ChatOpenAI
-from langchain.agents import create_openai_tools_agent, AgentExecutor
+from langchain.agents import create_tool_calling_agent, AgentExecutor
 
 @tool
 def get_weather(city: str) -> str:
@@ -232,7 +264,7 @@ def get_weather(city: str) -> str:
 llm = ChatOpenAI(model="gpt-4o-mini")
 tools = [get_weather]
 
-agent = create_openai_tools_agent(llm, tools, prompt)
+agent = create_tool_calling_agent(llm, tools, prompt)
 executor = AgentExecutor(agent=agent, tools=tools)
 result = executor.invoke({"input": "北京天气怎么样？"})
 ```
@@ -259,22 +291,43 @@ agent = Agent(
 
 ### MCP (Model Context Protocol)
 
+> 使用 FastMCP 定义工具（`pip install "mcp>=1.0"`），不要再使用旧版 `mcp.server.Server` + `@server.tool()` 写法：
+
 ```python
-from mcp.server import Server
-from mcp.types import Tool
+from mcp.server.fastmcp import FastMCP
 
-server = Server("weather-server")
+mcp = FastMCP("weather-server")
 
-@server.tool()
-async def get_weather(city: str) -> str:
+@mcp.tool()
+def get_weather(city: str) -> str:
     """获取指定城市天气"""
     return f"{city}今日晴，25°C"
 
-# 客户端调用
-async with ClientSession(server) as session:
-    await session.initialize()
-    tools = await session.list_tools()
-    result = await session.call_tool("get_weather", {"city": "北京"})
+# 服务端启动（默认 stdio 传输）
+if __name__ == "__main__":
+    mcp.run()
+```
+
+客户端调用示例（`mcp` Python SDK）：
+
+```python
+import asyncio
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+async def main():
+    server_params = StdioServerParameters(
+        command="python",
+        args=["weather_server.py"]
+    )
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            tools = await session.list_tools()
+            result = await session.call_tool("get_weather", {"city": "北京"})
+            print(result)
+
+asyncio.run(main())
 ```
 
 ---

@@ -100,6 +100,8 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 
 ```python
 """Your first AI Agent - a weather + calculator assistant"""
+import ast
+import operator
 import os
 import json
 from dotenv import load_dotenv
@@ -113,9 +115,29 @@ def get_weather(city: str) -> str:
     """Weather tool (mock data - replace with real API in production)"""
     return f"{city} today: Sunny, 25°C, great day to go out!"
 
+# Safe math evaluation: never use eval() on untrusted input!
+_SAFE_OPS = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.USub: operator.neg,
+}
+
+def _safe_eval(node):
+    if isinstance(node, ast.Expression):
+        return _safe_eval(node.body)
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return node.value
+    if isinstance(node, ast.BinOp) and type(node.op) in _SAFE_OPS:
+        return _SAFE_OPS[type(node.op)](_safe_eval(node.left), _safe_eval(node.right))
+    if isinstance(node, ast.UnaryOp) and type(node.op) in _SAFE_OPS:
+        return _SAFE_OPS[type(node.op)](_safe_eval(node.operand))
+    raise ValueError(f"Disallowed expression node: {type(node).__name__}")
+
 def calculator(expression: str) -> float:
-    """Calculator tool"""
-    return eval(expression, {"__builtins__": {}}, {})
+    """Calculator tool (safe: only numbers and basic arithmetic)"""
+    return _safe_eval(ast.parse(expression, mode="eval"))
 
 TOOLS = [
     {
@@ -285,7 +307,7 @@ Your API key in `.env` is wrong. Check for extra spaces.
 Add a max-steps limit. We'll cover this in Ch. 2.
 
 ### Q5: Is `eval` safe?
-No! The example uses `eval` for simplicity. In production, use `ast.literal_eval` or a proper expression parser. See docs/best-practices.md.
+No! Never use `eval()` on untrusted input — it can execute arbitrary code. The example above uses an `ast`-based whitelist parser that only allows numbers and basic arithmetic. See docs/best-practices.md.
 
 ---
 

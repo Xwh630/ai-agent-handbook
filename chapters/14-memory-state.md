@@ -63,6 +63,7 @@ class ShortTermMemory:
 ```python
 # langgraph_memory.py
 from langgraph.checkpoint.sqlite import SqliteSaver
+from langchain_core.messages import HumanMessage
 
 with SqliteSaver.from_conn_string("memory.db") as checkpointer:
     graph = workflow.compile(checkpointer=checkpointer)
@@ -99,7 +100,7 @@ class PersistentMemory:
         self.collection.add(
             documents=[content],
             metadatas=[metadata or {"user_id": user_id}],
-            ids=[f"{user_id}_{len(self.collection)}"]
+            ids=[f"{user_id}_{self.collection.count()}"]
         )
     
     def retrieve(self, user_id: str, query: str, top_k: int = 3) -> List[str]:
@@ -141,6 +142,7 @@ print(memories)
 ### 状态设计原则
 
 ```python
+# 状态设计原则（需导入：from typing import TypedDict, Annotated, Any; import operator）
 # ✅ 好的状态设计
 class AgentState(TypedDict):
     messages: Annotated[list, operator.add]  # 对话历史

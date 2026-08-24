@@ -132,9 +132,13 @@ ollama_llm = ChatOllama(model="qwen2.5:7b")
 
 agent = Agent(
     role="助手",
+    goal="准确回答用户的问题",
+    backstory="你是一个知识渊博、乐于助人的智能助手。",
     llm=ollama_llm
 )
 ```
+
+> **注意**：CrewAI 中 `goal` 和 `backstory` 是 Agent 的必填参数，缺失会直接报错。
 
 ### Ollama + Dify
 
@@ -149,14 +153,14 @@ agent = Agent(
 
 ## 12.7 性能优化
 
-### 7. 量化模型
+### 1. 量化模型
 
 ```bash
 # 使用量化版本减少显存占用
 ollama pull qwen2.5:7b-q4_K_M
 ```
 
-### 8. 启用 GPU 加速
+### 2. 启用 GPU 加速
 
 ```bash
 # Linux/Mac

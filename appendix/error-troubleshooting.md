@@ -33,17 +33,23 @@
 ### Q1: Agent 陷入无限循环怎么办？
 
 ```python
-# 解决方案：设置最大步数
-agent = Agent(
-    max_steps=10,
-    stop_on_max_steps=True
-)
+# 解决方案 1：在循环逻辑中显式设置最大步数（以自研 ReAct Agent 为例）
+MAX_STEPS = 10
 
-# 或使用重试限制
+def run_agent(user_input: str):
+    step = 0
+    while not finished and step < MAX_STEPS:
+        step += 1
+        # ... 执行一步
+    return result
+
+# 解决方案 2：使用重试限制
 @retry(max_retries=3, backoff=2)
 def run_with_limit():
     ...
 ```
+
+> 提示：具体框架的步数上限参数各不相同（如 OpenAI Agents SDK 的 `max_turns`、CrewAI Task 的 `max_iter`），请查阅对应框架文档，不要套用不存在的参数。
 
 ### Q2: 如何防止 Agent 幻觉？
 
@@ -68,11 +74,12 @@ llm = ChatOpenAI(temperature=0.1)
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-# LangGraph 可视化
+# LangGraph 图结构可视化（compile() 不支持 debug 参数，改用 get_graph()）
 from langgraph.graph import StateGraph
-graph = workflow.compile(debug=True)
+graph = workflow.compile()
+print(graph.get_graph().draw_ascii())  # 在终端打印图结构
 
-# 逐步执行
+# 逐步执行（stream 模式）
 for event in graph.stream(initial_state):
     print(event)
 ```

@@ -123,9 +123,33 @@ def create_default_tools() -> ToolRegistry:
     registry = ToolRegistry()
     
     # 计算器工具
+    # ⚠️ 安全警示：不要用 eval() 执行用户输入的表达式！
+    # eval() 即使传了 {"__builtins__": {}} 仍可被绕过（如通过对象链访问子类），
+    # 存在任意代码执行风险。正确做法是用 ast 模块白名单方式求值：
+    import ast
+    import operator
+
+    _SAFE_OPS = {
+        ast.Add: operator.add, ast.Sub: operator.sub,
+        ast.Mult: operator.mul, ast.Div: operator.truediv,
+    }
+
+    def _safe_eval(expression: str):
+        def eval_node(node):
+            if isinstance(node, ast.Expression):
+                return eval_node(node.body)
+            if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+                return node.value
+            if isinstance(node, ast.BinOp) and type(node.op) in _SAFE_OPS:
+                return _SAFE_OPS[type(node.op)](
+                    eval_node(node.left), eval_node(node.right))
+            raise ValueError(f"不支持的表达式: {type(node).__name__}")
+
+        return eval_node(ast.parse(expression, mode="eval"))
+
     registry.register(
         name="calculator",
-        description="执行数学计算，支持加减乘除、幂运算等",
+        description="执行数学计算，支持加减乘除、括号等",
         schema={
             "type": "object",
             "properties": {
@@ -136,7 +160,7 @@ def create_default_tools() -> ToolRegistry:
             },
             "required": ["expression"]
         },
-        func=lambda expression: eval(expression, {"__builtins__": {}}, {})
+        func=_safe_eval
     )
     
     # 日期工具
@@ -183,7 +207,7 @@ SYSTEM_PROMPT_TEMPLATE = """你是一个智能助手，可以通过调用工具�
 当你需要使用工具时，请按照以下格式回复：
 Thought: [你的思考过程]
 Action: [工具名称]
-Action Input: [工具参数，JSON格式]
+Action Input: [工具参数，必须是合法的 JSON 对象]
 
 当你知道最终答案时，请这样回复：
 Thought: [你的思考过程]
@@ -191,9 +215,10 @@ Final Answer: [你的最终答案]
 
 重要规则：
 1. 每次只能调用一个工具
-2. 观察工具返回结果后再决定下一步
-3. 最多执行 10 个步骤
-4. 如果工具调用失败，尝试其他方式
+2. Action Input 必须是合法的 JSON 对象（如 {"expression": "2 + 3"}）
+3. 观察工具返回结果后再决定下一步
+4. 最多执行 10 个步骤
+5. 如果工具调用失败，尝试其他方式
 """
 
 def build_system_prompt(tools: list) -> str:
@@ -250,8 +275,12 @@ class ReActAgent:
                 print(f"✅ 最终答案: {final_answer}")
                 return final_answer
             
-            # 解析工具调用
-            action_match = re.search(r'Action:\s*(\w+)\s*\nAction Input:\s*(.+)', response)
+            # 解析工具调用（re.DOTALL 让 . 匹配换行，支持多行 JSON 参数）
+            action_match = re.search(
+                r'Action:\s*(\w+)\s*\nAction Input:\s*(\{.*\})',
+                response,
+                re.DOTALL
+            )
             if action_match:
                 tool_name = action_match.group(1)
                 tool_input = action_match.group(2).strip()
@@ -260,8 +289,16 @@ class ReActAgent:
                 try:
                     params = json.loads(tool_input)
                 except json.JSONDecodeError:
-                    # 如果不是 JSON，尝试提取值
-                    params = {"value": tool_input}
+                    # ❌ 不要猜测 {"value": tool_input}——工具可能没有 value 参数，
+                    # 猜测会导致"参数不匹配"错误。正确做法是要求模型重新输出。
+                    print("⚠️ Action Input 不是合法 JSON，要求模型重试")
+                    self.llm.add_message("assistant", response)
+                    self.llm.add_message(
+                        "user",
+                        "你上一条 Action Input 不是合法的 JSON 对象，"
+                        "请重新按格式输出（Action Input 必须是 {...} 的 JSON）。"
+                    )
+                    continue
                 
                 print(f"🛠️ 调用工具: {tool_name}({params})")
                 
@@ -269,9 +306,13 @@ class ReActAgent:
                 result = self.tools.execute(tool_name, params)
                 print(f"📊 工具结果: {result[:200]}...")
                 
-                # 添加工具结果到对话
+                # ⚠️ 关键协议细节：本示例是"文本协议"（Thought/Action/...），
+                # 工具结果必须作为 role="user" 消息回传。
+                # 不要用 role="tool"！那是 OpenAI 原生 Function Calling 的协议消息，
+                # 必须携带 tool_call_id 且前面有对应的 assistant tool_calls，
+                # 直接使用会报 400 错误。
                 self.llm.add_message("assistant", response)
-                self.llm.add_message("tool", f"Observation: {result}")
+                self.llm.add_message("user", f"Observation: {result}")
             else:
                 # 既没有最终答案也没有工具调用
                 print("⚠️ 无法解析响应，尝试其他方式...")

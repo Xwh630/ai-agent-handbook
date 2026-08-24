@@ -104,6 +104,10 @@ Agent A Agent B Agent C
 # supervisor_pattern.py
 from langgraph.graph import StateGraph, END
 from typing import TypedDict
+from langchain_openai import ChatOpenAI
+
+# 初始化 LLM（示例用 OpenAI，可替换为其他提供商）
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 class SupervisorState(TypedDict):
     task: str
