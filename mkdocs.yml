@@ -1,0 +1,97 @@
+site_name: AI Agent 实战手册
+site_description: 中文 AI Agent 实战手册 - 从零基础到全栈开发的系统化教程（双语）
+site_url: https://xwh630.github.io/ai-agent-handbook/
+repo_url: https://github.com/Xwh630/ai-agent-handbook
+docs_dir: site-content
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  generator: false
+
+copyright: MIT License · AI Agent 实战手册
+
+nav:
+  - 首页: README.md
+  - 🚀 新手专区:
+      - 第 0 章 · 10 分钟快速上手: chapters/00-quickstart.md
+      - 📖 中英对照术语表: chapters/99-glossary.md
+  - 入门篇:
+      - 第 1 章 · AI Agent 基础概念: chapters/01-fundamentals.md
+      - 第 2 章 · 从零手写 ReAct Agent: chapters/02-reaact-from-scratch.md
+      - 第 7 章 · Dify 低代码平台: chapters/07-dify.md
+      - 第 12 章 · Ollama 本地部署: chapters/12-ollama.md
+  - 进阶篇:
+      - 第 3 章 · LangGraph 图编排: chapters/03-langgraph.md
+      - 第 4 章 · CrewAI 多智能体: chapters/04-crewai.md
+      - 第 5 章 · AutoGen / MAF: chapters/05-autogen.md
+      - 第 6 章 · LlamaIndex RAG: chapters/06-llamaindex-rag.md
+      - 第 8 章 · OpenAI Agents SDK: chapters/08-openai-agents.md
+      - 第 9 章 · Claude Agent SDK: chapters/09-claude-agents.md
+      - 第 10 章 · Mastra TypeScript: chapters/10-mastra.md
+      - 第 11 章 · MCP 协议: chapters/11-mcp.md
+      - 第 15 章 · Token 成本优化: chapters/15-cost-optimization.md
+      - 第 18 章 · 选型指南: chapters/18-selection-guide.md
+  - 高级篇:
+      - 第 13 章 · 多 Agent 协作模式: chapters/13-collaboration-patterns.md
+      - 第 14 章 · 记忆系统与状态管理: chapters/14-memory-state.md
+      - 第 16 章 · 调试与可观测性: chapters/16-observability.md
+      - 第 17 章 · 全栈实战项目: chapters/17-fullstack-project.md
+  - 参考文档:
+      - 框架对比: docs/framework-comparison.md
+      - 工具调用指南: docs/tool-calling-guide.md
+      - 最佳实践: docs/best-practices.md
+  - 附录:
+      - 附录 A · 错误排查: appendix/error-troubleshooting.md
+      - 附录 B · 学习资源与社区: appendix/resources.md
+  - 🌐 English:
+      - English Home: en/README.md
+      - Quickstart: en/chapters/00-quickstart.md
+      - Fundamentals: en/chapters/01-fundamentals.md
+      - Glossary: en/chapters/99-glossary.md
+      - Translation Status: en/TRANSLATION_STATUS.md

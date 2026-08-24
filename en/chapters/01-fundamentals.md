@@ -172,4 +172,4 @@ User → [Agent A] → Result
 
 ## Next Chapter
 
-[→ Chapter 2: Build a ReAct Agent from Scratch](./02-reaact-from-scratch.md)
+> ⏳ English translation of Chapter 2 is in progress. Read the [Chinese original: Chapter 2 · Build a ReAct Agent from Scratch](../../chapters/02-reaact-from-scratch.md), or check the [Translation Status](../TRANSLATION_STATUS.md).

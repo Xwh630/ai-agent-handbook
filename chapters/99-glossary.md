@@ -141,4 +141,4 @@
 
 ---
 
-*英文版术语表：[English Glossary](../en/glossary.md)*
+*英文版术语表：[English Glossary](../en/chapters/99-glossary.md)*

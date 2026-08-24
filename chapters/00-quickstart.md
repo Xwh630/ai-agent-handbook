@@ -314,4 +314,4 @@ python main.py
 
 ---
 
-*本指南配套英文版：[English Quickstart](../en/00-quickstart.md)*
+*本指南配套英文版：[English Quickstart](../en/chapters/00-quickstart.md)*

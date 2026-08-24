@@ -4,14 +4,23 @@
 >
 > 涵盖 10+ 主流框架 · 19+ 章完整教程 · 9+ 可运行示例 · 新手零门槛
 
+[![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
+[![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
+[![Last Commit](https://img.shields.io/github/last-commit/Xwh630/ai-agent-handbook?style=flat-square&color=orange)](https://github.com/Xwh630/ai-agent-handbook/commits/main)
+[![Contributors](https://img.shields.io/github/contributors/Xwh630/ai-agent-handbook?style=flat-square&color=purple)](https://github.com/Xwh630/ai-agent-handbook/graphs/contributors)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
-[![LangGraph](https://img.shields.io/badge/LangGraph-33.9k%20%E2%AD%90-blue)](https://github.com/langchain-ai/langgraph)
-[![CrewAI](https://img.shields.io/badge/CrewAI-44k%20%E2%AD%90-purple)](https://github.com/crewAIInc/crewAI)
-[![AutoGen](https://img.shields.io/badge/AutoGen-54k%20%E2%AD%90-green)](https://github.com/microsoft/autogen)
-[![Dify](https://img.shields.io/badge/Dify-130k%20%E2%AD%90-red)](https://github.com/langgenius/dify)
-[![LlamaIndex](https://img.shields.io/badge/LlamaIndex-40k%20%E2%AD%90-orange)](https://github.com/run-llama/llama_index)
-[![OpenAI Agents SDK](https://img.shields.io/badge/OpenAI_Agents-26.9k%20%E2%AD%90-lightblue)](https://github.com/openai/openai-agents-python)
+[![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
+
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 33.9K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 44K⭐ · [AutoGen](https://github.com/microsoft/autogen) 54K⭐ · [Dify](https://github.com/langgenius/dify) 130K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 40K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 26.9K⭐
+
+<div align="center">
+
+### ⭐ 如果这份手册对你有帮助，请点亮 Star，让更多中文开发者看到它！
+
+**中文唯一** · **零门槛入门** · **10+ 框架全覆盖** · **中英双语维护**
+
+</div>
 
 ---
 
@@ -33,7 +42,7 @@
 |------|---------|------|
 | 🚀 **[第 0 章：新手快速入门](chapters/00-quickstart.md)** | 完全零基础 | ⏱️ 10 分钟 |
 | 📖 **[中英对照术语表](chapters/99-glossary.md)** | 看文档遇到不懂的词 | ⏱️ 随时查 |
-| 🐳 **[Docker 一键环境](#-docker-一键启动环境)** | 不想装 Python 环境 | ⏱️ 2 分钟 |
+| 🐳 **[Docker 一键环境](#方案-1docker-一键启动最省事推荐新手)** | 不想装 Python 环境 | ⏱️ 2 分钟 |
 
 ### 新手友好特点
 
@@ -127,7 +136,7 @@
 
 ## 🚀 快速开始
 
-### 方案 1：Docker 一键启动（最省事，推荐新手）🐳
+### 方案 1：Docker 一键启动（最省事，推荐新手）
 
 > 不需要安装 Python，一条命令搞定！
 

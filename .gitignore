@@ -69,3 +69,7 @@ dmypy.json
 .coverage
 .coverage.*
 coverage.xml
+
+# MkDocs 构建输出
+site/
+site-content/
