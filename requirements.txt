@@ -1,0 +1,30 @@
+# 核心依赖
+openai>=1.0.0
+langchain>=0.1.0
+langchain-openai>=0.1.0
+langgraph>=0.0.20
+
+# CrewAI
+crewai>=0.30.0
+crewai-tools>=0.2.0
+
+# LlamaIndex
+llama-index>=0.10.0
+llama-index-embeddings-openai>=0.1.0
+llama-index-readers-file>=0.1.0
+chromadb>=0.4.0
+
+# MCP
+mcp>=0.1.0
+
+# 其他工具
+python-dotenv>=1.0.0
+requests>=2.31.0
+pydantic>=2.0.0
+
+# 可选：FastAPI（用于 Web 界面）
+fastapi>=0.109.0
+uvicorn>=0.27.0
+
+# 可选：PDF 生成
+reportlab>=4.0.0
