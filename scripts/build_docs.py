@@ -25,6 +25,7 @@ STAGE = ROOT / "site-content"
 # (源相对路径, 目标相对路径) —— 保持仓库结构与导航路径一致
 COPIES = [
     ("README.md", "README.md"),
+    ("CONTRIBUTING.md", "CONTRIBUTING.md"),
     ("chapters", "chapters"),
     ("docs", "docs"),
     ("appendix", "appendix"),

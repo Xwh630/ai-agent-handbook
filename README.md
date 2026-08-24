@@ -215,6 +215,37 @@ python main.py
 
 ---
 
+## 🔗 生态联动
+
+本手册不是孤岛——它与整个 AI Agent 开源生态深度联动。学习时配合以下官方仓库与社区资源效果最佳：
+
+### 框架官方仓库
+
+| 生态项目 | 说明 | 本手册对应章节 |
+|----------|------|----------------|
+| [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 图状态机编排框架 | [第 3 章](chapters/03-langgraph.md) |
+| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 角色化多 Agent 框架 | [第 4 章](chapters/04-crewai.md) |
+| [microsoft/autogen](https://github.com/microsoft/autogen) | 微软对话式 Agent 框架 | [第 5 章](chapters/05-autogen.md) |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) | RAG 数据接入框架 | [第 6 章](chapters/06-llamaindex-rag.md) |
+| [langgenius/dify](https://github.com/langgenius/dify) | 低代码 AI 应用平台 | [第 7 章](chapters/07-dify.md) |
+| [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | OpenAI 官方 Agents SDK | [第 8 章](chapters/08-openai-agents.md) |
+| [anthropics/anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | Anthropic Claude 官方 SDK | [第 9 章](chapters/09-claude-agents.md) |
+| [mastra-ai/mastra](https://github.com/mastra-ai/mastra) | TypeScript Agent 框架 | [第 10 章](chapters/10-mastra.md) |
+| [modelcontextprotocol](https://github.com/modelcontextprotocol) | MCP 模型上下文协议 | [第 11 章](chapters/11-mcp.md) |
+| [ollama/ollama](https://github.com/ollama/ollama) | 本地大模型运行器 | [第 12 章](chapters/12-ollama.md) |
+
+### 精选资源清单（Awesome Lists）
+
+| 清单 | Stars | 说明 |
+|------|-------|------|
+| [e2b-dev/awesome-ai-agents](https://github.com/e2b-dev/awesome-ai-agents) | 29.6K ⭐ | AI Agent 资源大全（开源+商业） |
+| [EmbraceAGI/awesome-chatgpt-zh](https://github.com/EmbraceAGI/awesome-chatgpt-zh) | 11.7K ⭐ | ChatGPT 中文指南与资源清单 |
+| [kyrolabs/awesome-agents](https://github.com/kyrolabs/awesome-agents) | 2.8K ⭐ | AI Agents 精选清单 |
+
+> 💡 **发现好项目？** 欢迎通过 [Issue](https://github.com/Xwh630/ai-agent-handbook/issues) 推荐新的生态项目，我们会定期更新这份联动清单。
+
+---
+
 ## 📂 项目结构
 
 ```
