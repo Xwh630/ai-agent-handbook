@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 讨论区 Discussions
+    url: https://github.com/Xwh630/ai-agent-handbook/discussions
+    about: 提问、交流学习心得、讨论技术方案
+  - name: 📖 在线文档
+    url: https://xwh630.github.io/ai-agent-handbook/
+    about: 先查文档，很多问题都能在这里找到答案

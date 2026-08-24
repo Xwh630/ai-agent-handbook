@@ -424,7 +424,7 @@ python main.py --topic "AI Agent 发展趋势"
 
 ## 📬 贡献指南
 
-欢迎提交 PR！请遵循以下规范：
+欢迎提交 PR！请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，然后遵循以下规范：
 
 ```bash
 # 1. Fork 本仓库
@@ -440,12 +440,15 @@ git push origin feature/AmazingFeature
 # 5. 开启 Pull Request
 ```
 
+遇到问题？先查 [在线文档](https://xwh630.github.io/ai-agent-handbook/)，或在 [Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions) 里提问。
+
 ### 贡献类型
 
 - **修复错别字**：欢迎任何语言纠错
 - **新增示例**：为某个章节添加更详细的示例
 - **完善文档**：优化现有章节的解释
 - **新增框架**：如检测到新框架，欢迎添加
+- **英文翻译**：将中文章节翻译为英文（见 [翻译状态](en/TRANSLATION_STATUS.md)）
 
 ---
 

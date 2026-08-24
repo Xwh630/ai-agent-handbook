@@ -1,0 +1,47 @@
+name: Check Links
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    # 每周日凌晨 3 点全面检查，防止外部链接随时间失效
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # 检查所有 Markdown 文件
+          args: --no-progress --max-concurrency 4 --timeout 20 '**/*.md'
+          # 只在发现失效链接时创建 Issue（定时任务时）
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue on Failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = '⚠️ 定时链接检查发现失效链接，请查看 [最近一次的链接检查日志](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) 并修复。';
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🔗 失效链接检查报告（定时任务）',
+              body: body,
+              labels: ['bug']
+            });
