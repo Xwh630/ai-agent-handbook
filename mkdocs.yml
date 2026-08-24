@@ -82,6 +82,12 @@ nav:
       - 第 14 章 · 记忆系统与状态管理: chapters/14-memory-state.md
       - 第 16 章 · 调试与可观测性: chapters/16-observability.md
       - 第 17 章 · 全栈实战项目: chapters/17-fullstack-project.md
+  - 🛠️ Agent 工具详细教程:
+      - 第 20 章 · OpenAI Codex CLI: chapters/20-codex-cli.md
+      - 第 21 章 · DeepSeek Harness（dsh）: chapters/21-deepseek-harness.md
+      - 第 22 章 · Continue 编辑器: chapters/22-continue-editor.md
+      - 第 23 章 · Aider 代码助手: chapters/23-aider-codestory.md
+      - 第 24 章 · Trae IDE: chapters/24-trae-ide.md
   - 参考文档:
       - 框架对比: docs/framework-comparison.md
       - 工具调用指南: docs/tool-calling-guide.md

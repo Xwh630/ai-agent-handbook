@@ -2,7 +2,7 @@
 
 > **面向中文开发者的 AI Agent 系统学习指南** —— 从零搭建到生产部署
 >
-> 涵盖 10+ 主流框架 · 19+ 章完整教程 · 9+ 可运行示例 · 新手零门槛
+> 涵盖 10+ 主流框架 · 23+ 章完整教程 · 9+ 可运行示例 · 新手零门槛
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -12,7 +12,7 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 137K⭐
 
 <div align="center">
 
@@ -43,6 +43,11 @@
 | 🚀 **[第 0 章：新手快速入门](chapters/00-quickstart.md)** | 完全零基础 | ⏱️ 10 分钟 |
 | 📖 **[中英对照术语表](chapters/99-glossary.md)** | 看文档遇到不懂的词 | ⏱️ 随时查 |
 | 🐳 **[Docker 一键环境](#方案-1docker-一键启动最省事推荐新手)** | 不想装 Python 环境 | ⏱️ 2 分钟 |
+| 🛠️ **[第 20 章 · Codex CLI](chapters/20-codex-cli.md)** | 想用 OpenAI Codex | ⏱️ 15 分钟 |
+| 🛠️ **[第 21 章 · DeepSeek Harness](chapters/21-deepseek-harness.md)** | 想批量自动化 + SWE-bench | ⏱️ 20 分钟 |
+| 🛠️ **[第 22 章 · Continue 编辑器](chapters/22-continue-editor.md)** | 想用 AI 编码辅助 | ⏱️ 10 分钟 |
+| 🛠️ **[第 23 章 · Aider 代码助手](chapters/23-aider-codestory.md)** | 想在终端用 AI 编程 | ⏱️ 10 分钟 |
+| 🛠️ **[第 24 章 · Trae IDE](chapters/24-trae-ide.md)** | 想体验 AI 原生 IDE | ⏱️ 10 分钟 |
 
 ### 新手友好特点
 
@@ -123,6 +128,16 @@
 | 第 14 章 | 记忆系统与状态管理 | ⭐⭐⭐ 进阶 | Mem0、向量记忆、持久化 |
 | 第 16 章 | 调试、监控与可观测性 | ⭐⭐⭐ 进阶 | LangSmith、日志、追踪 |
 | 第 17 章 | 全栈实战：研究报告生成系统 | ⭐⭐⭐⭐ 高级 | 整合所有技术的完整项目 |
+
+### 🛠️ Agent 工具详细教程
+
+| 章节 | 标题 | 难度 | 内容概要 |
+|------|------|------|----------|
+| 第 20 章 | OpenAI Codex CLI 详解 | ⭐⭐ 基础 | MCP 集成、四种审批模式、沙箱隔离 |
+| 第 21 章 | DeepSeek Harness（dsh） | ⭐⭐⭐ 进阶 | 四种模式、SWE-bench 评测、500+ 插件 |
+| 第 22 章 | Continue 编辑器 | ⭐⭐ 基础 | VSCode/JetBrains 插件、自定义模型、MCP 支持 |
+| 第 23 章 | Aider 代码助手 | ⭐⭐ 基础 | 多模型支持、Git 集成、会话恢复 |
+| 第 24 章 | Trae IDE | ⭐ 入门 | AI 原生 IDE、Agent 工作流、内置工具链 |
 
 ### 附录
 
@@ -278,6 +293,11 @@ ai-agent-handbook/
 │   ├── 17-fullstack-project.md    # 全栈实战
 │   ├── 18-selection-guide.md      # 选型指南
 │   └── 99-glossary.md             # 📖 中英对照术语表
+│   ├── 20-codex-cli.md            # 🛠️ OpenAI Codex CLI 详解
+│   ├── 21-deepseek-harness.md     # 🛠️ DeepSeek Harness（dsh）
+│   ├── 22-continue-editor.md      # 🛠️ Continue 编辑器
+│   ├── 23-aider-codestory.md      # 🛠️ Aider 代码助手
+│   └── 24-trae-ide.md             # 🛠️ Trae IDE
 ├── examples/                 # 可运行的代码示例（9+ 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
@@ -429,7 +449,7 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 19+ 章（含新手快速入门 + 术语表） |
+| 章节数量 | 24+ 章（含新手快速入门 + 术语表 + Agent 工具详细教程） |
 | 示例代码 | 9+ 可运行示例 |
 | 代码行数 | 3,500+ 行 |
 | 字数 | 110,000+ 字 |
@@ -444,6 +464,9 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 日期 | 更新内容 |
 |------|----------|
+| 2026-08-24 | 🆕 新增「Agent 工具详细教程」栏目：第 22 章 Continue、第 23 章 Aider、第 24 章 Trae IDE |
+| 2026-08-24 | 🆕 将「最新 Agent 实战指南」升级为「Agent 工具详细教程」，支持无限扩展 |
+| 2026-08-24 | 🆕 新增「最新 Agent 实战指南」栏目：第 20 章 Codex CLI + 第 21 章 DeepSeek Harness |
 | 2026-08-24 | 🆕 新增第 0 章新手快速入门（10分钟跑通第一个 Agent） |
 | 2026-08-24 | 🆕 新增中英对照术语表（80+ 术语通俗解释） |
 | 2026-08-24 | 🆕 新增 Docker 一键启动环境（docker-compose） |
