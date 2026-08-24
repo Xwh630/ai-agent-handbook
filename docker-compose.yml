@@ -1,0 +1,38 @@
+# =============================================
+# AI Agent 实战手册 - Docker Compose 配置
+# 一条命令启动开发环境
+#
+# 用法：
+#   docker compose up -d          # 启动
+#   docker compose run dev bash   # 进入交互式环境
+#   docker compose down           # 停止
+# =============================================
+
+services:
+  dev:
+    build: .
+    container_name: ai-agent-handbook-dev
+    volumes:
+      # 挂载当前目录，代码修改即时生效
+      - .:/workspace
+    environment:
+      # 在这里配置你的 API Key（或者使用 .env 文件）
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-https://api.openai.com/v1}
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    command: bash
+
+  # 可选：Ollama 本地大模型服务（完全免费离线运行）
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ai-agent-handbook-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

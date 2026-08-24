@@ -1,0 +1,13 @@
+# Docker 构建时忽略的文件
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.pyc
+.env
+.DS_Store
+node_modules
+*.md
+docs
+appendix

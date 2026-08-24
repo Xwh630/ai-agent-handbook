@@ -1,30 +1,44 @@
-# 核心依赖
-openai>=1.0.0
+# =============================================
+# AI Agent 实战手册 - Python 依赖
+# 新手提示：只需 `pip install -r requirements.txt` 即可
+# 可选：先创建一个虚拟环境 python -m venv venv
+# =============================================
+
+# ---------- 核心依赖（必装） ----------
+openai>=1.30.0          # OpenAI / 国产模型通用客户端
+python-dotenv>=1.0.0    # 读取 .env 配置文件
+pydantic>=2.0.0         # 数据校验
+requests>=2.31.0        # HTTP 请求
+
+# ---------- LangChain 生态 ----------
 langchain>=0.1.0
 langchain-openai>=0.1.0
-langgraph>=0.0.20
+langgraph>=0.0.20       # 图编排框架
 
-# CrewAI
+# ---------- CrewAI（多智能体） ----------
 crewai>=0.30.0
 crewai-tools>=0.2.0
 
-# LlamaIndex
+# ---------- AutoGen（微软） ----------
+# 安装较慢，新手可先跳过，用到第 5 章再装
+# pyautogen>=0.2.0
+
+# ---------- LlamaIndex（RAG 知识库） ----------
 llama-index>=0.10.0
 llama-index-embeddings-openai>=0.1.0
 llama-index-readers-file>=0.1.0
-chromadb>=0.4.0
+chromadb>=0.4.0         # 向量数据库
 
-# MCP
+# ---------- MCP（工具协议） ----------
 mcp>=0.1.0
 
-# 其他工具
-python-dotenv>=1.0.0
-requests>=2.31.0
-pydantic>=2.0.0
-
-# 可选：FastAPI（用于 Web 界面）
+# ---------- Web 服务（第 17 章实战用） ----------
 fastapi>=0.109.0
 uvicorn>=0.27.0
 
-# 可选：PDF 生成
+# ---------- PDF 生成 ----------
 reportlab>=4.0.0
+
+# ---------- 可选：观测（第 16 章用） ----------
+# langsmith>=0.1.0
+# opentelemetry-api>=1.20.0

@@ -2,7 +2,7 @@
 
 > **2026 年度最全面的 AI Agent 开发指南** —— 从零搭建到生产部署
 >
-> 涵盖 10+ 主流框架 · 18 章完整教程 · 7+ 可运行示例
+> 涵盖 10+ 主流框架 · 19+ 章完整教程 · 9+ 可运行示例 · 新手零门槛
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
@@ -15,17 +15,49 @@
 
 ---
 
+## 🌐 语言切换
+
+| 语言 | 入口 |
+|------|------|
+| 🇨🇳 **简体中文（当前）** | [README.md](README.md) |
+| 🇺🇸 **English** | [English README](en/README.md) |
+| 📖 **英文翻译进度** | [TRANSLATION_STATUS](en/TRANSLATION_STATUS.md) |
+
+---
+
+## 🆕 新手看这里（零基础必读）
+
+> **完全没接触过 AI Agent？** 从这里开始，10 分钟跑通你的第一个 Agent！
+
+| 入口 | 适合人群 | 耗时 |
+|------|---------|------|
+| 🚀 **[第 0 章：新手快速入门](chapters/00-quickstart.md)** | 完全零基础 | ⏱️ 10 分钟 |
+| 📖 **[中英对照术语表](chapters/99-glossary.md)** | 看文档遇到不懂的词 | ⏱️ 随时查 |
+| 🐳 **[Docker 一键环境](#-docker-一键启动环境)** | 不想装 Python 环境 | ⏱️ 2 分钟 |
+
+### 新手友好特点
+
+- ✅ **生活化比喻**：把 Agent 比作"全能管家"，一看就懂
+- ✅ **图文并茂**：Mermaid 流程图 + 表格，不烧脑
+- ✅ **代码可复制**：完整代码直接复制运行，不用改一行
+- ✅ **国产模型可用**：支持 DeepSeek、智谱、通义千问，注册送额度
+- ✅ **双语文档**：中文为主，英文同步更新
+
+---
+
 ## 🌟 项目亮点
 
 ### 为什么选择这本手册？
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
+│  ✅ 新手零门槛 — 第 0 章 10 分钟跑通第一个 Agent             │
 │  ✅ 中文内容稀缺 — 大多数优质教程是英文的，且版本更新快        │
 │  ✅ 覆盖全面 — 从入门到生产级应用，一站式掌握                 │
 │  ✅ 实战导向 — 每个章节都有可运行的代码                        │
 │  ✅ 框架完整 — 10+ 主流 Agent 框架全覆盖                      │
 │  ✅ 选型清晰 — 帮你快速找到最适合你场景的框架                 │
+│  ✅ 双语支持 — 中文版 + 英文版同步更新                        │
 │  ✅ 持续更新 — 紧跟 2025-2026 最新技术动态                    │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -34,6 +66,7 @@
 
 | 读者类型 | 阅读路径 |
 |---------|---------|
+| **零基础新手** | 第 0 章(10分钟入门) → 第 1 章 → 第 7 章(Dify) → 第 12 章(Ollama) |
 | **初学者** | 第 1 章 → 第 2 章 → 第 7 章(Dify) → 第 12 章(Ollama) |
 | **进阶开发者** | 第 1 章 → 第 3 章(LangGraph) → 第 4 章(CrewAI) → 第 17 章(实战) |
 | **架构师** | 第 13 章(协作模式) → 第 14 章(记忆) → 第 16 章(可观测性) → 第 17 章(全栈) |
@@ -41,6 +74,13 @@
 ---
 
 ## 📖 目录
+
+### 新手专区（必读）
+
+| 章节 | 标题 | 难度 | 内容概要 |
+|------|------|------|----------|
+| 第 0 章 | 🚀 新手快速入门 | ⭐ 零门槛 | 10 分钟跑通第一个 Agent |
+| 术语表 | 📖 中英对照术语表 | - | 80+ 术语通俗解释 |
 
 ### 入门篇
 
@@ -87,35 +127,50 @@
 
 ## 🚀 快速开始
 
-### 环境要求
+### 方案 1：Docker 一键启动（最省事，推荐新手）🐳
+
+> 不需要安装 Python，一条命令搞定！
 
 ```bash
-# Python 3.10+
-python3 --version
+# 克隆项目
+git clone https://github.com/YOUR_USERNAME/ai-agent-handbook.git
+cd ai-agent-handbook
 
-# 或使用 Docker
-docker run -it python:3.11-slim bash
+# 方法 A：进入开发环境（交互式）
+docker compose up -d
+docker compose run dev bash
+
+# 方法 B：直接运行示例（一行命令）
+docker build -t agent-handbook .
+docker run -it --rm \
+  -e OPENAI_API_KEY=你的key \
+  -v $(pwd):/workspace agent-handbook \
+  python examples/01-react-agent/main.py
+
+# 可选：同时启动 Ollama 本地大模型（完全免费）
+docker compose up ollama
 ```
 
-### 安装依赖
+### 方案 2：本地 Python（常规方式）
 
 ```bash
+# 1. 安装 Python 3.10+（官网下载，勾选 Add to PATH）
+python3 --version
+
+# 2. 克隆项目并安装依赖
 git clone https://github.com/YOUR_USERNAME/ai-agent-handbook.git
 cd ai-agent-handbook
 pip install -r requirements.txt
-```
 
-### 环境变量配置
-
-```bash
+# 3. 配置 API Key
 cp .env.example .env
-# 编辑 .env 填入你的 API Key
+# 编辑 .env 填入你的 Key（OpenAI / DeepSeek / 智谱等均可）
 ```
 
 ### 运行示例
 
 ```bash
-# 1. ReAct Agent（最基础）
+# 1. 新手入门示例（最基础，先跑这个！）
 cd examples/01-react-agent
 python main.py
 
@@ -155,45 +210,54 @@ python main.py
 
 ```
 ai-agent-handbook/
-├── README.md                 # 本文件
-├── requirements.txt          # Python 依赖
-├── .env.example             # 环境变量模板
-├── .gitignore               # Git 忽略规则
-├── LICENSE                  # MIT 许可证
-├── chapters/                 # 各章节完整教程（18 章）
-│   ├── 01-fundamentals.md           # AI Agent 基础概念
-│   ├── 02-reaact-from-scratch.md    # 手写 ReAct Agent
-│   ├── 03-langgraph.md              # LangGraph 图编排
-│   ├── 04-crewai.md                 # CrewAI 多智能体
-│   ├── 05-autogen.md                # AutoGen/MAF
-│   ├── 06-llamaindex-rag.md         # LlamaIndex RAG
-│   ├── 07-dify.md                   # Dify 低代码
-│   ├── 08-openai-agents.md          # OpenAI Agents SDK
-│   ├── 09-claude-agents.md          # Claude Agent SDK
-│   ├── 10-mastra.md                 # Mastra TypeScript
-│   ├── 11-mcp.md                    # MCP 协议
-│   ├── 12-ollama.md                 # Ollama 本地部署
+├── README.md                 # 中文主文档
+├── en/                       # 英文版（English edition）
+│   ├── README.md             # 英文 README
+│   ├── TRANSLATION_STATUS.md # 翻译进度
+│   └── chapters/             # 英文章节
+├── chapters/                 # 各章节完整教程（19+ 章）
+│   ├── 00-quickstart.md           # 🚀 新手快速入门（10分钟）
+│   ├── 01-fundamentals.md         # AI Agent 基础概念
+│   ├── 02-reaact-from-scratch.md  # 手写 ReAct Agent
+│   ├── 03-langgraph.md            # LangGraph 图编排
+│   ├── 04-crewai.md               # CrewAI 多智能体
+│   ├── 05-autogen.md              # AutoGen/MAF
+│   ├── 06-llamaindex-rag.md       # LlamaIndex RAG
+│   ├── 07-dify.md                 # Dify 低代码
+│   ├── 08-openai-agents.md        # OpenAI Agents SDK
+│   ├── 09-claude-agents.md        # Claude Agent SDK
+│   ├── 10-mastra.md               # Mastra TypeScript
+│   ├── 11-mcp.md                  # MCP 协议
+│   ├── 12-ollama.md               # Ollama 本地部署
 │   ├── 13-collaboration-patterns.md # 协作模式
-│   ├── 14-memory-state.md           # 记忆系统
-│   ├── 15-cost-optimization.md      # 成本优化
-│   ├── 16-observability.md          # 可观测性
-│   ├── 17-fullstack-project.md      # 全栈实战
-│   └── 18-selection-guide.md        # 选型指南
-├── examples/                 # 可运行的代码示例（7+ 示例）
+│   ├── 14-memory-state.md         # 记忆系统
+│   ├── 15-cost-optimization.md    # 成本优化
+│   ├── 16-observability.md        # 可观测性
+│   ├── 17-fullstack-project.md    # 全栈实战
+│   ├── 18-selection-guide.md      # 选型指南
+│   └── 99-glossary.md             # 📖 中英对照术语表
+├── examples/                 # 可运行的代码示例（9+ 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
 │   ├── 03-crewai-team/            # CrewAI 团队
+│   ├── 04-autogen-chat/           # AutoGen 对话
 │   ├── 04-rag-knowledge/          # RAG 知识库
 │   ├── 05-mcp-server/             # MCP Server
 │   ├── 06-mastra-agent/           # Mastra 示例
-│   └── 07-final-project/          # 完整项目
+│   ├── 07-final-project/          # 完整项目
+│   └── 08-openai-agents-sdk/      # OpenAI Agents SDK
 ├── docs/                     # 参考文档
 │   ├── framework-comparison.md    # 框架对比
 │   ├── tool-calling-guide.md      # 工具调用指南
 │   └── best-practices.md          # 最佳实践
-└── appendix/
-    ├── error-troubleshooting.md   # 错误排查
-    └── resources.md               # 学习资源
+├── appendix/
+│   ├── error-troubleshooting.md   # 错误排查
+│   └── resources.md               # 学习资源
+├── Dockerfile                # 🐳 Docker 一键环境
+├── docker-compose.yml        # 🐳 Dev + Ollama 服务
+├── requirements.txt          # Python 依赖
+├── .env.example              # 环境变量模板
+└── LICENSE                   # MIT 许可证
 ```
 
 ---
@@ -323,11 +387,13 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 18 章 |
-| 示例代码 | 7+ 可运行示例 |
-| 代码行数 | 3000+ 行 |
-| 字数 | 100,000+ 字 |
+| 章节数量 | 19+ 章（含新手快速入门 + 术语表） |
+| 示例代码 | 9+ 可运行示例 |
+| 代码行数 | 3,500+ 行 |
+| 字数 | 110,000+ 字 |
 | 覆盖框架 | 10+ 主流框架 |
+| 语言支持 | 🇨🇳 中文 + 🇺🇸 English |
+| 环境支持 | Python 3.10+ / Docker 一键启动 |
 | 更新时间 | 2026-08-24 |
 
 ---
@@ -336,6 +402,10 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 日期 | 更新内容 |
 |------|----------|
+| 2026-08-24 | 🆕 新增第 0 章新手快速入门（10分钟跑通第一个 Agent） |
+| 2026-08-24 | 🆕 新增中英对照术语表（80+ 术语通俗解释） |
+| 2026-08-24 | 🆕 新增 Docker 一键启动环境（docker-compose） |
+| 2026-08-24 | 🆕 新增英文版目录（en/） |
 | 2026-08-24 | 初始版本发布，覆盖 10+ 主流框架，18 章完整教程 |
 | 2026-07-15 | 新增 Claude Agent SDK 章节 |
 | 2026-06-20 | 更新 MCP 协议相关内容 |
