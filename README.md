@@ -133,7 +133,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/YOUR_USERNAME/ai-agent-handbook.git
+git clone https://github.com/Xwh630/ai-agent-handbook.git
 cd ai-agent-handbook
 
 # 方法 A：进入开发环境（交互式）
@@ -158,7 +158,7 @@ docker compose up ollama
 python3 --version
 
 # 2. 克隆项目并安装依赖
-git clone https://github.com/YOUR_USERNAME/ai-agent-handbook.git
+git clone https://github.com/Xwh630/ai-agent-handbook.git
 cd ai-agent-handbook
 pip install -r requirements.txt
 
@@ -463,8 +463,8 @@ git push origin feature/AmazingFeature
 
 ## 💬 交流
 
-- 🐛 **问题反馈**：[GitHub Issues](https://github.com/YOUR_USERNAME/ai-agent-handbook/issues)
-- 💡 **功能建议**：[GitHub Discussions](https://github.com/YOUR_USERNAME/ai-agent-handbook/discussions)
+- 🐛 **问题反馈**：[GitHub Issues](https://github.com/Xwh630/ai-agent-handbook/issues)
+- 💡 **功能建议**：[GitHub Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions)
 - 📧 **联系作者**：通过 GitHub Profile
 
 ---
@@ -483,6 +483,6 @@ git push origin feature/AmazingFeature
 
 **Made with ❤️ by the AI Agent Community**
 
-[Report Bug](https://github.com/YOUR_USERNAME/ai-agent-handbook/issues) · [Request Feature](https://github.com/YOUR_USERNAME/ai-agent-handbook/issues)
+[Report Bug](https://github.com/Xwh630/ai-agent-handbook/issues) · [Request Feature](https://github.com/Xwh630/ai-agent-handbook/issues)
 
 </div>

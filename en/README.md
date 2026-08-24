@@ -196,6 +196,6 @@ MIT License — see [LICENSE](../LICENSE)
 
 **Made with ❤️ by the AI Agent Community**
 
-[Report Bug](https://github.com/YOUR_USERNAME/ai-agent-handbook/issues) · [Request Feature](https://github.com/YOUR_USERNAME/ai-agent-handbook/issues)
+[Report Bug](https://github.com/Xwh630/ai-agent-handbook/issues) · [Request Feature](https://github.com/Xwh630/ai-agent-handbook/issues)
 
 </div>
