@@ -82,6 +82,11 @@ nav:
       - 第 14 章 · 记忆系统与状态管理: chapters/14-memory-state.md
       - 第 16 章 · 调试与可观测性: chapters/16-observability.md
       - 第 17 章 · 全栈实战项目: chapters/17-fullstack-project.md
+  - 🏗️ 工程化专题:
+      - 第 25 章 · Harness Engineering: chapters/25-harness-engineering.md
+  - 📡 Agent Radar:
+      - 栏目说明: radar/README.md
+      - 第 1 期 · 2026-10-02: radar/2026-W40.md
   - 🛠️ Agent 工具详细教程:
       - 第 20 章 · OpenAI Codex CLI: chapters/20-codex-cli.md
       - 第 21 章 · DeepSeek Harness（dsh）: chapters/21-deepseek-harness.md

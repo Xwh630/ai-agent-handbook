@@ -1,8 +1,14 @@
-# 🤖 AI Agent 实战手册（中文版）
+<div align="center">
 
-> **面向中文开发者的 AI Agent 系统学习指南** —— 从零搭建到生产部署
->
-> 涵盖 10+ 主流框架 · 23+ 章完整教程 · 9+ 可运行示例 · 新手零门槛
+<img src="assets/banner.svg" alt="AI Agent 实战手册" width="800"/>
+
+# 🤖 AI Agent 实战手册（中英双语）
+
+### 不是教你"会用"某个框架，而是让你理解 Agent 的本质 —— 在任何框架面前游刃有余
+
+**面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
+
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 25+ 章完整教程 · 9+ 可运行示例 · 国产模型可跑 · 中英双语
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -12,15 +18,13 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 137K⭐
-
-<div align="center">
-
 ### ⭐ 如果这份手册对你有帮助，请点亮 Star，让更多中文开发者看到它！
 
-**零门槛入门** · **10+ 框架全覆盖** · **中英双语维护**
-
 </div>
+
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 137K⭐
+
+> 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
 
 ---
 
@@ -129,6 +133,20 @@
 | 第 16 章 | 调试、监控与可观测性 | ⭐⭐⭐ 进阶 | LangSmith、日志、追踪 |
 | 第 17 章 | 全栈实战：研究报告生成系统 | ⭐⭐⭐⭐ 高级 | 整合所有技术的完整项目 |
 
+### 🏗️ 工程化专题（生产级必备）
+
+| 章节 | 标题 | 难度 | 内容概要 |
+|------|------|------|----------|
+| 第 25 章 | [Harness Engineering 驾驭工程](chapters/25-harness-engineering.md) 🆕 | ⭐⭐⭐ 进阶 | 任务边界、上下文管理、状态持久化、失败恢复、权限体系 |
+
+### 📡 Agent Radar 周刊
+
+> 每周一期，追踪 Agent 圈最新项目、框架版本、论文与玩法 —— [进入栏目](radar/)
+
+| 期数 | 日期 | 内容 |
+|------|------|------|
+| [第 1 期](radar/2026-W40.md) 🆕 | 2026-10-02 | Harness 元年、Skills 生态爆发、Computer Use 走向生产 |
+
 ### 🛠️ Agent 工具详细教程
 
 | 章节 | 标题 | 难度 | 内容概要 |
@@ -207,7 +225,7 @@ cd examples/03-crewai-team
 python main.py
 
 # 4. RAG 知识库
-cd examples/04-rag-knowledge
+cd examples/09-rag-knowledge
 python main.py
 ```
 
@@ -298,16 +316,20 @@ ai-agent-handbook/
 │   ├── 22-continue-editor.md      # 🛠️ Continue 编辑器
 │   ├── 23-aider-codestory.md      # 🛠️ Aider 代码助手
 │   └── 24-trae-ide.md             # 🛠️ Trae IDE
+│   ├── 25-harness-engineering.md  # 🏗️ Harness Engineering（🆕）
 ├── examples/                 # 可运行的代码示例（9+ 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
 │   ├── 03-crewai-team/            # CrewAI 团队
 │   ├── 04-autogen-chat/           # AutoGen 对话
-│   ├── 04-rag-knowledge/          # RAG 知识库
 │   ├── 05-mcp-server/             # MCP Server
 │   ├── 06-mastra-agent/           # Mastra 示例
 │   ├── 07-final-project/          # 完整项目
-│   └── 08-openai-agents-sdk/      # OpenAI Agents SDK
+│   ├── 08-openai-agents-sdk/      # OpenAI Agents SDK
+│   └── 09-rag-knowledge/          # RAG 知识库
+├── radar/                    # 📡 Agent Radar 周刊（每周更新）
+├── assets/                   # 图片资源（Banner 等）
+├── llms.txt                  # 🤖 供 AI 助手索引的文档地图
 ├── docs/                     # 参考文档
 │   ├── framework-comparison.md    # 框架对比
 │   ├── tool-calling-guide.md      # 工具调用指南
@@ -449,14 +471,15 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 24+ 章（含新手快速入门 + 术语表 + Agent 工具详细教程） |
+| 章节数量 | 25+ 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
 | 示例代码 | 9+ 可运行示例 |
 | 代码行数 | 3,500+ 行 |
-| 字数 | 110,000+ 字 |
+| 字数 | 115,000+ 字 |
 | 覆盖框架 | 10+ 主流框架 |
 | 语言支持 | 🇨🇳 中文 + 🇺🇸 English |
 | 环境支持 | Python 3.10+ / Docker 一键启动 |
-| 更新时间 | 2026-08-24 |
+| 周刊栏目 | 📡 Agent Radar（每周更新） |
+| 更新时间 | 2026-10-02 |
 
 ---
 
@@ -464,17 +487,17 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 日期 | 更新内容 |
 |------|----------|
-| 2026-08-24 | 🆕 新增「Agent 工具详细教程」栏目：第 22 章 Continue、第 23 章 Aider、第 24 章 Trae IDE |
-| 2026-08-24 | 🆕 将「最新 Agent 实战指南」升级为「Agent 工具详细教程」，支持无限扩展 |
-| 2026-08-24 | 🆕 新增「最新 Agent 实战指南」栏目：第 20 章 Codex CLI + 第 21 章 DeepSeek Harness |
-| 2026-08-24 | 🆕 新增第 0 章新手快速入门（10分钟跑通第一个 Agent） |
-| 2026-08-24 | 🆕 新增中英对照术语表（80+ 术语通俗解释） |
-| 2026-08-24 | 🆕 新增 Docker 一键启动环境（docker-compose） |
-| 2026-08-24 | 🆕 新增英文版目录（en/） |
+| 2026-10-02 | 🆕 新增第 25 章：[Harness Engineering 驾驭工程](chapters/25-harness-engineering.md)——2026 年 Agent 工程核心竞争力 |
+| 2026-10-02 | 🆕 新增「📡 Agent Radar」周刊栏目，[第 1 期已发布](radar/2026-W40.md) |
+| 2026-10-02 | 🆕 新增 [llms.txt](llms.txt)，让 AI 编码助手能正确索引本手册 |
+| 2026-10-02 | 🔧 README 第一屏重构（新增 Banner）；修复 examples 目录重复编号（04-rag-knowledge → 09-rag-knowledge） |
+| 2026-08-24 | 新增「Agent 工具详细教程」栏目：第 22 章 Continue、第 23 章 Aider、第 24 章 Trae IDE |
+| 2026-08-24 | 新增「最新 Agent 实战指南」栏目：第 20 章 Codex CLI + 第 21 章 DeepSeek Harness |
+| 2026-08-24 | 新增第 0 章新手快速入门（10分钟跑通第一个 Agent） |
+| 2026-08-24 | 新增中英对照术语表（80+ 术语通俗解释） |
+| 2026-08-24 | 新增 Docker 一键启动环境（docker-compose） |
+| 2026-08-24 | 新增英文版目录（en/） |
 | 2026-08-24 | 初始版本发布，覆盖 10+ 主流框架，18 章完整教程 |
-| 2026-07-15 | 新增 Claude Agent SDK 章节 |
-| 2026-06-20 | 更新 MCP 协议相关内容 |
-| 2026-05-10 | 新增 Mastra TypeScript 框架 |
 
 ---
 
@@ -540,6 +563,8 @@ git push origin feature/AmazingFeature
 ## ⭐ Star History
 
 如果你发现这个项目对你有帮助，请给我们一个 Star！这是对我们最大的鼓励。
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Xwh630/ai-agent-handbook&type=Date)](https://star-history.com/#Xwh630/ai-agent-handbook&Date)
 
 ---
 
