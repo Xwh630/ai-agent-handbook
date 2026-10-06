@@ -85,6 +85,16 @@
 
 > **关键点**：把 Radar 从「想到才写」变成「按模板填空」，是周更能坚持下去的唯一现实方案。
 
+### 1.2.1 季度动作（每季度首周）
+
+除周更外，每季度第一周额外做一次：
+
+| 动作 | 耗时 | 说明 |
+|------|------|------|
+| 人工核查 `appendix/resources.md` 全部外链 | 30 min | 该文件被 `.lycheeignore` 排除（外链多 + 反爬多），必须人工点一遍，更新文件头的「最后人工核查」日期 |
+| 重新跑一遍 glossary 时效性检查 | 20 min | 术语表中各框架版本号是否仍准确 |
+| 检查 awesome list 收录状态 | 10 min | 之前提的 PR 是否被合并，是否有新的清单可以投 |
+
 ### 1.3 内容保鲜机制（新增 CI）
 
 新增三条 GitHub Actions：
@@ -93,7 +103,7 @@
 |----------|------|------|
 | `freshness.yml` | 每周一 03:00 UTC | 抓取各框架最新 release tag，与 `chapters/*.md` 头部声明的 `适配版本` 比对，不一致自动开 issue 并打 `stale` 标签 |
 | `examples-smoke.yml` | 每周一 + 每次 PR | 在矩阵（py3.10/3.11/3.12）里 dry-run 全部 `examples/*/main.py`，挂了就打红 badge |
-| `stars-snapshot.yml` | 每周五 | 自动更新 README 的「框架 Stars」表格，提交 PR（人工 merge） |
+| `stars-snapshot.yml` | 每周五 | 自动更新 README 的「框架 Stars」表格，直接 commit & push 到 main |
 
 **章节头部规范要求**（所有章节统一加 3 行 frontmatter）：
 
