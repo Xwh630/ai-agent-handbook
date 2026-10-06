@@ -58,6 +58,7 @@ jobs:
     needs: smoke-test
     runs-on: ubuntu-latest
     if: always() && github.ref == 'refs/heads/main'
+    continue-on-error: true  # badge 生成失败不影响整体测试结果
     steps:
       - name: Checkout
         uses: actions/checkout@v4

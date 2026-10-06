@@ -17,9 +17,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
-[![🧪 Examples](https://img.shields.io/badge/examples-passing-brightgreen)]()
-[![📅 Last Verified](https://img.shields.io/badge/last_verified-2026--10--06-blue)]()
-[![🔄 Freshness](https://img.shields.io/badge/freshness-CI_active-2ea44f)]()
+[![🧪 Examples](https://img.shields.io/badge/examples-passing-brightgreen)](https://github.com/Xwh630/ai-agent-handbook/actions/workflows/examples-smoke.yml)
+[![📅 Last Verified](https://img.shields.io/badge/last_verified-2026--10--06-blue)](https://github.com/Xwh630/ai-agent-handbook/actions/workflows/freshness.yml)
+[![🔄 Freshness](https://img.shields.io/badge/freshness-CI_active-2ea44f)](https://github.com/Xwh630/ai-agent-handbook/actions/workflows/freshness.yml)
 
 ### ⭐ 如果这份手册对你有帮助，请点亮 Star，让更多中文开发者看到它！
 

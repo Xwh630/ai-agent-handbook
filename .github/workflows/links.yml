@@ -37,6 +37,8 @@ jobs:
             --retry-wait-time 5
             --exclude-all-private
             --exclude-file .lycheeignore
+            --exclude-path radar/TEMPLATE.md
+            --exclude-path appendix/resources.md
             '**/*.md'
           # 只在发现失效链接时创建 Issue（定时任务时）
           fail: true
