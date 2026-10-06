@@ -30,7 +30,20 @@ jobs:
         run: |
           python scripts/refresh_stars.py
 
+      - name: Check for changes
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected:"
+            git status --porcelain
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected, skipping PR creation."
+          fi
+
       - name: Create Pull Request
+        if: steps.diff.outputs.changes == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           title: "chore: 每周框架 Stars 数据自动更新"
