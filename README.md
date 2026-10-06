@@ -581,7 +581,7 @@ git push origin feature/AmazingFeature
 
 ## 🔗 相关链接
 
-- [LangGraph 官方文档](https://langchain.github.io/langgraph/)
+- [LangGraph 官方文档](https://langchain-ai.github.io/langgraph/)
 - [CrewAI 官方文档](https://docs.crewai.com/)
 - [AutoGen 官方文档](https://microsoft.github.io/autogen/)
 - [Dify 官方文档](https://docs.dify.ai/)
