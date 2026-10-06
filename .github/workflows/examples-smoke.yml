@@ -4,9 +4,9 @@ on:
   schedule:
     - cron: "0 4 * * 1"  # 每周一 04:00 UTC
   pull_request:
-    paths:
-      - "examples/**"
-      - "requirements.txt"
+    branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
