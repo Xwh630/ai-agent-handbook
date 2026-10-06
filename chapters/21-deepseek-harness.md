@@ -569,11 +569,11 @@ dsh minimal run --benchmark swebench/easy
 
 | 资源 | 链接 |
 |------|------|
-| 官方文档 | https://docs.deepseek.ai/harness |
+| 官方文档 | https://github.com/deepseek-ai/deepseek-harness#readme |
 | GitHub 仓库 | https://github.com/deepseek-ai/deepseek-harness |
-| 插件市场 | https://plugins.deepseek.ai |
+| 插件列表 | https://github.com/deepseek-ai/deepseek-harness/tree/main/plugins |
 | SWE-bench 评测 | https://www.swebench.com |
-| 中文教程 | https://deepseek.ai/zh/harness-tutorial |
+| 使用指南 | https://github.com/deepseek-ai/deepseek-harness/blob/main/docs/usage.md |
 
 ---
 

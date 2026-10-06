@@ -1,0 +1,21 @@
+# Lychee 链接检查排除列表
+# 每行一个 URL 或 glob 模式
+
+# ---------- 示例代码中的假 URL / 占位 URL ----------
+https://api.weather.example/
+https://api.weather.example/*
+https://your-api.com/*
+http://localhost/*
+http://127.0.0.1/*
+http://host.docker.internal/*
+
+# ---------- 代码块内的 API 端点（不是网页） ----------
+https://api.openai.com/v1
+https://api.deepseek.com
+https://api.deepseek.com/*
+
+# ---------- 被 Cloudflare / 反爬拦截的站点（403/429） ----------
+https://platform.openai.com/docs/*
+
+# ---------- 已知重定向但内容有效的站点 ----------
+# （lychee 会跟随重定向，这里仅保留特殊情况）

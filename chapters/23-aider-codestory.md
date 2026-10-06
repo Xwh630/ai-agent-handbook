@@ -159,9 +159,9 @@ aider-plugin list
 | 资源 | 链接 |
 |------|------|
 | 官方文档 | https://aider.chat/docs/ |
-| GitHub 仓库 | https://github.com/paul-gauthier/aider |
+| GitHub 仓库 | https://github.com/Aider-AI/aider |
 | 模型配置 | https://aider.chat/docs/config/supported-models.html |
-| 插件市场 | https://github.com/paul-gauthier/aider-plugins |
+| 扩展与插件 | https://aider.chat/docs/extensions.html |
 
 ---
 

@@ -26,7 +26,18 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # 检查所有 Markdown 文件
-          args: --no-progress --max-concurrency 4 --timeout 20 '**/*.md'
+          # --exclude-all-private: 跳过私有/本地 IP
+          # --retry-wait-time: 失败后重试等待
+          # --max-retries: 最大重试次数
+          args: >-
+            --no-progress
+            --max-concurrency 4
+            --timeout 30
+            --max-retries 2
+            --retry-wait-time 5
+            --exclude-all-private
+            --exclude-file .lycheeignore
+            '**/*.md'
           # 只在发现失效链接时创建 Issue（定时任务时）
           fail: true
         env:
