@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: OpenAI Agents SDK 0.0.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/openai/openai-agents-python/releases
+---
+
 # 第 8 章：OpenAI Agents SDK
 
 > OpenAI 官方推出的轻量级多 Agent 框架，支持 100+ LLM，适合快速原型开发。

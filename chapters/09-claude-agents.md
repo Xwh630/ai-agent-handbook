@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Claude Agent SDK 0.1.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/anthropics/claude-agent-sdk/releases
+---
+
 # 第 9 章：Claude Agent SDK
 
 > Anthropic 官方推出的 Agent 开发框架，将 Claude Code 的完整代理能力封装为 Python/TypeScript 库，支持自主执行代码、文件操作、终端命令等任务。

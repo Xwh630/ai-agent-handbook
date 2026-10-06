@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Codex CLI 0.1.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/openai/codex-cli/releases
+---
+
 # 第 20 章：OpenAI Codex CLI — 从终端到生产
 
 > **OpenAI Codex CLI** 是 OpenAI 推出的命令行 Agent 工具，支持自然语言驱动的代码编写、文件操作和终端执行。通过 MCP（Model Context Protocol）集成，可作为外部工具嵌入其他 Agent 框架。

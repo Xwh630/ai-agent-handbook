@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: DeepSeek Harness 1.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/deepseek-ai/deepseek-harness/releases
+---
+
 # 第 21 章：DeepSeek Harness（dsh）— 2026 年度最具潜力的开源 Agent
 
 > **DeepSeek Harness（dsh）** 由 DeepSeek 于 2026-08-13 发布，MIT 开源协议。这是第一个支持 SWE-bench 全场景评测的开源 Agent 框架，发布 30 分钟即突破 1 万 Star，目前已达 **137K+** ⭐。核心亮点：**四种运行模式 + Cordis 插件内核 + Everything-is-a-plugin 架构**。

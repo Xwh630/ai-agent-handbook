@@ -1,6 +1,14 @@
+﻿---
+适配框架版本: MCP 2026-07 无状态核心
+最后校验: 2026-10-06
+上游变更监控: https://github.com/modelcontextprotocol/specification/releases
+---
+
 # 第 11 章：MCP 协议完全指南
 
 > Model Context Protocol (MCP) 是 AI Agent 工具连接的事实标准，相当于 AI 领域的 USB-C。它由 Anthropic 于 2024 年底开源，已被 OpenAI、Google 等主流厂商支持。
+>
+> 📌 **2026-07 重大更新**：MCP 核心协议转为**完全无状态**，移除了 `Mcp-Session-Id`，并已捐献给 **Linux Foundation**。Server 部署更简单，天然支持 Serverless 和水平扩展。
 
 ---
 
@@ -252,9 +260,176 @@ agent = Agent(
 
 ---
 
-## 11.7 最佳实践
+## 11.7 无状态核心：2026-07 重大更新
 
-### 11.7.1 错误处理
+### 11.7.1 从有状态到无状态
+
+2026 年 7 月，MCP 协议核心经历了一次重大架构升级——从**有状态会话**转为**完全无状态**。
+
+**有状态时代（MCP 1.x）的问题**：
+
+```
+┌─────────────────────────────────────────────────────┐
+│  有状态模型                                          │
+│  Client ──Mcp-Session-Id──► Server                   │
+│                       ↑                              │
+│                  会话状态存在 Server 端               │
+│                  → 无法水平扩展                       │
+│                  → Serverless 冷启动慢                │
+│                  → 故障恢复麻烦                       │
+└─────────────────────────────────────────────────────┘
+```
+
+**无状态时代（MCP 2026-07+）的变化**：
+
+| 变化点 | 有状态 | 无状态 |
+|--------|--------|--------|
+| 会话标识 | `Mcp-Session-Id` 请求头 | 无，连接即会话 |
+| 状态存储 | Server 端维护 | Client 端维护 / 请求自带 |
+| 水平扩展 | ❌ 困难（会话粘滞） | ✅ 天然支持 |
+| Serverless | ❌ 冷启动需重建会话 | ✅ 每次调用独立 |
+| 故障恢复 | ❌ 会话丢失 | ✅ 重连即可继续 |
+
+### 11.7.2 对开发者的影响
+
+**好消息：大多数代码不用改**。FastMCP 等高层 SDK 已经帮你屏蔽了底层差异。
+
+需要注意的变化：
+
+1. **Server 端不再假设会话连续性** —— 如果你之前在全局变量里存了用户状态，现在需要改成"每次调用都带上下文"或用外部存储（Redis / DB）
+2. **Resource 版本号机制** —— 无状态后，Client 通过 `resource_timestamp` 判断资源是否过期，而不是依赖会话内的缓存
+3. **Sampling 回调变化** —— 模型调用的上下文从"会话级"变为"请求级"
+
+### 11.7.3 SDK 迁移指引
+
+如果你在使用 `mcp<1.0` 的旧 SDK，迁移到无状态版本只需三步：
+
+| 旧写法（0.x） | 新写法（1.x+ 无状态） | 说明 |
+|--------------|---------------------|------|
+| `session_id` 参数 | 已移除 | 不再需要手动管理会话 ID |
+| `server.create_session()` | 不需要 | 连接自动建立逻辑会话 |
+| 全局变量存状态 | 改用 `Context` 参数 / 外部存储 | 每次调用都是独立的 |
+
+**迁移检查清单**：
+- [ ] 检查是否有模块级可变状态（`_cache = {}` 等）
+- [ ] 确认工具函数不依赖"之前调用过什么"
+- [ ] 如果需要持久化，接入 Redis / SQLite 等外部存储
+- [ ] 测试 Server 重启后 Client 是否能无缝继续
+
+---
+
+## 11.8 Serverless 部署指南
+
+无状态化最大的好处就是 **MCP Server 可以完美跑在 Serverless 平台上**——按调用付费、自动伸缩、零运维。
+
+### 11.8.1 为什么 Serverless + MCP 是绝配？
+
+```
+┌─────────────────────────────────────────────────────┐
+│  Serverless MCP 的优势                               │
+│                                                      │
+│  💰 成本：免费额度 + 按调用付费，个人项目几乎零成本    │
+│  📈 扩展：从 0 到 10000 并发，全自动                  │
+│  🔧 运维：不用管服务器、不用更新系统                   │
+│  🌍 全球：边缘节点部署，全球用户低延迟                 │
+└─────────────────────────────────────────────────────┘
+```
+
+### 11.8.2 部署到 Cloudflare Workers（最快）
+
+Cloudflare Workers 是部署 MCP Server 的最佳选择之一：冷启动 < 50ms，全球边缘节点，免费额度充足。
+
+```javascript
+// mcp-server-worker.js
+import { McpServer } from "@modelcontextprotocol/sdk/server/index.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
+
+const server = new McpServer({
+  name: "weather-mcp",
+  version: "1.0.0"
+});
+
+// 注册工具
+server.tool("get_weather", 
+  { city: "string" },
+  async ({ city }) => {
+    // 调用天气 API
+    const resp = await fetch(`https://api.weather.example/${city}`);
+    const data = await resp.json();
+    return {
+      content: [{ type: "text", text: `${city}：${data.condition}，${data.temp}°C` }]
+    };
+  }
+);
+
+// SSE 传输（适合 HTTP Serverless）
+export default {
+  async fetch(request, env) {
+    const transport = new SSEServerTransport("/mcp", request);
+    await server.connect(transport);
+    return transport.response;
+  }
+};
+```
+
+### 11.8.3 部署到 Vercel / Netlify Functions
+
+Python 用户可以用 Vercel Serverless Functions：
+
+```python
+# api/mcp.py
+from mcp.server.fastmcp import FastMCP
+from fastapi import FastAPI, Request
+from fastapi.responses import StreamingResponse
+
+mcp = FastMCP("my-server")
+
+@mcp.tool()
+def hello(name: str) -> str:
+    return f"Hello, {name}!"
+
+app = FastAPI()
+
+@app.post("/mcp")
+async def mcp_endpoint(request: Request):
+    # SSE 传输适配
+    from mcp.server.sse import SseServerTransport
+    sse = SseServerTransport("/mcp/sse")
+    
+    async def handle_stream():
+        async with sse.connect_websocket(request) as (read, write):
+            await mcp._mcp_server.run(read, write, mcp._create_session())
+    
+    return StreamingResponse(handle_stream(), media_type="text/event-stream")
+```
+
+### 11.8.4 Serverless 注意事项
+
+| 注意点 | 说明 | 解决方案 |
+|--------|------|----------|
+| 冷启动 | 首次调用可能慢 100-500ms | 选择启动快的运行时（Workers < Bun < Node < Python） |
+| 执行时长限制 | 通常 10s-15min | 长任务用异步队列 + 回调 |
+| 无文件系统 | 不能依赖本地文件 | 用对象存储（S3 / R2）或数据库 |
+| 并发限制 | 免费额度有并发上限 | 升级付费计划或做限流 |
+
+### 11.8.5 传输方式选择
+
+无状态 MCP 支持多种传输，适用不同场景：
+
+| 传输方式 | 最佳场景 | Serverless 友好度 |
+|---------|---------|-----------------|
+| **stdio** | 本地 CLI、桌面应用 | ❌（需要长连接） |
+| **SSE (HTTP)** | Web 应用、Serverless | ✅ 最推荐 |
+| **WebSocket** | 实时交互、高频调用 | ⚠️ 部分平台支持 |
+| **Streamable HTTP** | 最新标准，兼容 HTTP | ✅ 逐步普及中 |
+
+> 💡 **新手建议**：本地开发用 stdio（最简单），生产部署用 SSE（最通用）。
+
+---
+
+## 11.9 最佳实践
+
+### 11.9.1 错误处理
 
 工具内的异常会直接传播给 MCP Client，建议在工具内部捕获并返回可读的错误信息：
 
@@ -268,7 +443,7 @@ def safe_query(query: str) -> dict:
         return {"success": False, "error": str(e)}
 ```
 
-### 11.7.2 权限控制
+### 11.9.2 权限控制
 
 ```python
 @mcp.tool()
@@ -280,7 +455,7 @@ def read_allowlisted_file(path: str) -> str:
     return read_file(path)
 ```
 
-### 11.7.3 工具命名与描述
+### 11.9.3 工具命名与描述
 
 - 工具名用 snake_case（如 `get_weather`），**不要**用中文或空格
 - `docstring` 写清楚：工具做什么、何时用、参数含义——LLM 靠它决定是否调用
@@ -288,7 +463,7 @@ def read_allowlisted_file(path: str) -> str:
 
 ---
 
-## 11.8 本章小结
+## 11.10 本章小结
 
 ✅ 理解了 MCP 的三角架构和三大原语
 
@@ -297,6 +472,12 @@ def read_allowlisted_file(path: str) -> str:
 ✅ 掌握了 MCP Client 的调用方式
 
 ✅ 了解了与 LangChain / CrewAI 的集成方法
+
+✅ 理解了 **2026-07 无状态核心** 的架构升级与影响
+
+✅ 掌握了 Serverless 部署 MCP Server 的方法
+
+✅ 知道如何从旧版 SDK 迁移到无状态版本
 
 ---
 

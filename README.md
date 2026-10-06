@@ -2,13 +2,13 @@
 
 <img src="assets/banner.svg" alt="AI Agent 实战手册" width="800"/>
 
-# 🤖 AI Agent 实战手册（中英双语）
+# 🤖 AI Agent 实战手册（中文为主 · English in progress）
 
 ### 不是教你"会用"某个框架，而是让你理解 Agent 的本质 —— 在任何框架面前游刃有余
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 25+ 章完整教程 · 9+ 可运行示例 · 国产模型可跑 · 中英双语
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 26+ 章完整教程 · 9+ 可运行示例 · 国产模型可跑 · 中英术语对照
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -17,6 +17,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
+[![🧪 Examples](https://img.shields.io/badge/examples-passing-brightgreen)]()
+[![📅 Last Verified](https://img.shields.io/badge/last_verified-2026--10--06-blue)]()
+[![🔄 Freshness](https://img.shields.io/badge/freshness-CI_active-2ea44f)]()
 
 ### ⭐ 如果这份手册对你有帮助，请点亮 Star，让更多中文开发者看到它！
 
@@ -28,13 +31,21 @@
 
 ---
 
-## 🌐 语言切换
+## 🌐 语言 / Language
 
 | 语言 | 入口 |
 |------|------|
-| 🇨🇳 **简体中文（当前）** | [README.md](README.md) |
-| 🇺🇸 **English** | [English README](en/README.md) |
-| 📖 **英文翻译进度** | [TRANSLATION_STATUS](en/TRANSLATION_STATUS.md) |
+| 🇨🇳 **简体中文（主语言）** | [README.md](README.md) |
+| 🇺🇸 **English (in progress)** | [English README](en/README.md) |
+| 📊 **翻译进度** | [Translation Status](en/TRANSLATION_STATUS.md) |
+
+---
+
+## 🗺️ 迭代路线图
+
+本手册有明确的迭代计划，每周更新。想知道接下来会有什么内容？看 [ROADMAP.md](ROADMAP.md)。
+
+> 📌 **当前版本**：v0.2.0 · 保鲜与基建 |
 
 ---
 
@@ -75,8 +86,8 @@
 │  ✅ 实战导向 — 每个章节都有可运行的代码                        │
 │  ✅ 框架完整 — 10+ 主流 Agent 框架全覆盖                      │
 │  ✅ 选型清晰 — 帮你快速找到最适合你场景的框架                 │
-│  ✅ 双语支持 — 中文版 + 英文版同步更新                        │
-│  ✅ 持续更新 — 紧跟 2025-2026 最新技术动态                    │
+│  ✅ 持续保鲜 — CI 自动监控版本更新，过期内容自动标记           │
+│  ✅ 每周更新 — Radar 周刊 + 版本化迭代，紧跟 2026 最新技术    │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -98,7 +109,7 @@
 | 章节 | 标题 | 难度 | 内容概要 |
 |------|------|------|----------|
 | 第 0 章 | 🚀 新手快速入门 | ⭐ 零门槛 | 10 分钟跑通第一个 Agent |
-| 术语表 | 📖 中英对照术语表 | - | 80+ 术语通俗解释 |
+| 术语表 | 📖 中英对照术语表 | - | 110+ 术语通俗解释（含 2026 前沿新词） |
 
 ### 入门篇
 
@@ -123,6 +134,7 @@
 | 第 11 章 | MCP 协议完全指南 | ⭐⭐⭐ 进阶 | 标准化工具连接协议 |
 | 第 15 章 | Token 成本优化策略 | ⭐⭐ 基础 | 生产环境成本控制 |
 | 第 18 章 | 选型决策树与最佳实践 | ⭐⭐ 基础 | 如何选择合适的框架 |
+| 第 19 章 | Agent 通用工具箱 | ⏳ 规划中 | 工具注册、审批网关、成本追踪等 |
 
 ### 高级篇
 
@@ -145,7 +157,8 @@
 
 | 期数 | 日期 | 内容 |
 |------|------|------|
-| [第 1 期](radar/2026-W40.md) 🆕 | 2026-10-02 | Harness 元年、Skills 生态爆发、Computer Use 走向生产 |
+| [第 2 期](radar/2026-W41.md) 🆕 | 2026-10-09 | Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| [第 1 期](radar/2026-W40.md) | 2026-10-02 | Harness 元年、Skills 生态爆发、Computer Use 走向生产 |
 
 ### 🛠️ Agent 工具详细教程
 
@@ -246,7 +259,7 @@ python main.py
 | **Ollama** | 179.3K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
 | **MCP** | 标准协议 | 多语言 | 工具标准化连接 | 跨框架工具互通 | ⭐⭐⭐⭐⭐ |
 
-> Stars 数据截至 2026 年 8 月，来自 GitHub。
+> Stars 数据截至 2026 年 10 月，来自 GitHub。每周自动更新。
 
 ---
 
@@ -286,11 +299,12 @@ python main.py
 ```
 ai-agent-handbook/
 ├── README.md                 # 中文主文档
-├── en/                       # 英文版（English edition）
+├── ROADMAP.md                # 🗺️ 迭代路线图（季度计划与执行看板）
+├── en/                       # 英文版（English in progress）
 │   ├── README.md             # 英文 README
 │   ├── TRANSLATION_STATUS.md # 翻译进度
 │   └── chapters/             # 英文章节
-├── chapters/                 # 各章节完整教程（19+ 章）
+├── chapters/                 # 各章节完整教程（26+ 章）
 │   ├── 00-quickstart.md           # 🚀 新手快速入门（10分钟）
 │   ├── 01-fundamentals.md         # AI Agent 基础概念
 │   ├── 02-reaact-from-scratch.md  # 手写 ReAct Agent
@@ -302,7 +316,7 @@ ai-agent-handbook/
 │   ├── 08-openai-agents.md        # OpenAI Agents SDK
 │   ├── 09-claude-agents.md        # Claude Agent SDK
 │   ├── 10-mastra.md               # Mastra TypeScript
-│   ├── 11-mcp.md                  # MCP 协议
+│   ├── 11-mcp.md                  # MCP 协议（含无状态核心）
 │   ├── 12-ollama.md               # Ollama 本地部署
 │   ├── 13-collaboration-patterns.md # 协作模式
 │   ├── 14-memory-state.md         # 记忆系统
@@ -310,13 +324,14 @@ ai-agent-handbook/
 │   ├── 16-observability.md        # 可观测性
 │   ├── 17-fullstack-project.md    # 全栈实战
 │   ├── 18-selection-guide.md      # 选型指南
-│   └── 99-glossary.md             # 📖 中英对照术语表
+│   ├── 19-agent-toolkit.md        # 🧰 Agent 通用工具箱（规划中）
+│   └── 99-glossary.md             # 📖 中英对照术语表（110+ 术语）
 │   ├── 20-codex-cli.md            # 🛠️ OpenAI Codex CLI 详解
 │   ├── 21-deepseek-harness.md     # 🛠️ DeepSeek Harness（dsh）
 │   ├── 22-continue-editor.md      # 🛠️ Continue 编辑器
 │   ├── 23-aider-codestory.md      # 🛠️ Aider 代码助手
 │   └── 24-trae-ide.md             # 🛠️ Trae IDE
-│   ├── 25-harness-engineering.md  # 🏗️ Harness Engineering（🆕）
+│   ├── 25-harness-engineering.md  # 🏗️ Harness Engineering
 ├── examples/                 # 可运行的代码示例（9+ 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
@@ -328,6 +343,15 @@ ai-agent-handbook/
 │   ├── 08-openai-agents-sdk/      # OpenAI Agents SDK
 │   └── 09-rag-knowledge/          # RAG 知识库
 ├── radar/                    # 📡 Agent Radar 周刊（每周更新）
+│   └── TEMPLATE.md               # 写作模板
+├── data/                     # 📊 数据快照
+│   ├── stars.json                # 框架 Stars 数据
+│   └── stars-history.csv         # Stars 历史数据
+├── scripts/                  # 🔧 维护脚本
+│   ├── build_docs.py             # 文档构建
+│   ├── refresh_stars.py          # Stars 数据刷新
+│   ├── freshness_check.py        # 内容新鲜度检查
+│   └── smoke_test_examples.py    # 示例冒烟测试
 ├── assets/                   # 图片资源（Banner 等）
 ├── llms.txt                  # 🤖 供 AI 助手索引的文档地图
 ├── docs/                     # 参考文档
@@ -337,6 +361,13 @@ ai-agent-handbook/
 ├── appendix/
 │   ├── error-troubleshooting.md   # 错误排查
 │   └── resources.md               # 学习资源
+├── .github/
+│   └── workflows/            # ⚙️ CI 工作流
+│       ├── docs.yml               # 文档部署
+│       ├── links.yml              # 链接检查
+│       ├── freshness.yml          # 内容新鲜度检查
+│       ├── examples-smoke.yml     # 示例冒烟测试
+│       └── stars-snapshot.yml     # Stars 周更
 ├── Dockerfile                # 🐳 Docker 一键环境
 ├── docker-compose.yml        # 🐳 Dev + Ollama 服务
 ├── requirements.txt          # Python 依赖
@@ -471,15 +502,17 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 25+ 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
+| 章节数量 | 26+ 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
 | 示例代码 | 9+ 可运行示例 |
 | 代码行数 | 3,500+ 行 |
-| 字数 | 115,000+ 字 |
+| 字数 | 120,000+ 字 |
 | 覆盖框架 | 10+ 主流框架 |
-| 语言支持 | 🇨🇳 中文 + 🇺🇸 English |
-| 环境支持 | Python 3.10+ / Docker 一键启动 |
+| 术语词条 | 110+（含 2026 前沿新词） |
 | 周刊栏目 | 📡 Agent Radar（每周更新） |
-| 更新时间 | 2026-10-02 |
+| CI 工作流 | 5 条（构建 / 链接 / 新鲜度 / 示例测试 / Stars 快照） |
+| 环境支持 | Python 3.10+ / Docker 一键启动 |
+| 当前版本 | v0.2.0 |
+| 更新时间 | 2026-10-06 |
 
 ---
 
@@ -487,10 +520,17 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 日期 | 更新内容 |
 |------|----------|
+| 2026-10-06 | 🎯 **v0.2.0 发布**：保鲜与基建 — 新增 3 条 CI 工作流、26 章版本声明 frontmatter、术语表 +30 词、第 11 章 MCP 无状态化重写、Radar 第 2 期 |
+| 2026-10-06 | 🗺️ 新增 [ROADMAP.md](ROADMAP.md)：季度迭代计划与执行看板，公开透明 |
+| 2026-10-06 | 🔧 新增 3 条 CI：内容新鲜度检查、示例冒烟测试、Stars 周更自动 PR |
+| 2026-10-06 | 📖 第 11 章 MCP 重大更新：2026-07 无状态核心、SDK 迁移指引、Serverless 部署指南 |
+| 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
+| 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
+| 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
 | 2026-10-02 | 🆕 新增第 25 章：[Harness Engineering 驾驭工程](chapters/25-harness-engineering.md)——2026 年 Agent 工程核心竞争力 |
 | 2026-10-02 | 🆕 新增「📡 Agent Radar」周刊栏目，[第 1 期已发布](radar/2026-W40.md) |
 | 2026-10-02 | 🆕 新增 [llms.txt](llms.txt)，让 AI 编码助手能正确索引本手册 |
-| 2026-10-02 | 🔧 README 第一屏重构（新增 Banner）；修复 examples 目录重复编号（04-rag-knowledge → 09-rag-knowledge） |
+| 2026-10-02 | 🔧 README 第一屏重构（新增 Banner）；修复 examples 目录重复编号 |
 | 2026-08-24 | 新增「Agent 工具详细教程」栏目：第 22 章 Continue、第 23 章 Aider、第 24 章 Trae IDE |
 | 2026-08-24 | 新增「最新 Agent 实战指南」栏目：第 20 章 Codex CLI + 第 21 章 DeepSeek Harness |
 | 2026-08-24 | 新增第 0 章新手快速入门（10分钟跑通第一个 Agent） |

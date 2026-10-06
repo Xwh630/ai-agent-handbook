@@ -1,0 +1,82 @@
+[
+  {
+    "name": "LangGraph",
+    "repo": "langchain-ai/langgraph",
+    "stars": 40300,
+    "stars_formatted": "40.3K",
+    "latest_release": "v0.4.2",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "CrewAI",
+    "repo": "crewAIInc/crewAI",
+    "stars": 57500,
+    "stars_formatted": "57.5K",
+    "latest_release": "v0.100.1",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "AutoGen",
+    "repo": "microsoft/autogen",
+    "stars": 60600,
+    "stars_formatted": "60.6K",
+    "latest_release": "v0.4.8",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "Dify",
+    "repo": "langgenius/dify",
+    "stars": 153300,
+    "stars_formatted": "153.3K",
+    "latest_release": "v1.0.2",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "LlamaIndex",
+    "repo": "run-llama/llama_index",
+    "stars": 51800,
+    "stars_formatted": "51.8K",
+    "latest_release": "v0.12.0",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "OpenAI Agents SDK",
+    "repo": "openai/openai-agents-python",
+    "stars": 28900,
+    "stars_formatted": "28.9K",
+    "latest_release": "v0.0.8",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "Mastra",
+    "repo": "mastra-ai/mastra",
+    "stars": 27400,
+    "stars_formatted": "27.4K",
+    "latest_release": "v0.8.0",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "Ollama",
+    "repo": "ollama/ollama",
+    "stars": 179300,
+    "stars_formatted": "179.3K",
+    "latest_release": "v0.5.0",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "MCP",
+    "repo": "modelcontextprotocol/specification",
+    "stars": 0,
+    "stars_formatted": "标准协议",
+    "latest_release": "2026-07",
+    "snapshot_date": "2026-10-06"
+  },
+  {
+    "name": "DeepSeek Harness",
+    "repo": "deepseek-ai/deepseek-harness",
+    "stars": 137000,
+    "stars_formatted": "137K",
+    "latest_release": "v1.2.0",
+    "snapshot_date": "2026-10-06"
+  }
+]

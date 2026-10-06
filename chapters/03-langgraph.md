@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: LangGraph 0.4.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/langchain-ai/langgraph/releases
+---
+
 # 第 3 章：LangGraph 图编排实战
 
 > LangGraph 是 LangChain 团队推出的基于图的状态机编排框架，适合构建复杂、可控的 Agent 工作流。本章将带你深入理解和使用 LangGraph。

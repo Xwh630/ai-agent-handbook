@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: LlamaIndex 0.12.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/run-llama/llama_index/releases
+---
+
 # 第 6 章：LlamaIndex RAG 知识库
 
 > LlamaIndex 是专门用于数据接入和 RAG（检索增强生成）的框架，让你的 Agent 能够访问私有知识和最新信息。

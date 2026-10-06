@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: AutoGen / MAF 0.4.x / 1.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/microsoft/autogen/releases
+---
+
 # 第 5 章：AutoGen / Microsoft Agent Framework 对话驱动
 
 > Microsoft 开源的 AutoGen 是学术界和产业界都认可的多智能体对话框架。2025 年微软将其与 Semantic Kernel 合并为 **Microsoft Agent Framework (MAF)**，2026 年 MAF 已发布 1.0 GA。本章两者都介绍。

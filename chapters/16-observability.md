@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: LangSmith 0.2.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/langchain-ai/langsmith-sdk/releases
+---
+
 # 第 16 章：调试、监控与可观测性
 
 > 生产环境的 Agent 系统需要完善的可观测性，才能及时发现和解决问题。

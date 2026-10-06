@@ -40,7 +40,6 @@ env/
 .env.local
 
 # 数据文件
-data/
 *.db
 *.sqlite
 chroma_db/

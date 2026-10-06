@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: CrewAI 0.100.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/crewAIInc/crewAI/releases
+---
+
 # 第 4 章：CrewAI 多智能体协作
 
 > CrewAI 是 2025-2026 年增长最快的多智能体框架之一，采用角色化设计，让多个 Agent 像真实团队一样协作完成任务。

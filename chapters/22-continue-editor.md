@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Continue 1.0.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/continuedev/continue/releases
+---
+
 # 第 22 章：Continue 编辑器 — 让 VSCode / JetBrains 变成 AI 编码助手
 
 > **Continue** 是最流行的开源 AI 编程助手，支持 VSCode 和 JetBrains 系列 IDE。它允许你选择任意 LLM（OpenAI、Claude、本地模型等），通过 MCP 协议集成外部工具，并提供完整的代码补全、对话、编辑能力。

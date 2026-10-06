@@ -1,0 +1,51 @@
+name: Stars Snapshot
+
+on:
+  schedule:
+    - cron: "0 6 * * 5"  # 每周五 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run stars refresh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/refresh_stars.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "chore: 每周框架 Stars 数据自动更新"
+          body: |
+            自动更新 README 中的框架 Stars 数据。
+            
+            变更文件：
+            - data/stars.json
+            - data/stars-history.csv
+            - README.md（框架速览表格）
+            
+            请人工核对后合并。
+          commit-message: "chore: weekly stars snapshot"
+          branch: chore/stars-snapshot
+          base: main
+          labels: |
+            automation
+            stars-snapshot

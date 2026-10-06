@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Aider 0.50.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/Aider-AI/aider/releases
+---
+
 # 第 23 章：Aider 代码助手 — 终端里的 AI 编程伙伴
 
 > **Aider** 是一款运行在终端的 AI 编程助手，支持多模型（OpenAI、Anthropic、DeepSeek、Gemini 等），具备 Git 深度集成、会话恢复、多文件编辑等强大功能。它是开发者在命令行环境下的理想 AI 编程伴侣。

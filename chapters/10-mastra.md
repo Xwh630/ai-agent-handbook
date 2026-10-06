@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Mastra 0.8.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/mastra-ai/mastra/releases
+---
+
 # 第 10 章：Mastra TypeScript Agent
 
 > Mastra 是 Y Combinator 支持的 TypeScript 优先 Agent 框架，适合 Node.js 全栈开发者。

@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Dify 1.0.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/langgenius/dify/releases
+---
+
 # 第 7 章：Dify 低代码可视化平台
 
 > Dify 是目前 GitHub 上星标最多的 AI 应用开发平台（130K+ ⭐），适合快速原型开发和非技术人员使用。

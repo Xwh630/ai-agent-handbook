@@ -1,0 +1,73 @@
+name: Examples Smoke Test
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"  # 每周一 04:00 UTC
+  pull_request:
+    paths:
+      - "examples/**"
+      - "requirements.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+      fail-fast: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run smoke tests (dry-run imports)
+        run: |
+          python scripts/smoke_test_examples.py
+        env:
+          OPENAI_API_KEY: "sk-test-key-for-import-only"
+          SMOKE_TEST: "true"
+
+      - name: Generate badge
+        if: always()
+        run: |
+          echo "examples_status=${{ job.status }}" >> $GITHUB_ENV
+
+  badge:
+    needs: smoke-test
+    runs-on: ubuntu-latest
+    if: always() && github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate examples badge
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_BADGE_TOKEN || secrets.GITHUB_TOKEN }}
+          gistID: examples-badge
+          filename: examples.json
+          label: Examples
+          message: ${{ needs.smoke-test.result == 'success' && 'passing' || 'failing' }}
+          color: ${{ needs.smoke-test.result == 'success' && 'brightgreen' || 'red' }}

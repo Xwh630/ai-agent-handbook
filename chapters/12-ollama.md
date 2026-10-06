@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: Ollama 0.5.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/ollama/ollama/releases
+---
+
 # 第 12 章：Ollama 本地大模型部署
 
 > Ollama 让任何人都能在本地运行大语言模型，保护隐私的同时降低 API 成本。

@@ -1,0 +1,38 @@
+name: Content Freshness Check
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"  # 每周一 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests PyGithub
+
+      - name: Run freshness check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.repository }}
+        run: |
+          python scripts/freshness_check.py
+
+      - name: Upload freshness report
+        uses: actions/upload-artifact@v4
+        with:
+          name: freshness-report
+          path: data/freshness-report.json

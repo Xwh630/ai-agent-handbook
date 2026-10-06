@@ -1,3 +1,9 @@
+﻿---
+适配框架版本: OpenAI SDK 1.x
+最后校验: 2026-10-06
+上游变更监控: https://github.com/openai/openai-python/releases
+---
+
 # 第 2 章：从零手写 ReAct Agent
 
 > 不要一开始就学框架！本章带你从零搭建一个功能完整的 ReAct Agent，让你彻底理解 Agent 的本质。
