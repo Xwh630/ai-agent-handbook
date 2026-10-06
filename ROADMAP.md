@@ -38,6 +38,18 @@
 | CI | docs.yml + links.yml | 🟡 只校验构建与链接 |
 | 是否有 Release / Tag | 无 | 🔴 Radar「订阅更新」承诺无法兑现 |
 
+### 0.1.1 执行进度快照（2026-10-06 晚更新）
+
+> W41 当周完成的事项，用于追踪真实进度 vs 计划。
+
+| 类别 | 已完成 | 进行中 | 待开始 |
+|------|--------|--------|--------|
+| **曝光基建** | Homepage ✅ · Topics ✅ · v1.2.0 Release ✅ · Branch Protection ✅ | Social Preview ⏳ | Discussions 🔲 |
+| **CI/保鲜机制** | freshness.yml ✅ · examples-smoke.yml ✅ · stars-snapshot.yml ✅ · Check Links 修复 ✅ | — | — |
+| **外部收录** | — | awesome PR 已提交 3/3（待合并） | HelloGitHub 🔲 |
+| **Issue 治理** | #1–#9 全部关闭（链接修复完成） | — | — |
+| **内容** | — | — | 第 11 章 MCP 重写 🔲 · 术语表 +30 词 🔲 |
+
 ### 0.2 三个核心判断
 
 1. **内容不是瓶颈，分发是。** 全部 41 星里几乎不来自主动推广，而是自然搜索；而 Topics 缺失导致连自然搜索都没被充分命中。
@@ -320,13 +332,13 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
 
 ### 5.2 外部收录（长期复利）
 
-| 目标清单 | Stars | 切入方式 |
-|----------|-------|----------|
-| `e2b-dev/awesome-ai-agents` | 29.6K | PR：新增「中文教程 / Chinese Tutorials」分区 |
-| `kyrolabs/awesome-agents` | 2.8K | PR：Tutorials 区 |
-| `EmbraceAGI/awesome-chatgpt-zh` | 11.7K | PR：学习资源区 |
-| HelloGitHub | — | 自荐投稿，中文项目转化率高 |
-| 阮一峰科技周刊 | — | 自荐 |
+| 目标清单 | Stars | 切入方式 | 状态 |
+|----------|-------|----------|------|
+| `e2b-dev/awesome-ai-agents` | 29.6K | PR：新增「Books & Handbooks」分区 | 🚧 [PR #1693](https://github.com/e2b-dev/awesome-ai-agents/pull/1693) 已提交，待合并 |
+| `kyrolabs/awesome-agents` | 2.8K | PR：新增 Books & Learning Resources 分区 | 🚧 [PR #821](https://github.com/kyrolabs/awesome-agents/pull/821) 已提交，待合并 |
+| `EmbraceAGI/awesome-chatgpt-zh` | 11.7K | PR：Coding Agents 学习资源表 | 🚧 [PR #106](https://github.com/EmbraceAGI/awesome-chatgpt-zh/pull/106) 已提交，待合并 |
+| HelloGitHub | — | 自荐投稿，中文项目转化率高 | 🔲 待投稿 |
+| 阮一峰科技周刊 | — | 自荐 | 🔲 待投稿 |
 
 > 一次 PR ≈ 永久曝光位。**这是 ROI 最高的单一动作，优先级高于写第 27 章之外的任何内容。**
 
@@ -345,9 +357,9 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
 
 | 周次 | 日期 | 内容产出 | 工程/机制 | 增长动作 |
 |------|------|----------|-----------|----------|
-| **W41** | 10-06 ~ 10-12 | Radar 第 2 期（已备好）· README 重构（已备好） | `scripts/refresh_stars.py` 首版 | P0 曝光基建五项全做完 |
-| **W42** | 10-13 ~ 10-19 | 第 11 章 MCP 重写（无状态化）· 术语表 +30 词 | `freshness.yml` 上线 | 提第一批 awesome PR（3 个） |
-| **W43** | 10-20 ~ 10-26 | Radar 第 3 期 · **第 26 章 Agent Skills 初稿** | `examples-smoke.yml` 上线 | 掘金/知乎首发 SKILL.md 长文 |
+| **W41** ✅ | 10-06 ~ 10-12 | Radar 第 2 期（已备好）· README 重构（已备好） | `refresh_stars.py` ✅ · `freshness.yml` ✅ · `examples-smoke.yml` ✅ · `stars-snapshot.yml` ✅ · Check Links 修复 ✅ · Branch Protection ✅ | Homepage ✅ · Topics ✅ · v1.2.0 Release ✅ · Issue #1–#9 全部关闭 ✅ |
+| **W42** 🚧 | 10-13 ~ 10-19 | 第 11 章 MCP 重写（无状态化）· 术语表 +30 词 | — | **awesome PR 3/3 已提交**（e2b-dev #1693 · EmbraceAGI #106 · kyrolabs #821，待合并） |
+| **W43** 🔲 | 10-20 ~ 10-26 | Radar 第 3 期 · **第 26 章 Agent Skills 初稿** | — | 掘金/知乎首发 SKILL.md 长文 |
 | **W44** | 10-27 ~ 11-02 | 第 26 章定稿 + `examples/10-agent-skill/` | v0.2.0 Release | HelloGitHub 投稿 |
 | **W45** | 11-03 ~ 11-09 | Radar 第 4 期 · **C1 Skill 包设计与拆分** | `.devcontainer/` 一键环境 |  |
 | **W46** | 11-10 ~ 11-16 | **第 27 章上下文工程** + `examples/11-context-lab/` | `stars-snapshot.yml` 上线 | 发「一次轮次 token 构成」图帖 |
