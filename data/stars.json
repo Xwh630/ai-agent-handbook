@@ -2,81 +2,81 @@
   {
     "name": "LangGraph",
     "repo": "langchain-ai/langgraph",
-    "stars": 40300,
-    "stars_formatted": "40.3K",
-    "latest_release": "v0.4.2",
+    "stars": 42770,
+    "stars_formatted": "42.8K",
+    "latest_release": "1.2.13",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "CrewAI",
     "repo": "crewAIInc/crewAI",
-    "stars": 57500,
-    "stars_formatted": "57.5K",
-    "latest_release": "v0.100.1",
+    "stars": 59386,
+    "stars_formatted": "59.4K",
+    "latest_release": "1.15.23",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "AutoGen",
     "repo": "microsoft/autogen",
-    "stars": 60600,
-    "stars_formatted": "60.6K",
-    "latest_release": "v0.4.8",
+    "stars": 61272,
+    "stars_formatted": "61.3K",
+    "latest_release": "python-v0.7.5",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "Dify",
     "repo": "langgenius/dify",
-    "stars": 153300,
-    "stars_formatted": "153.3K",
-    "latest_release": "v1.0.2",
+    "stars": 157941,
+    "stars_formatted": "157.9K",
+    "latest_release": "1.17.1",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "LlamaIndex",
     "repo": "run-llama/llama_index",
-    "stars": 51800,
-    "stars_formatted": "51.8K",
-    "latest_release": "v0.12.0",
+    "stars": 52418,
+    "stars_formatted": "52.4K",
+    "latest_release": "v0.14.25",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "OpenAI Agents SDK",
     "repo": "openai/openai-agents-python",
-    "stars": 28900,
-    "stars_formatted": "28.9K",
-    "latest_release": "v0.0.8",
+    "stars": 29853,
+    "stars_formatted": "29.9K",
+    "latest_release": "v0.23.1",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "Mastra",
     "repo": "mastra-ai/mastra",
-    "stars": 27400,
-    "stars_formatted": "27.4K",
-    "latest_release": "v0.8.0",
+    "stars": 28588,
+    "stars_formatted": "28.6K",
+    "latest_release": "@mastra/core@1.74.0",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "Ollama",
     "repo": "ollama/ollama",
-    "stars": 179300,
-    "stars_formatted": "179.3K",
-    "latest_release": "v0.5.0",
+    "stars": 182307,
+    "stars_formatted": "182.3K",
+    "latest_release": "v0.35.1",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "MCP",
     "repo": "modelcontextprotocol/specification",
-    "stars": 0,
-    "stars_formatted": "标准协议",
-    "latest_release": "2026-07",
+    "stars": 9392,
+    "stars_formatted": "9.4K",
+    "latest_release": "2026-07-28",
     "snapshot_date": "2026-10-06"
   },
   {
     "name": "DeepSeek Harness",
     "repo": "deepseek-ai/deepseek-harness",
-    "stars": 137000,
-    "stars_formatted": "137K",
-    "latest_release": "v1.2.0",
+    "stars": 244278,
+    "stars_formatted": "244.3K",
+    "latest_release": null,
     "snapshot_date": "2026-10-06"
   }
 ]
