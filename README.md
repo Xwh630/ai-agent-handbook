@@ -8,7 +8,7 @@
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 26+ 章完整教程 · 9+ 可运行示例 · 国产模型可跑 · 中英术语对照
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 28+ 章完整教程 · 11+ 可运行示例 · 国产模型可跑 · 中英术语对照 · 可安装 Skill 包
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -27,7 +27,7 @@
 
 > **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 137K⭐
 
-> 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
+> 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/README.md) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
 
 ---
 
@@ -45,7 +45,7 @@
 
 本手册有明确的迭代计划，每周更新。想知道接下来会有什么内容？看 [ROADMAP.md](ROADMAP.md)。
 
-> 📌 **当前版本**：v1.2.0 · 保鲜与基建（ROADMAP 规划 v0.2.0 对应实际版本） |
+> 📌 **当前版本**：v1.3.0 · Skills 与上下文（ROADMAP 规划 v0.3.0 对应实际版本） |
 
 ---
 
@@ -109,7 +109,7 @@
 | 章节 | 标题 | 难度 | 内容概要 |
 |------|------|------|----------|
 | 第 0 章 | 🚀 新手快速入门 | ⭐ 零门槛 | 10 分钟跑通第一个 Agent |
-| 术语表 | 📖 中英对照术语表 | - | 110+ 术语通俗解释（含 2026 前沿新词） |
+| 术语表 | 📖 中英对照术语表 | - | 115+ 术语通俗解释（含 38 个 2026 前沿新词） |
 
 ### 入门篇
 
@@ -149,16 +149,33 @@
 
 | 章节 | 标题 | 难度 | 内容概要 |
 |------|------|------|----------|
-| 第 25 章 | [Harness Engineering 驾驭工程](chapters/25-harness-engineering.md) 🆕 | ⭐⭐⭐ 进阶 | 任务边界、上下文管理、状态持久化、失败恢复、权限体系 |
+| 第 25 章 | [Harness Engineering 驾驭工程](chapters/25-harness-engineering.md) | ⭐⭐⭐ 进阶 | 任务边界、上下文管理、状态持久化、失败恢复、权限体系 |
+| 第 26 章 | [Agent Skills 编写实战](chapters/26-agent-skills.md) 🆕 | ⭐⭐⭐ 进阶 | SKILL.md 六字段规范、渐进式披露四阶段、手搓一个可发布的 skill |
+| 第 27 章 | [上下文工程 Context Engineering](chapters/27-context-engineering.md) 🆕 | ⭐⭐⭐ 进阶 | Context Rot 机理、token 构成解剖、压缩/笔记/子 Agent 三板斧 |
 
 ### 📡 Agent Radar 周刊
 
-> 每周一期，追踪 Agent 圈最新项目、框架版本、论文与玩法 —— [进入栏目](radar/)
+> 每周一期，追踪 Agent 圈最新项目、框架版本、论文与玩法 —— [进入栏目](radar/README.md)
 
 | 期数 | 日期 | 内容 |
 |------|------|------|
-| [第 2 期](radar/2026-W41.md) 🆕 | 2026-10-09 | Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| [第 3 期](radar/2026-W42.md) 🆕 | 2026-10-13 | 上下文变成产品：claude-mem 96K⭐、context-mode、OptMem 三条路线 |
+| [第 2 期](radar/2026-W41.md) | 2026-10-09 | Skills 时代开启、MCP 无状态化、上下文工程崛起 |
 | [第 1 期](radar/2026-W40.md) | 2026-10-02 | Harness 元年、Skills 生态爆发、Computer Use 走向生产 |
+
+### 🧩 官方 Agent Skill 包
+
+> **把整本手册装进你的 Agent。** 复制 [`skills/agent-handbook/`](skills/agent-handbook/SKILL.md) 到你的客户端 skills 目录，之后问 Agent 任何手册覆盖的问题，它会自己去翻对应章节。
+
+```bash
+# Claude Code
+cp -r skills/agent-handbook ~/.claude/skills/
+
+# 校验你自己的 skill 是否符合 SKILL.md 规范
+python3 examples/10-agent-skill/main.py ./your-skill
+```
+
+编写规范见 [第 26 章](chapters/26-agent-skills.md)，校验器见 [examples/10-agent-skill/](examples/10-agent-skill/README.md)。
 
 ### 🛠️ Agent 工具详细教程
 
@@ -304,7 +321,7 @@ ai-agent-handbook/
 │   ├── README.md             # 英文 README
 │   ├── TRANSLATION_STATUS.md # 翻译进度
 │   └── chapters/             # 英文章节
-├── chapters/                 # 各章节完整教程（26+ 章）
+├── chapters/                 # 各章节完整教程（28 章）
 │   ├── 00-quickstart.md           # 🚀 新手快速入门（10分钟）
 │   ├── 01-fundamentals.md         # AI Agent 基础概念
 │   ├── 02-reaact-from-scratch.md  # 手写 ReAct Agent
@@ -325,14 +342,21 @@ ai-agent-handbook/
 │   ├── 17-fullstack-project.md    # 全栈实战
 │   ├── 18-selection-guide.md      # 选型指南
 │   ├── 19-agent-toolkit.md        # 🧰 Agent 通用工具箱（规划中）
-│   └── 99-glossary.md             # 📖 中英对照术语表（110+ 术语）
+│   └── 99-glossary.md             # 📖 中英对照术语表（115+ 术语）
 │   ├── 20-codex-cli.md            # 🛠️ OpenAI Codex CLI 详解
 │   ├── 21-deepseek-harness.md     # 🛠️ DeepSeek Harness（dsh）
 │   ├── 22-continue-editor.md      # 🛠️ Continue 编辑器
 │   ├── 23-aider-codestory.md      # 🛠️ Aider 代码助手
 │   └── 24-trae-ide.md             # 🛠️ Trae IDE
 │   ├── 25-harness-engineering.md  # 🏗️ Harness Engineering
-├── examples/                 # 可运行的代码示例（9+ 示例）
+│   ├── 26-agent-skills.md         # 🧩 Agent Skills 编写实战
+│   └── 27-context-engineering.md  # 🧠 上下文工程
+├── skills/                   # 🧩 官方 Agent Skill 包（可安装）
+│   └── agent-handbook/
+│       ├── SKILL.md               # 遵循 Agent Skills 开放规范
+│       └── references/
+│           └── chapter-index.md   # 28 章速查索引
+├── examples/                 # 可运行的代码示例（11 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
 │   ├── 03-crewai-team/            # CrewAI 团队
@@ -341,9 +365,13 @@ ai-agent-handbook/
 │   ├── 06-mastra-agent/           # Mastra 示例
 │   ├── 07-final-project/          # 完整项目
 │   ├── 08-openai-agents-sdk/      # OpenAI Agents SDK
-│   └── 09-rag-knowledge/          # RAG 知识库
+│   ├── 09-rag-knowledge/          # RAG 知识库
+│   └── 10-agent-skill/            # 🆕 SKILL.md 规范校验器 + 最小样例
 ├── radar/                    # 📡 Agent Radar 周刊（每周更新）
-│   └── TEMPLATE.md               # 写作模板
+│   ├── 2026-W40.md                # 第 1 期 · 2026-10-02
+│   ├── 2026-W41.md                # 第 2 期 · 2026-10-09
+│   ├── 2026-W42.md                # 第 3 期 · 2026-10-13
+│   └── TEMPLATE.md                # 写作模板
 ├── data/                     # 📊 数据快照
 │   ├── stars.json                # 框架 Stars 数据
 │   └── stars-history.csv         # Stars 历史数据
@@ -431,7 +459,22 @@ ai-agent-handbook/
 第 17 章 (全栈实战)
 ```
 
-**目标**：深入理解 Agent 架构，能设计和实现复杂多 Agent 系统
+---
+
+### 🏗️ 工程化路线（想让 Agent 真正上生产，约 4-6 周）
+
+```
+第 25 章 (Harness 五大支柱)
+    ↓
+第 27 章 (上下文工程：别让 token 白烧)
+    ↓
+第 26 章 (Skills：把团队经验打包给 Agent)
+    ↓
+第 15 章 (成本优化) + 第 18 章 (选型)
+```
+
+**目标**：从"能跑"到"敢上线"。这是 2026 年 Agent 落地真正的分水岭——
+模型能力大家差不多，**差的是驾驭它的工程**。**目标**：深入理解 Agent 架构，能设计和实现复杂多 Agent 系统
 
 ---
 
@@ -502,16 +545,17 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 26+ 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
-| 示例代码 | 9+ 可运行示例 |
-| 代码行数 | 3,500+ 行 |
-| 字数 | 120,000+ 字 |
+| 章节数量 | 28 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
+| 示例代码 | 11+ 可运行示例（含一个零依赖的 Skill 校验器） |
+| 代码行数 | 4,100+ 行 |
+| 字数 | 145,000+ 字 |
 | 覆盖框架 | 10+ 主流框架 |
-| 术语词条 | 110+（含 2026 前沿新词） |
+| 术语词条 | 115+（含 38 个 2026 前沿新词） |
 | 周刊栏目 | 📡 Agent Radar（每周更新） |
+| Agent Skill 包 | 🧩 可安装，遵循 SKILL.md 开放规范 |
 | CI 工作流 | 5 条（构建 / 链接 / 新鲜度 / 示例测试 / Stars 快照） |
 | 环境支持 | Python 3.10+ / Docker 一键启动 |
-| 当前版本 | v1.2.0 |
+| 当前版本 | v1.3.0 |
 | 更新时间 | 2026-10-06 |
 
 ---
@@ -520,7 +564,13 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 日期 | 更新内容 |
 |------|----------|
-| 2026-10-06 | 🎯 **v0.2.0 发布**：保鲜与基建 — 新增 3 条 CI 工作流、26 章版本声明 frontmatter、术语表 +30 词、第 11 章 MCP 无状态化重写、Radar 第 2 期 |
+| 2026-10-06 | 🎯 **v1.3.0 发布**：Skills 与上下文 — 第 26/27 章 + 官方 Skill 包 + Skill 校验器，共新增约 2.5 万字 |
+| 2026-10-06 | 📖 新增 [第 26 章：Agent Skills 编写实战](chapters/26-agent-skills.md)：SKILL.md 六字段规范逐条拆解、渐进式披露四阶段、token 预算红线、手搓一个可发布的 skill、发布自检清单 |
+| 2026-10-06 | 📖 新增 [第 27 章：上下文工程](chapters/27-context-engineering.md)：Context Rot 机理、一次轮次的 token 构成解剖（用户问题仅占 3%）、工具集 46→15 的账、压缩/笔记/子 Agent 三板斧 |
+| 2026-10-06 | 🧩 新增官方 Agent Skill 包 [`skills/agent-handbook/`](skills/agent-handbook/SKILL.md)：装进客户端后 Agent 可直接查阅本手册 28 章 |
+| 2026-10-06 | 🛠️ 新增 `examples/10-agent-skill`：零依赖的 SKILL.md 规范校验器（20+ 项检查，可直接接 CI）+ 符合规范的最小样例 |
+| 2026-10-13 | 📡 Radar 第 3 期发布：上下文变成产品（claude-mem 96K⭐ / context-mode / OptMem 三条路线） |
+| 2026-10-06 | 🎯 **v1.2.0 发布**：保鲜与基建 — 新增 3 条 CI 工作流、26 章版本声明 frontmatter、术语表 +30 词、第 11 章 MCP 无状态化重写、Radar 第 2 期 |
 | 2026-10-06 | 🗺️ 新增 [ROADMAP.md](ROADMAP.md)：季度迭代计划与执行看板，公开透明 |
 | 2026-10-06 | 🔧 新增 3 条 CI：内容新鲜度检查、示例冒烟测试、Stars 周更自动 PR |
 | 2026-10-06 | 📖 第 11 章 MCP 重大更新：2026-07 无状态核心、SDK 迁移指引、Serverless 部署指南 |

@@ -149,6 +149,14 @@
 | **Freshness** | 新鲜度 | 技术文档/教程与最新版本的同步程度 | Agent 领域内容半衰期约 3 个月 |
 | **Radar** | 雷达/周刊 | 定期追踪行业动态的栏目形式 | 本手册的每周更新栏目 |
 | **Codespaces** | 云端开发环境 | GitHub 提供的一键云端开发环境，零配置启动项目 | `.devcontainer/` 目录定义 |
+| **Progressive Disclosure** | 渐进式披露 | Skills 的四阶段加载：先只暴露元信息 → 命中后加载正文 → 需要时读资源 → 按需跑脚本 | 让 20 个 skill 常驻只需约 2,000 token |
+| **Advertise Stage** | 广告阶段 | 渐进式披露第一阶段：所有 skill 的 name + description 常驻系统提示 | 每个 skill 约 100 token 的固定成本 |
+| **allowed-tools** | 预授权工具 | SKILL.md frontmatter 字段，声明该技能可免询问直接使用的工具 | 实验性字段，各客户端支持程度不一 |
+| **Token Budget** | 令牌预算 | 给 skill 正文或上下文划定的 token 消耗上限，超出就该拆分 | SKILL.md 正文建议 < 5,000 token |
+| **Attention Budget** | 注意力预算 | 模型能有效处理的信息总量上限，是上下文工程的根本约束 | Transformer 的 n² 注意力决定了它稀缺 |
+| **Token Composition** | 令牌构成 | 一次 Agent 轮次中各部分 token 的占比结构 | 用户真正的问题往往只占 3% |
+| **Agentic IDE** | AI 原生 IDE | 以 Agent 为核心（而非以编辑区为核心）的集成开发环境 | Trae、Windsurf 是代表形态 |
+| **Persistent Agent Memory** | 跨会话持久记忆 | 让 Agent 在一次会话中学到的东西能被下次会话复用的机制 | claude-mem（96K⭐）是该方向的现象级项目 |
 
 ---
 

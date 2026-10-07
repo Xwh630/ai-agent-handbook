@@ -84,8 +84,12 @@ nav:
       - 第 17 章 · 全栈实战项目: chapters/17-fullstack-project.md
   - 🏗️ 工程化专题:
       - 第 25 章 · Harness Engineering: chapters/25-harness-engineering.md
+      - 第 26 章 · Agent Skills 编写实战: chapters/26-agent-skills.md
+      - 第 27 章 · 上下文工程: chapters/27-context-engineering.md
   - 📡 Agent Radar:
       - 栏目说明: radar/README.md
+      - 第 3 期 · 2026-10-13: radar/2026-W42.md
+      - 第 2 期 · 2026-10-09: radar/2026-W41.md
       - 第 1 期 · 2026-10-02: radar/2026-W40.md
   - 🛠️ Agent 工具详细教程:
       - 第 20 章 · OpenAI Codex CLI: chapters/20-codex-cli.md
