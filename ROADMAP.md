@@ -437,9 +437,9 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
         e2b-dev/awesome-ai-agents #1693（⚠️ 该仓库已停牌：最近 60 个 PR 合并数为 0，别等它）
         EmbraceAGI/awesome-chatgpt-zh #106 · kyrolabs/awesome-agents #821
 [x] 10. 第 26 章 Agent Skills + 第 27 章上下文工程（均已完稿）
-[ ] 11. 补一个活跃清单的收录 PR：Jenqyang/Awesome-AI-Agents（今日仍在合并 PR）
-[ ] 12. 打 v1.3.0 Release（Skills 与上下文）
-[ ] 13. 关闭历史遗留 issue #1–#4（链接已修完）
+[x] 11. 补一个活跃清单的收录 PR：Jenqyang/Awesome-AI-Agents #580
+[x] 12. 打 v1.3.0 Release（Skills 与上下文）
+[x] 13. 关闭历史遗留 issue #1–#4（链接已修完）
 ```
 
 ---
