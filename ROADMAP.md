@@ -169,31 +169,39 @@
 
 ## Part 3 · 版本路线图
 
-### v0.2.0 — 保鲜与基建（2026-10 底）
+### v0.2.0 — 保鲜与基建（2026-10 底）→ **✅ 已完成，实际发布为 v1.2.0**
 
 **目标**：让仓库看起来「活着且被认真维护」。
 
-- [ ] 补全 25 章的 frontmatter 版本声明
-- [ ] 上线 `freshness.yml` / `examples-smoke.yml` / `stars-snapshot.yml`
+- [x] 补全 26 章的 frontmatter 版本声明
+- [x] 上线 `freshness.yml` / `examples-smoke.yml` / `stars-snapshot.yml`
 - [ ] README 加三个动态 badge：CI 通过率、最后核验日期、Deps 版本
-- [ ] 填补或声明第 19 章编号空缺
-- [ ] 术语表补 30 个 2026 新词
-- [ ] 填 Homepage、重设 Topics、开第一个 Release
-- [ ] 第 11 章 MCP 重写（无状态化）
+- [x] 填补第 19 章编号空缺（`19-agent-toolkit.md` 占位）
+- [x] 术语表补 30 个 2026 新词
+- [x] 填 Homepage、重设 Topics、开 Release（v1.2.0）
+- [x] 第 11 章 MCP 重写（无状态化）
 
-**验收**：README 首屏无任何过时信息；CI 三条全绿；出现第一个自动化保鲜 issue。
+**验收**：~~README 首屏无任何过时信息；CI 三条全绿；出现第一个自动化保鲜 issue。~~
+**实际结果（2026-10-06）**：CI 五条全绿 ✅；Check Links 死链从 20 个降到 0 ✅；v1.2.0 Release 已发布 ✅；Stars Snapshot 已能自动开 PR ✅。
+**遗留**：三个 CI badge 未做；`examples-smoke` 的 Gist badge 因缺 token 设为 `continue-on-error`。
 
-### v0.3.0 — Skills 与上下文（2026-11 中）
+### v0.3.0 — Skills 与上下文（2026-11 中）→ **🟡 主体已完成，实际发布为 v1.3.0**
 
 **目标**：吃下 2026 最大风口，产出两个别人没有的章节。
 
-- [ ] 第 26 章 + `examples/10-agent-skill/`
-- [ ] 第 27 章 + `examples/11-context-lab/`
-- [ ] **创新项 C1：发布 `skills/agent-handbook` 官方 Skill 包**（详见 Part 4）
-- [ ] 第 15 / 18 / 25 章联动修订
+- [x] 第 26 章 Agent Skills 编写实战（602 行 / 约 1.66 万字）
+- [x] `examples/10-agent-skill/` —— 零依赖的 SKILL.md 规范校验器 + `sample-skill` 最小样例
+- [x] 第 27 章上下文工程（306 行 / 约 8.1 千字）
+- [x] **创新项 C1：发布 `skills/agent-handbook` 官方 Skill 包**（含 `references/chapter-index.md` 28 章索引）
+- [ ] `examples/11-context-lab/`（可视化 token 消耗）← **推迟到 v0.3.1**
+- [ ] 第 15 / 18 / 25 章联动修订 ← **推迟到 v0.3.1**
 - [ ] 一键 Codespaces 环境（`.devcontainer/`）
 
 **验收**：用户在自己的 Claude Code / Copilot 里能加载本手册 Skill；第 26 章能被至少一个 aggregator 收录或引用。
+
+**进度说明（2026-10-06）**：核心内容全部提前落地，比原计划早约 5 周。
+Skill 包已用第 26 章自己的校验器验证：`0 ERROR / 0 WARN / 通过 5 项`。
+`examples/11-context-lab` 因需实装 token 可视化，成本高于本章收益，推迟。
 
 ### v0.4.0 — 协作与治理（2026-11 底）
 
@@ -345,18 +353,18 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
 
 | 周次 | 日期 | 内容产出 | 工程/机制 | 增长动作 |
 |------|------|----------|-----------|----------|
-| **W41** | 10-06 ~ 10-12 | Radar 第 2 期（已备好）· README 重构（已备好） | `scripts/refresh_stars.py` 首版 | P0 曝光基建五项全做完 |
-| **W42** | 10-13 ~ 10-19 | 第 11 章 MCP 重写（无状态化）· 术语表 +30 词 | `freshness.yml` 上线 | 提第一批 awesome PR（3 个） |
-| **W43** | 10-20 ~ 10-26 | Radar 第 3 期 · **第 26 章 Agent Skills 初稿** | `examples-smoke.yml` 上线 | 掘金/知乎首发 SKILL.md 长文 |
-| **W44** | 10-27 ~ 11-02 | 第 26 章定稿 + `examples/10-agent-skill/` | v0.2.0 Release | HelloGitHub 投稿 |
-| **W45** | 11-03 ~ 11-09 | Radar 第 4 期 · **C1 Skill 包设计与拆分** | `.devcontainer/` 一键环境 |  |
-| **W46** | 11-10 ~ 11-16 | **第 27 章上下文工程** + `examples/11-context-lab/` | `stars-snapshot.yml` 上线 | 发「一次轮次 token 构成」图帖 |
-| **W47** | 11-17 ~ 11-23 | Radar 第 6 期 · **C1 Skill 包发布** | v0.3.0 Release | Skill 生态自荐（提交到各 registry） |
-| **W48** | 11-24 ~ 11-30 | 第 28 章 A2A + `examples/12-a2a-bridge/` |  | Reddit 英文帖 |
-| **W49** | 12-01 ~ 12-07 | Radar 第 8 期 · **C3 横评数据集设计** | 评测脚本框架 |  |
-| **W50** | 12-08 ~ 12-14 | 第 29 章评测与治理 · 横评首批数据 | v0.4.0 Release | 横评数据图发布 |
-| **W51** | 12-15 ~ 12-21 | Radar 第 10 期 · C2 MCP Server 开发 | `mcp-server/` 目录 |  |
-| **W52** | 12-22 ~ 12-28 | 英文版补至 5 章 · 目录双索引重构 | **v1.0.0 Release** | 年度盘点：一年 12 期 Radar |
+| **W41** | 10-06 ~ 10-12 | ✅ Radar 第 2 期 · ✅ README 重构 · ✅ 第 11 章 MCP 重写 · ✅ 术语表 +30 词 | ✅ `freshness.yml` / `examples-smoke.yml` / `stars-snapshot.yml` 全部上线并跑通 | ✅ P0 曝光基建五项全做完 · ✅ v1.2.0 Release |
+| **W42** | 10-13 ~ 10-19 | ✅ **第 26 章 Agent Skills**（602 行）· ✅ **第 27 章上下文工程**（306 行）· ✅ **Radar 第 3 期** | ✅ `scripts/build_docs.py` 修复（补上 `radar/` `skills/` 暂存，消除 mkdocs 丢页） | ✅ 提第一批 awesome PR（3 个，待 review） |
+| **W43** | 10-20 ~ 10-26 | Radar 第 4 期 · 第 15/18/25 章联动修订（与第 27 章边界收敛） | `.devcontainer/` 一键环境 | 掘金/知乎首发 SKILL.md 长文 |
+| **W44** | 10-27 ~ 11-02 | Radar 第 5 期 · **第 28 章 A2A 起稿** | v1.4.0 Release | HelloGitHub 投稿 |
+| **W45** | 11-03 ~ 11-09 | Radar 第 6 期 · 第 28 章定稿 + `examples/12-a2a-bridge/` | 术语校验脚本 | 中文社区第二轮推荐 |
+| **W46** | 11-10 ~ 11-16 | Radar 第 7 期 · **第 29 章评测与安全治理** | 评测脚本框架 | 发「一次轮次 token 构成」图帖 |
+| **W47** | 11-17 ~ 11-23 | Radar 第 8 期 · **C2 MCP Server 开发** | `mcp-server/` 目录 | v1.5.0 Release |
+| **W48** | 11-24 ~ 11-30 | Radar 第 9 期 · **C3 横评对照数据集设计** | 评测框架搭建 | Reddit 英文帖 |
+| **W49** | 12-01 ~ 12-07 | Radar 第 10 期 · 横评首批真实数据产出 | 数据采集自动化 | 横评图表首发 |
+| **W50** | 12-08 ~ 12-14 | Radar 第 11 期 · 英文版补至 5 章 | v0.4.0 Release | 英文社区推荐 |
+| **W51** | 12-15 ~ 12-21 | Radar 第 12 期 · 全文交叉校对与死链复查 | 目录双索引重构 | 年度预热 |
+| **W52** | 12-22 ~ 12-28 | 年度盘点长文 · 12 期 Radar 合集 | **v1.0.0 Release** | 年度回顾 + 明年路线图 |
 
 > 每周 Radar 不可跳过；若某周时间不够，**优先保 Radar、延后章节**，因为"稳定更新"这个信号本身的价值高于单章内容。
 
@@ -415,18 +423,23 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
 ## 附录 A · 立即执行的 checklist
 
 ```
-[ ] 1. Settings → Homepage 填 https://xwh630.github.io/ai-agent-handbook/
-[ ] 2. Settings → Topics：+ agent-skills context-engineering a2a claude-code
+[x] 1. Settings → Homepage 填 https://xwh630.github.io/ai-agent-handbook/
+[x] 2. Settings → Topics：+ agent-skills context-engineering a2a claude-code
         codex-cli llm-agents llms-txt agent-ops chinese-tutorial
         - deep-learning machine-learning
 [ ] 3. Settings → Social preview 上传 1280×640 OG 图
 [ ] 4. Settings → Discussions：开 Q&A / Show and tell / Radar
-[ ] 5. 上传 Radar 第 2 期（radar/2026-W41.md + radar/README.md）
-[ ] 6. 上传重构版 README.md 与 llms.txt
-[ ] 7. 自己 Watch → Releases only
-[ ] 8. Releases → 打 v0.2.0
-[ ] 9. 给 e2b-dev/awesome-ai-agents 提收录 PR
-[ ] 10. 开始写第 26 章
+[x] 5. 上传 Radar 第 2 期（radar/2026-W41.md + radar/README.md）
+[x] 6. 上传重构版 README.md 与 llms.txt
+[ ] 7. 自己 Watch → Releases only  ← 仍未验证订阅链路
+[x] 8. Releases → 打 v1.2.0（Freshness & Infrastructure）
+[x] 9. 给三个 awesome 清单提收录 PR
+        e2b-dev/awesome-ai-agents #1693（⚠️ 该仓库已停牌：最近 60 个 PR 合并数为 0，别等它）
+        EmbraceAGI/awesome-chatgpt-zh #106 · kyrolabs/awesome-agents #821
+[x] 10. 第 26 章 Agent Skills + 第 27 章上下文工程（均已完稿）
+[ ] 11. 补一个活跃清单的收录 PR：Jenqyang/Awesome-AI-Agents（今日仍在合并 PR）
+[ ] 12. 打 v1.3.0 Release（Skills 与上下文）
+[ ] 13. 关闭历史遗留 issue #1–#4（链接已修完）
 ```
 
 ---
