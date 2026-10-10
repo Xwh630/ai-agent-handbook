@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   snapshot:
@@ -14,8 +15,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,33 +30,21 @@ jobs:
         run: |
           python scripts/refresh_stars.py
 
-      - name: Check for changes
-        id: diff
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "changes=true" >> $GITHUB_OUTPUT
-            echo "Changes detected:"
-            git status --porcelain
-          else
-            echo "changes=false" >> $GITHUB_OUTPUT
-            echo "No changes detected, skipping commit."
-          fi
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: weekly stars snapshot"
+          branch: chore/stars-snapshot
+          delete-branch: true
+          title: "chore: weekly stars snapshot"
+          body: |
+            自动更新 stars 数据（data/stars.json、data/stars-history.csv、README badge）。
 
-      - name: Commit and push
-        if: steps.diff.outputs.changes == 'true'
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stars.json data/stars-history.csv README.md
-          git commit -m "chore: weekly stars snapshot"
-          # 定时快照可能与人工/其他推送撞车，先 rebase 再重试
-          for i in 1 2 3; do
-            if git pull --rebase origin main && git push; then
-              echo "✅ push succeeded"
-              exit 0
-            fi
-            echo "⚠️ push failed (attempt $i), retrying in 5s..."
-            sleep 5
-          done
-          echo "❌ push failed after 3 attempts"
-          exit 1
+          gh pr merge --auto --squash "${{ steps.cpr.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
