@@ -50,4 +50,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/stars.json data/stars-history.csv README.md
           git commit -m "chore: weekly stars snapshot"
-          git push
+          # 定时快照可能与人工/其他推送撞车，先 rebase 再重试
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push; then
+              echo "✅ push succeeded"
+              exit 0
+            fi
+            echo "⚠️ push failed (attempt $i), retrying in 5s..."
+            sleep 5
+          done
+          echo "❌ push failed after 3 attempts"
+          exit 1
