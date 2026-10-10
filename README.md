@@ -25,7 +25,7 @@
 
 </div>
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 40.3K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 57.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 60.6K⭐ · [Dify](https://github.com/langgenius/dify) 153.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 51.8K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 27.4K⭐ · [Ollama](https://github.com/ollama/ollama) 179.3K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 137K⭐
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.0K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.5K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.3K⭐ · [Dify](https://github.com/langgenius/dify) 158.1K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.7K⭐ · [Ollama](https://github.com/ollama/ollama) 182.6K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 246.8K⭐
 
 > 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/README.md) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
 
@@ -265,15 +265,15 @@ python main.py
 
 | 框架 | GitHub Stars | 语言 | 定位 | 最佳场景 | 推荐指数 |
 |------|--------------|------|------|----------|----------|
-| **LangGraph** | 40.3K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
-| **CrewAI** | 57.5K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
+| **LangGraph** | 43.0K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
+| **CrewAI** | 59.5K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
 | **AutoGen (MAF)** | 60.6K ⭐ | Python/.NET | 对话驱动协作 | 多 Agent 研究、迭代求解 | ⭐⭐⭐⭐ |
-| **Dify** | 153.3K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
-| **LlamaIndex** | 51.8K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
-| **OpenAI Agents SDK** | 28.9K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
+| **Dify** | 158.1K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
+| **LlamaIndex** | 52.5K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
+| **OpenAI Agents SDK** | 29.9K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
 | **Claude Agent SDK** | 8.0K ⭐ | Python | Anthropic 官方 | Claude Code 集成 | ⭐⭐⭐ |
-| **Mastra** | 27.4K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
-| **Ollama** | 179.3K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
+| **Mastra** | 28.7K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
+| **Ollama** | 182.6K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
 | **MCP** | 标准协议 | 多语言 | 工具标准化连接 | 跨框架工具互通 | ⭐⭐⭐⭐⭐ |
 
 > Stars 数据截至 2026 年 10 月，来自 GitHub。每周自动更新。
