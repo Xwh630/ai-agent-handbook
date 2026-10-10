@@ -1,0 +1,4369 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="中文 AI Agent 实战手册 - 从零基础到全栈开发的系统化教程（双语）">
+      
+      
+      
+        <link rel="canonical" href="https://xwh630.github.io/ai-agent-handbook/">
+      
+      
+      
+        <link rel="next" href="chapters/00-quickstart/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>AI Agent 实战手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#language" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="." title="AI Agent 实战手册" class="md-header__button md-logo" aria-label="AI Agent 实战手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Agent 实战手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              首页
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Xwh630/ai-agent-handbook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="AI Agent 实战手册" class="md-nav__button md-logo" aria-label="AI Agent 实战手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Agent 实战手册
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Xwh630/ai-agent-handbook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 语言 / Language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ 迭代路线图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🆕 新手看这里（零基础必读）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆕 新手看这里（零基础必读）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新手友好特点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌟 项目亮点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌟 项目亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么选择这本手册？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        适合谁读？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 目录
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 目录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新手专区（必读）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入门篇
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶篇
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级篇
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ 工程化专题（生产级必备）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-radar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📡 Agent Radar 周刊
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 官方 Agent Skill 包
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Agent 工具详细教程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 快速开始
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 快速开始">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案 1：Docker 一键启动（最省事，推荐新手）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案 2：本地 Python（常规方式）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 核心框架速览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 生态联动
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 生态联动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        框架官方仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awesome-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        精选资源清单（Awesome Lists）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 推荐学习路径
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔥 推荐学习路径">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新手路线（约 2-3 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶路线（约 4-6 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级路线（约 6-8 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-4-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ 工程化路线（想让 Agent 真正上生产，约 4-6 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 核心概念图解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 核心概念图解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ReAct 模式（推理 + 行动）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多 Agent 协作模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 实战项目：研究报告生成系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 项目统计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 最新更新
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📬 贡献指南
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📬 贡献指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        贡献类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📄 许可证
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 相关链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💬 交流
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#star-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Star History
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 新手专区
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🚀 新手专区
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/00-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 0 章 · 10 分钟快速上手
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/99-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 中英对照术语表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    入门篇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    入门篇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/01-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 章 · AI Agent 基础概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/02-reaact-from-scratch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 章 · 从零手写 ReAct Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/07-dify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 7 章 · Dify 低代码平台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/12-ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 12 章 · Ollama 本地部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶篇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶篇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/03-langgraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 章 · LangGraph 图编排
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/04-crewai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 4 章 · CrewAI 多智能体
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/05-autogen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 5 章 · AutoGen / MAF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/06-llamaindex-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 6 章 · LlamaIndex RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/08-openai-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 8 章 · OpenAI Agents SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/09-claude-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 9 章 · Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/10-mastra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 章 · Mastra TypeScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/11-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 11 章 · MCP 协议
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/15-cost-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 15 章 · Token 成本优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/18-selection-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 18 章 · 选型指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级篇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级篇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/13-collaboration-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 13 章 · 多 Agent 协作模式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/14-memory-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 14 章 · 记忆系统与状态管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/16-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 16 章 · 调试与可观测性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/17-fullstack-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 17 章 · 全栈实战项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ 工程化专题
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ 工程化专题
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/25-harness-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 25 章 · Harness Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/26-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 26 章 · Agent Skills 编写实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/27-context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 27 章 · 上下文工程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📡 Agent Radar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📡 Agent Radar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="radar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    栏目说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="radar/2026-W42/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 期 · 2026-10-13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="radar/2026-W41/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 期 · 2026-10-09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="radar/2026-W40/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 期 · 2026-10-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Agent 工具详细教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🛠️ Agent 工具详细教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/20-codex-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 20 章 · OpenAI Codex CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/21-deepseek-harness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 21 章 · DeepSeek Harness（dsh）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/22-continue-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 22 章 · Continue 编辑器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/23-aider-codestory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 23 章 · Aider 代码助手
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapters/24-trae-ide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 24 章 · Trae IDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考文档
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考文档
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/framework-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    框架对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/tool-calling-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具调用指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最佳实践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    附录
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appendix/error-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录 A · 错误排查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appendix/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录 B · 学习资源与社区
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌐 English
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🌐 English
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    English Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/chapters/00-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/chapters/01-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/chapters/99-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/TRANSLATION_STATUS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translation Status
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 语言 / Language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ 迭代路线图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🆕 新手看这里（零基础必读）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆕 新手看这里（零基础必读）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新手友好特点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌟 项目亮点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌟 项目亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么选择这本手册？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        适合谁读？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 目录
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 目录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新手专区（必读）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入门篇
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶篇
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级篇
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ 工程化专题（生产级必备）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-radar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📡 Agent Radar 周刊
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 官方 Agent Skill 包
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Agent 工具详细教程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 快速开始
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 快速开始">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案 1：Docker 一键启动（最省事，推荐新手）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案 2：本地 Python（常规方式）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 核心框架速览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 生态联动
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 生态联动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        框架官方仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awesome-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        精选资源清单（Awesome Lists）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 推荐学习路径
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔥 推荐学习路径">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新手路线（约 2-3 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶路线（约 4-6 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级路线（约 6-8 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-4-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ 工程化路线（想让 Agent 真正上生产，约 4-6 周）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 核心概念图解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 核心概念图解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ReAct 模式（推理 + 行动）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多 Agent 协作模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 实战项目：研究报告生成系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 项目统计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 最新更新
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📬 贡献指南
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📬 贡献指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        贡献类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📄 许可证
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 相关链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💬 交流
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#star-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Star History
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>首页</h1>
+
+<div align="center">
+
+<img src="assets/banner.svg" alt="AI Agent 实战手册" width="800"/>
+
+# 🤖 AI Agent 实战手册（中文为主 · English in progress）
+
+### 不是教你"会用"某个框架，而是让你理解 Agent 的本质 —— 在任何框架面前游刃有余
+
+**面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
+
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 28+ 章完整教程 · 11+ 可运行示例 · 国产模型可跑 · 中英术语对照 · 可安装 Skill 包
+
+[![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
+[![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
+[![Last Commit](https://img.shields.io/github/last-commit/Xwh630/ai-agent-handbook?style=flat-square&color=orange)](https://github.com/Xwh630/ai-agent-handbook/commits/main)
+[![Contributors](https://img.shields.io/github/contributors/Xwh630/ai-agent-handbook?style=flat-square&color=purple)](https://github.com/Xwh630/ai-agent-handbook/graphs/contributors)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
+[![📖 在线文档](https://img.shields.io/badge/%F0%9F%93%96-Online_Docs-1D9E75)](https://xwh630.github.io/ai-agent-handbook/)
+[![🧪 Examples](https://img.shields.io/badge/examples-passing-brightgreen)](https://github.com/Xwh630/ai-agent-handbook/actions/workflows/examples-smoke.yml)
+[![📅 Last Verified](https://img.shields.io/badge/last_verified-2026--10--06-blue)](https://github.com/Xwh630/ai-agent-handbook/actions/workflows/freshness.yml)
+[![🔄 Freshness](https://img.shields.io/badge/freshness-CI_active-2ea44f)](https://github.com/Xwh630/ai-agent-handbook/actions/workflows/freshness.yml)
+
+### ⭐ 如果这份手册对你有帮助，请点亮 Star，让更多中文开发者看到它！
+
+</div>
+
+<blockquote>
+<p><strong>框架覆盖</strong>：<a href="https://github.com/langchain-ai/langgraph">LangGraph</a> 40.3K⭐ · <a href="https://github.com/crewAIInc/crewAI">CrewAI</a> 57.5K⭐ · <a href="https://github.com/microsoft/autogen">AutoGen</a> 60.6K⭐ · <a href="https://github.com/langgenius/dify">Dify</a> 153.3K⭐ · <a href="https://github.com/run-llama/llama_index">LlamaIndex</a> 51.8K⭐ · <a href="https://github.com/openai/openai-agents-python">OpenAI Agents</a> 28.9K⭐ · <a href="https://github.com/mastra-ai/mastra">Mastra</a> 27.4K⭐ · <a href="https://github.com/ollama/ollama">Ollama</a> 179.3K⭐ · <a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek Harness</a> 137K⭐</p>
+<p>📡 <strong>新增「Agent Radar」周刊</strong>：<a href="radar/">每周一期，追踪 Agent 圈最新动态</a> · 🏗️ <strong>新增<a href="chapters/25-harness-engineering/">第 25 章：Harness Engineering</a></strong> —— 2026 年 Agent 工程的核心竞争力</p>
+</blockquote>
+<hr />
+<h2 id="language">🌐 语言 / Language<a class="headerlink" href="#language" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇨🇳 <strong>简体中文（主语言）</strong></td>
+<td><a href="./">README.md</a></td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>English (in progress)</strong></td>
+<td><a href="en/">English README</a></td>
+</tr>
+<tr>
+<td>📊 <strong>翻译进度</strong></td>
+<td><a href="en/TRANSLATION_STATUS/">Translation Status</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_1">🗺️ 迭代路线图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本手册有明确的迭代计划，每周更新。想知道接下来会有什么内容？看 <a href="ROADMAP.md">ROADMAP.md</a>。</p>
+<blockquote>
+<p>📌 <strong>当前版本</strong>：v1.3.0 · Skills 与上下文（ROADMAP 规划 v0.3.0 对应实际版本） |</p>
+</blockquote>
+<hr />
+<h2 id="_2">🆕 新手看这里（零基础必读）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>完全没接触过 AI Agent？</strong> 从这里开始，10 分钟跑通你的第一个 Agent！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>入口</th>
+<th>适合人群</th>
+<th>耗时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🚀 <strong><a href="chapters/00-quickstart/">第 0 章：新手快速入门</a></strong></td>
+<td>完全零基础</td>
+<td>⏱️ 10 分钟</td>
+</tr>
+<tr>
+<td>📖 <strong><a href="chapters/99-glossary/">中英对照术语表</a></strong></td>
+<td>看文档遇到不懂的词</td>
+<td>⏱️ 随时查</td>
+</tr>
+<tr>
+<td>🐳 <strong><a href="#方案-1docker-一键启动最省事推荐新手">Docker 一键环境</a></strong></td>
+<td>不想装 Python 环境</td>
+<td>⏱️ 2 分钟</td>
+</tr>
+<tr>
+<td>🛠️ <strong><a href="chapters/20-codex-cli/">第 20 章 · Codex CLI</a></strong></td>
+<td>想用 OpenAI Codex</td>
+<td>⏱️ 15 分钟</td>
+</tr>
+<tr>
+<td>🛠️ <strong><a href="chapters/21-deepseek-harness/">第 21 章 · DeepSeek Harness</a></strong></td>
+<td>想批量自动化 + SWE-bench</td>
+<td>⏱️ 20 分钟</td>
+</tr>
+<tr>
+<td>🛠️ <strong><a href="chapters/22-continue-editor/">第 22 章 · Continue 编辑器</a></strong></td>
+<td>想用 AI 编码辅助</td>
+<td>⏱️ 10 分钟</td>
+</tr>
+<tr>
+<td>🛠️ <strong><a href="chapters/23-aider-codestory/">第 23 章 · Aider 代码助手</a></strong></td>
+<td>想在终端用 AI 编程</td>
+<td>⏱️ 10 分钟</td>
+</tr>
+<tr>
+<td>🛠️ <strong><a href="chapters/24-trae-ide/">第 24 章 · Trae IDE</a></strong></td>
+<td>想体验 AI 原生 IDE</td>
+<td>⏱️ 10 分钟</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">新手友好特点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ <strong>生活化比喻</strong>：把 Agent 比作"全能管家"，一看就懂</li>
+<li>✅ <strong>图文并茂</strong>：Mermaid 流程图 + 表格，不烧脑</li>
+<li>✅ <strong>代码可复制</strong>：完整代码直接复制运行，不用改一行</li>
+<li>✅ <strong>国产模型可用</strong>：支持 DeepSeek、智谱、通义千问，注册送额度</li>
+<li>✅ <strong>双语文档</strong>：中文为主，英文同步更新</li>
+</ul>
+<hr />
+<h2 id="_4">🌟 项目亮点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">为什么选择这本手册？<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  ✅ 新手零门槛 — 第 0 章 10 分钟跑通第一个 Agent             │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  ✅ 中文内容稀缺 — 大多数优质教程是英文的，且版本更新快        │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  ✅ 覆盖全面 — 从入门到生产级应用，一站式掌握                 │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  ✅ 实战导向 — 每个章节都有可运行的代码                        │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  ✅ 框架完整 — 10+ 主流 Agent 框架全覆盖                      │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│  ✅ 选型清晰 — 帮你快速找到最适合你场景的框架                 │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│  ✅ 持续保鲜 — CI 自动监控版本更新，过期内容自动标记           │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  ✅ 每周更新 — Radar 周刊 + 版本化迭代，紧跟 2026 最新技术    │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└─────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="_6">适合谁读？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>读者类型</th>
+<th>阅读路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>零基础新手</strong></td>
+<td>第 0 章(10分钟入门) → 第 1 章 → 第 7 章(Dify) → 第 12 章(Ollama)</td>
+</tr>
+<tr>
+<td><strong>初学者</strong></td>
+<td>第 1 章 → 第 2 章 → 第 7 章(Dify) → 第 12 章(Ollama)</td>
+</tr>
+<tr>
+<td><strong>进阶开发者</strong></td>
+<td>第 1 章 → 第 3 章(LangGraph) → 第 4 章(CrewAI) → 第 17 章(实战)</td>
+</tr>
+<tr>
+<td><strong>架构师</strong></td>
+<td>第 13 章(协作模式) → 第 14 章(记忆) → 第 16 章(可观测性) → 第 17 章(全栈)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">📖 目录<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">新手专区（必读）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>难度</th>
+<th>内容概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 0 章</td>
+<td>🚀 新手快速入门</td>
+<td>⭐ 零门槛</td>
+<td>10 分钟跑通第一个 Agent</td>
+</tr>
+<tr>
+<td>术语表</td>
+<td>📖 中英对照术语表</td>
+<td>-</td>
+<td>115+ 术语通俗解释（含 38 个 2026 前沿新词）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">入门篇<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>难度</th>
+<th>内容概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 章</td>
+<td>AI Agent 基础概念</td>
+<td>⭐ 入门</td>
+<td>Agent 本质、核心组件、ReAct 模式</td>
+</tr>
+<tr>
+<td>第 2 章</td>
+<td>从零手写 ReAct Agent</td>
+<td>⭐⭐ 基础</td>
+<td>完整实现一个最小可用 Agent</td>
+</tr>
+<tr>
+<td>第 7 章</td>
+<td>Dify 低代码可视化平台</td>
+<td>⭐ 入门</td>
+<td>可视化拖拽构建应用</td>
+</tr>
+<tr>
+<td>第 12 章</td>
+<td>Ollama 本地大模型部署</td>
+<td>⭐ 入门</td>
+<td>隐私保护、离线场景</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">进阶篇<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>难度</th>
+<th>内容概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 3 章</td>
+<td>LangGraph 图编排实战</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>复杂工作流、状态机、检查点</td>
+</tr>
+<tr>
+<td>第 4 章</td>
+<td>CrewAI 多智能体协作</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>角色化团队、任务分配</td>
+</tr>
+<tr>
+<td>第 5 章</td>
+<td>AutoGen / MAF 对话驱动</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>多 Agent 研究、迭代求解</td>
+</tr>
+<tr>
+<td>第 6 章</td>
+<td>LlamaIndex RAG 知识库</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>文档检索、向量数据库</td>
+</tr>
+<tr>
+<td>第 8 章</td>
+<td>OpenAI Agents SDK</td>
+<td>⭐⭐ 基础</td>
+<td>轻量级多 Agent</td>
+</tr>
+<tr>
+<td>第 9 章</td>
+<td>Claude Agent SDK</td>
+<td>⭐⭐ 基础</td>
+<td>Anthropic 官方工具</td>
+</tr>
+<tr>
+<td>第 10 章</td>
+<td>Mastra TypeScript Agent</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>TS 优先的 Agent 框架</td>
+</tr>
+<tr>
+<td>第 11 章</td>
+<td>MCP 协议完全指南</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>标准化工具连接协议</td>
+</tr>
+<tr>
+<td>第 15 章</td>
+<td>Token 成本优化策略</td>
+<td>⭐⭐ 基础</td>
+<td>生产环境成本控制</td>
+</tr>
+<tr>
+<td>第 18 章</td>
+<td>选型决策树与最佳实践</td>
+<td>⭐⭐ 基础</td>
+<td>如何选择合适的框架</td>
+</tr>
+<tr>
+<td>第 19 章</td>
+<td>Agent 通用工具箱</td>
+<td>⏳ 规划中</td>
+<td>工具注册、审批网关、成本追踪等</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">高级篇<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>难度</th>
+<th>内容概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 13 章</td>
+<td>多 Agent 协作模式详解</td>
+<td>⭐⭐⭐⭐ 高级</td>
+<td>6 种协作模式与决策树</td>
+</tr>
+<tr>
+<td>第 14 章</td>
+<td>记忆系统与状态管理</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>Mem0、向量记忆、持久化</td>
+</tr>
+<tr>
+<td>第 16 章</td>
+<td>调试、监控与可观测性</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>LangSmith、日志、追踪</td>
+</tr>
+<tr>
+<td>第 17 章</td>
+<td>全栈实战：研究报告生成系统</td>
+<td>⭐⭐⭐⭐ 高级</td>
+<td>整合所有技术的完整项目</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">🏗️ 工程化专题（生产级必备）<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>难度</th>
+<th>内容概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 25 章</td>
+<td><a href="chapters/25-harness-engineering/">Harness Engineering 驾驭工程</a></td>
+<td>⭐⭐⭐ 进阶</td>
+<td>任务边界、上下文管理、状态持久化、失败恢复、权限体系</td>
+</tr>
+<tr>
+<td>第 26 章</td>
+<td><a href="chapters/26-agent-skills/">Agent Skills 编写实战</a> 🆕</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>SKILL.md 六字段规范、渐进式披露四阶段、手搓一个可发布的 skill</td>
+</tr>
+<tr>
+<td>第 27 章</td>
+<td><a href="chapters/27-context-engineering/">上下文工程 Context Engineering</a> 🆕</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>Context Rot 机理、token 构成解剖、压缩/笔记/子 Agent 三板斧</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agent-radar">📡 Agent Radar 周刊<a class="headerlink" href="#agent-radar" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>每周一期，追踪 Agent 圈最新项目、框架版本、论文与玩法 —— <a href="radar/">进入栏目</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>日期</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="radar/2026-W42/">第 3 期</a> 🆕</td>
+<td>2026-10-13</td>
+<td>上下文变成产品：claude-mem 96K⭐、context-mode、OptMem 三条路线</td>
+</tr>
+<tr>
+<td><a href="radar/2026-W41/">第 2 期</a></td>
+<td>2026-10-09</td>
+<td>Skills 时代开启、MCP 无状态化、上下文工程崛起</td>
+</tr>
+<tr>
+<td><a href="radar/2026-W40/">第 1 期</a></td>
+<td>2026-10-02</td>
+<td>Harness 元年、Skills 生态爆发、Computer Use 走向生产</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agent-skill">🧩 官方 Agent Skill 包<a class="headerlink" href="#agent-skill" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>把整本手册装进你的 Agent。</strong> 复制 <a href="skills/agent-handbook/SKILL/"><code>skills/agent-handbook/</code></a> 到你的客户端 skills 目录，之后问 Agent 任何手册覆盖的问题，它会自己去翻对应章节。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Claude Code</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cp<span class="w"> </span>-r<span class="w"> </span>skills/agent-handbook<span class="w"> </span>~/.claude/skills/
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 校验你自己的 skill 是否符合 SKILL.md 规范</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>python3<span class="w"> </span>examples/10-agent-skill/main.py<span class="w"> </span>./your-skill
+</code></pre></div>
+<p>编写规范见 <a href="chapters/26-agent-skills/">第 26 章</a>，校验器见 <a href="examples/10-agent-skill/README.md">examples/10-agent-skill/</a>。</p>
+<h3 id="agent">🛠️ Agent 工具详细教程<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>难度</th>
+<th>内容概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 20 章</td>
+<td>OpenAI Codex CLI 详解</td>
+<td>⭐⭐ 基础</td>
+<td>MCP 集成、四种审批模式、沙箱隔离</td>
+</tr>
+<tr>
+<td>第 21 章</td>
+<td>DeepSeek Harness（dsh）</td>
+<td>⭐⭐⭐ 进阶</td>
+<td>四种模式、SWE-bench 评测、500+ 插件</td>
+</tr>
+<tr>
+<td>第 22 章</td>
+<td>Continue 编辑器</td>
+<td>⭐⭐ 基础</td>
+<td>VSCode/JetBrains 插件、自定义模型、MCP 支持</td>
+</tr>
+<tr>
+<td>第 23 章</td>
+<td>Aider 代码助手</td>
+<td>⭐⭐ 基础</td>
+<td>多模型支持、Git 集成、会话恢复</td>
+</tr>
+<tr>
+<td>第 24 章</td>
+<td>Trae IDE</td>
+<td>⭐ 入门</td>
+<td>AI 原生 IDE、Agent 工作流、内置工具链</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">附录<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>附录</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>附录 A</td>
+<td>框架对比总表（10+ 框架详细对比）</td>
+</tr>
+<tr>
+<td>附录 B</td>
+<td>常见错误排查手册</td>
+</tr>
+<tr>
+<td>附录 C</td>
+<td>学习资源与社区链接</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_14">🚀 快速开始<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="1docker">方案 1：Docker 一键启动（最省事，推荐新手）<a class="headerlink" href="#1docker" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>不需要安装 Python，一条命令搞定！</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 克隆项目</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Xwh630/ai-agent-handbook.git
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">cd</span><span class="w"> </span>ai-agent-handbook
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># 方法 A：进入开发环境（交互式）</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>dev<span class="w"> </span>bash
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># 方法 B：直接运行示例（一行命令）</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>agent-handbook<span class="w"> </span>.
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>你的key<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/workspace<span class="w"> </span>agent-handbook<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span>python<span class="w"> </span>examples/01-react-agent/main.py
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># 可选：同时启动 Ollama 本地大模型（完全免费）</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>ollama
+</code></pre></div>
+<h3 id="2-python">方案 2：本地 Python（常规方式）<a class="headerlink" href="#2-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 1. 安装 Python 3.10+（官网下载，勾选 Add to PATH）</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python3<span class="w"> </span>--version
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 2. 克隆项目并安装依赖</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Xwh630/ai-agent-handbook.git
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">cd</span><span class="w"> </span>ai-agent-handbook
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># 3. 配置 API Key</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># 编辑 .env 填入你的 Key（OpenAI / DeepSeek / 智谱等均可）</span>
+</code></pre></div>
+<h3 id="_15">运行示例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 1. 新手入门示例（最基础，先跑这个！）</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>examples/01-react-agent
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>python<span class="w"> </span>main.py
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># 2. LangGraph 工作流</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">cd</span><span class="w"> </span>examples/02-langgraph-workflow
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>python<span class="w"> </span>main.py
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># 3. CrewAI 多智能体</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">cd</span><span class="w"> </span>examples/03-crewai-team
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>python<span class="w"> </span>main.py
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># 4. RAG 知识库</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nb">cd</span><span class="w"> </span>examples/09-rag-knowledge
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>python<span class="w"> </span>main.py
+</code></pre></div>
+<hr />
+<h2 id="_16">🎯 核心框架速览<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>GitHub Stars</th>
+<th>语言</th>
+<th>定位</th>
+<th>最佳场景</th>
+<th>推荐指数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LangGraph</strong></td>
+<td>40.3K ⭐</td>
+<td>Python/TS</td>
+<td>图状态机编排</td>
+<td>复杂工作流、生产级系统</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>CrewAI</strong></td>
+<td>57.5K ⭐</td>
+<td>Python</td>
+<td>角色化多 Agent</td>
+<td>快速原型、团队协作模拟</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>AutoGen (MAF)</strong></td>
+<td>60.6K ⭐</td>
+<td>Python/.NET</td>
+<td>对话驱动协作</td>
+<td>多 Agent 研究、迭代求解</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Dify</strong></td>
+<td>153.3K ⭐</td>
+<td>Python/TS</td>
+<td>低代码可视化</td>
+<td>产品验证、非技术人员</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>LlamaIndex</strong></td>
+<td>51.8K ⭐</td>
+<td>Python</td>
+<td>RAG 数据接入</td>
+<td>知识库问答、文档检索</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>OpenAI Agents SDK</strong></td>
+<td>28.9K ⭐</td>
+<td>Python</td>
+<td>轻量级多 Agent</td>
+<td>快速开发、OpenAI 生态</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Claude Agent SDK</strong></td>
+<td>8.0K ⭐</td>
+<td>Python</td>
+<td>Anthropic 官方</td>
+<td>Claude Code 集成</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Mastra</strong></td>
+<td>27.4K ⭐</td>
+<td>TypeScript</td>
+<td>TS 优先 Agent</td>
+<td>前端/全栈开发者</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Ollama</strong></td>
+<td>179.3K ⭐</td>
+<td>Go</td>
+<td>本地大模型运行</td>
+<td>隐私保护、离线场景</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>MCP</strong></td>
+<td>标准协议</td>
+<td>多语言</td>
+<td>工具标准化连接</td>
+<td>跨框架工具互通</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Stars 数据截至 2026 年 10 月，来自 GitHub。每周自动更新。</p>
+</blockquote>
+<hr />
+<h2 id="_17">🔗 生态联动<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>本手册不是孤岛——它与整个 AI Agent 开源生态深度联动。学习时配合以下官方仓库与社区资源效果最佳：</p>
+<h3 id="_18">框架官方仓库<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>生态项目</th>
+<th>说明</th>
+<th>本手册对应章节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/langchain-ai/langgraph">langchain-ai/langgraph</a></td>
+<td>图状态机编排框架</td>
+<td><a href="chapters/03-langgraph/">第 3 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/crewAIInc/crewAI">crewAIInc/crewAI</a></td>
+<td>角色化多 Agent 框架</td>
+<td><a href="chapters/04-crewai/">第 4 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/autogen">microsoft/autogen</a></td>
+<td>微软对话式 Agent 框架</td>
+<td><a href="chapters/05-autogen/">第 5 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/run-llama/llama_index">run-llama/llama_index</a></td>
+<td>RAG 数据接入框架</td>
+<td><a href="chapters/06-llamaindex-rag/">第 6 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/langgenius/dify">langgenius/dify</a></td>
+<td>低代码 AI 应用平台</td>
+<td><a href="chapters/07-dify/">第 7 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/openai/openai-agents-python">openai/openai-agents-python</a></td>
+<td>OpenAI 官方 Agents SDK</td>
+<td><a href="chapters/08-openai-agents/">第 8 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/anthropics/anthropic-sdk-python">anthropics/anthropic-sdk-python</a></td>
+<td>Anthropic Claude 官方 SDK</td>
+<td><a href="chapters/09-claude-agents/">第 9 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mastra-ai/mastra">mastra-ai/mastra</a></td>
+<td>TypeScript Agent 框架</td>
+<td><a href="chapters/10-mastra/">第 10 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/modelcontextprotocol">modelcontextprotocol</a></td>
+<td>MCP 模型上下文协议</td>
+<td><a href="chapters/11-mcp/">第 11 章</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/ollama/ollama">ollama/ollama</a></td>
+<td>本地大模型运行器</td>
+<td><a href="chapters/12-ollama/">第 12 章</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="awesome-lists">精选资源清单（Awesome Lists）<a class="headerlink" href="#awesome-lists" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>清单</th>
+<th>Stars</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/e2b-dev/awesome-ai-agents">e2b-dev/awesome-ai-agents</a></td>
+<td>29.6K ⭐</td>
+<td>AI Agent 资源大全（开源+商业）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/EmbraceAGI/awesome-chatgpt-zh">EmbraceAGI/awesome-chatgpt-zh</a></td>
+<td>11.7K ⭐</td>
+<td>ChatGPT 中文指南与资源清单</td>
+</tr>
+<tr>
+<td><a href="https://github.com/kyrolabs/awesome-agents">kyrolabs/awesome-agents</a></td>
+<td>2.8K ⭐</td>
+<td>AI Agents 精选清单</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>发现好项目？</strong> 欢迎通过 <a href="https://github.com/Xwh630/ai-agent-handbook/issues">Issue</a> 推荐新的生态项目，我们会定期更新这份联动清单。</p>
+</blockquote>
+<hr />
+<h2 id="_19">📂 项目结构<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ai-agent-handbook/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── README.md                 # 中文主文档
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├── ROADMAP.md                # 🗺️ 迭代路线图（季度计划与执行看板）
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├── en/                       # 英文版（English in progress）
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│   ├── README.md             # 英文 README
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>│   ├── TRANSLATION_STATUS.md # 翻译进度
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│   └── chapters/             # 英文章节
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>├── chapters/                 # 各章节完整教程（28 章）
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>│   ├── 00-quickstart.md           # 🚀 新手快速入门（10分钟）
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>│   ├── 01-fundamentals.md         # AI Agent 基础概念
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>│   ├── 02-reaact-from-scratch.md  # 手写 ReAct Agent
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>│   ├── 03-langgraph.md            # LangGraph 图编排
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>│   ├── 04-crewai.md               # CrewAI 多智能体
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>│   ├── 05-autogen.md              # AutoGen/MAF
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>│   ├── 06-llamaindex-rag.md       # LlamaIndex RAG
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>│   ├── 07-dify.md                 # Dify 低代码
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>│   ├── 08-openai-agents.md        # OpenAI Agents SDK
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>│   ├── 09-claude-agents.md        # Claude Agent SDK
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>│   ├── 10-mastra.md               # Mastra TypeScript
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>│   ├── 11-mcp.md                  # MCP 协议（含无状态核心）
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>│   ├── 12-ollama.md               # Ollama 本地部署
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>│   ├── 13-collaboration-patterns.md # 协作模式
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>│   ├── 14-memory-state.md         # 记忆系统
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>│   ├── 15-cost-optimization.md    # 成本优化
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>│   ├── 16-observability.md        # 可观测性
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>│   ├── 17-fullstack-project.md    # 全栈实战
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>│   ├── 18-selection-guide.md      # 选型指南
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>│   ├── 19-agent-toolkit.md        # 🧰 Agent 通用工具箱（规划中）
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>│   └── 99-glossary.md             # 📖 中英对照术语表（115+ 术语）
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>│   ├── 20-codex-cli.md            # 🛠️ OpenAI Codex CLI 详解
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>│   ├── 21-deepseek-harness.md     # 🛠️ DeepSeek Harness（dsh）
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>│   ├── 22-continue-editor.md      # 🛠️ Continue 编辑器
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>│   ├── 23-aider-codestory.md      # 🛠️ Aider 代码助手
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>│   └── 24-trae-ide.md             # 🛠️ Trae IDE
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>│   ├── 25-harness-engineering.md  # 🏗️ Harness Engineering
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>│   ├── 26-agent-skills.md         # 🧩 Agent Skills 编写实战
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>│   └── 27-context-engineering.md  # 🧠 上下文工程
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>├── skills/                   # 🧩 官方 Agent Skill 包（可安装）
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>│   └── agent-handbook/
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>│       ├── SKILL.md               # 遵循 Agent Skills 开放规范
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>│       └── references/
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>│           └── chapter-index.md   # 28 章速查索引
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>├── examples/                 # 可运行的代码示例（11 示例）
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>│   ├── 01-react-agent/            # 基础 ReAct
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>│   ├── 02-langgraph-workflow/     # LangGraph 示例
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>│   ├── 03-crewai-team/            # CrewAI 团队
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>│   ├── 04-autogen-chat/           # AutoGen 对话
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>│   ├── 05-mcp-server/             # MCP Server
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>│   ├── 06-mastra-agent/           # Mastra 示例
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>│   ├── 07-final-project/          # 完整项目
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>│   ├── 08-openai-agents-sdk/      # OpenAI Agents SDK
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>│   ├── 09-rag-knowledge/          # RAG 知识库
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>│   └── 10-agent-skill/            # 🆕 SKILL.md 规范校验器 + 最小样例
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>├── radar/                    # 📡 Agent Radar 周刊（每周更新）
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>│   ├── 2026-W40.md                # 第 1 期 · 2026-10-02
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>│   ├── 2026-W41.md                # 第 2 期 · 2026-10-09
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a>│   ├── 2026-W42.md                # 第 3 期 · 2026-10-13
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>│   └── TEMPLATE.md                # 写作模板
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>├── data/                     # 📊 数据快照
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>│   ├── stars.json                # 框架 Stars 数据
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>│   └── stars-history.csv         # Stars 历史数据
+<a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a>├── scripts/                  # 🔧 维护脚本
+<a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a>│   ├── build_docs.py             # 文档构建
+<a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a>│   ├── refresh_stars.py          # Stars 数据刷新
+<a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a>│   ├── freshness_check.py        # 内容新鲜度检查
+<a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a>│   └── smoke_test_examples.py    # 示例冒烟测试
+<a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a>├── assets/                   # 图片资源（Banner 等）
+<a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a>├── llms.txt                  # 🤖 供 AI 助手索引的文档地图
+<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a>├── docs/                     # 参考文档
+<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a>│   ├── framework-comparison.md    # 框架对比
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>│   ├── tool-calling-guide.md      # 工具调用指南
+<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>│   └── best-practices.md          # 最佳实践
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a>├── appendix/
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a>│   ├── error-troubleshooting.md   # 错误排查
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a>│   └── resources.md               # 学习资源
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a>├── .github/
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a>│   └── workflows/            # ⚙️ CI 工作流
+<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a>│       ├── docs.yml               # 文档部署
+<a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a>│       ├── links.yml              # 链接检查
+<a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a>│       ├── freshness.yml          # 内容新鲜度检查
+<a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a>│       ├── examples-smoke.yml     # 示例冒烟测试
+<a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a>│       └── stars-snapshot.yml     # Stars 周更
+<a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a>├── Dockerfile                # 🐳 Docker 一键环境
+<a id="__codelineno-5-84" name="__codelineno-5-84" href="#__codelineno-5-84"></a>├── docker-compose.yml        # 🐳 Dev + Ollama 服务
+<a id="__codelineno-5-85" name="__codelineno-5-85" href="#__codelineno-5-85"></a>├── requirements.txt          # Python 依赖
+<a id="__codelineno-5-86" name="__codelineno-5-86" href="#__codelineno-5-86"></a>├── .env.example              # 环境变量模板
+<a id="__codelineno-5-87" name="__codelineno-5-87" href="#__codelineno-5-87"></a>└── LICENSE                   # MIT 许可证
+</code></pre></div>
+<hr />
+<h2 id="_20">🔥 推荐学习路径<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="2-3">新手路线（约 2-3 周）<a class="headerlink" href="#2-3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>第 1 章 (基础概念)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    ↓
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>第 2 章 (手写 ReAct)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ↓
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>第 7 章 (Dify 低代码)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    ↓
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>第 12 章 (Ollama 本地部署)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    ↓
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>第 18 章 (选型指南)
+</code></pre></div>
+<p><strong>目标</strong>：理解 Agent 本质，能独立使用低代码平台搭建应用</p>
+<hr />
+<h3 id="4-6">进阶路线（约 4-6 周）<a class="headerlink" href="#4-6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>第 1 章 (基础概念)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    ↓
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>第 2 章 (手写 ReAct)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    ↓
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>第 3 章 (LangGraph 图编排)
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    ↓
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>第 4 章 (CrewAI 多智能体)
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    ↓
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>第 11 章 (MCP 协议)
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    ↓
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>第 17 章 (全栈实战)
+</code></pre></div>
+<p><strong>目标</strong>：掌握主流框架，能开发生产级 Agent 应用</p>
+<hr />
+<h3 id="6-8">高级路线（约 6-8 周）<a class="headerlink" href="#6-8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>第 3 章 (LangGraph 图编排)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>第 13 章 (协作模式)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    ↓
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>第 14 章 (记忆系统)
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    ↓
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>第 16 章 (可观测性)
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    ↓
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>第 17 章 (全栈实战)
+</code></pre></div>
+<hr />
+<h3 id="agent-4-6">🏗️ 工程化路线（想让 Agent 真正上生产，约 4-6 周）<a class="headerlink" href="#agent-4-6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>第 25 章 (Harness 五大支柱)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>第 27 章 (上下文工程：别让 token 白烧)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    ↓
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>第 26 章 (Skills：把团队经验打包给 Agent)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    ↓
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>第 15 章 (成本优化) + 第 18 章 (选型)
+</code></pre></div>
+<p><strong>目标</strong>：从"能跑"到"敢上线"。这是 2026 年 Agent 落地真正的分水岭——
+模型能力大家差不多，<strong>差的是驾驭它的工程</strong>。<strong>目标</strong>：深入理解 Agent 架构，能设计和实现复杂多 Agent 系统</p>
+<hr />
+<h2 id="_21">💡 核心概念图解<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<h3 id="react">ReAct 模式（推理 + 行动）<a class="headerlink" href="#react" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>│  User: "帮我查一下北京今天的天气"                           │
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>└─────────────────────────────────────────────────────────────┘
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>                          ↓
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│  Thought: 用户想知道北京今天的天气，我需要调用天气工具         │
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>├─────────────────────────────────────────────────────────────┤
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│  Action: get_weather                                        │
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│  Action Input: {"city": "北京"}                             │
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>└─────────────────────────────────────────────────────────────┘
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>                          ↓
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>│  Observation: {"temperature": 25, "condition": "晴"}         │
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>└─────────────────────────────────────────────────────────────┘
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>                          ↓
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>│  Thought: 我已经获取到了天气信息，可以给用户回复了             │
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>├─────────────────────────────────────────────────────────────┤
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>│  Final Answer: 北京今天天气晴朗，气温 25°C，适宜外出         │
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>└─────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="agent_1">多 Agent 协作模式<a class="headerlink" href="#agent_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>│  顺序模式:  Researcher → Analyst → Writer → Reviewer        │
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>├─────────────────────────────────────────────────────────────┤
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│  并行模式:  [Researcher] [WebSearch] [DataAnalysis]         │
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│                   ↓              ↓              ↓           │
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│              [Synthesizer: 整合结果]                          │
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>├─────────────────────────────────────────────────────────────┤
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│  监督者模式:  Supervisor → 分配任务 → 各 Agent 执行          │
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>│                         → 汇总结果 → 输出最终答案              │
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>└─────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="_22">🎓 实战项目：研究报告生成系统<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>完整的多 Agent 研究报告系统，整合所有核心技术：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">cd</span><span class="w"> </span>examples/07-final-project
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>python<span class="w"> </span>main.py<span class="w"> </span>--topic<span class="w"> </span><span class="s2">"AI Agent 发展趋势"</span>
+</code></pre></div>
+<p><strong>生成内容</strong>：
+- 市场分析（Researcher Agent）
+- 数据可视化（Analyst Agent）
+- 报告撰写（Writer Agent）
+- 质量审查（Reviewer Agent）</p>
+<p><strong>输出格式</strong>：Markdown + PDF</p>
+<hr />
+<h2 id="_23">📊 项目统计<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>章节数量</td>
+<td>28 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题）</td>
+</tr>
+<tr>
+<td>示例代码</td>
+<td>11+ 可运行示例（含一个零依赖的 Skill 校验器）</td>
+</tr>
+<tr>
+<td>代码行数</td>
+<td>4,100+ 行</td>
+</tr>
+<tr>
+<td>字数</td>
+<td>145,000+ 字</td>
+</tr>
+<tr>
+<td>覆盖框架</td>
+<td>10+ 主流框架</td>
+</tr>
+<tr>
+<td>术语词条</td>
+<td>115+（含 38 个 2026 前沿新词）</td>
+</tr>
+<tr>
+<td>周刊栏目</td>
+<td>📡 Agent Radar（每周更新）</td>
+</tr>
+<tr>
+<td>Agent Skill 包</td>
+<td>🧩 可安装，遵循 SKILL.md 开放规范</td>
+</tr>
+<tr>
+<td>CI 工作流</td>
+<td>5 条（构建 / 链接 / 新鲜度 / 示例测试 / Stars 快照）</td>
+</tr>
+<tr>
+<td>环境支持</td>
+<td>Python 3.10+ / Docker 一键启动</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>v1.3.0</td>
+</tr>
+<tr>
+<td>更新时间</td>
+<td>2026-10-06</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_24">🔄 最新更新<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>更新内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-06</td>
+<td>🎯 <strong>v1.3.0 发布</strong>：Skills 与上下文 — 第 26/27 章 + 官方 Skill 包 + Skill 校验器，共新增约 2.5 万字</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>📖 新增 <a href="chapters/26-agent-skills/">第 26 章：Agent Skills 编写实战</a>：SKILL.md 六字段规范逐条拆解、渐进式披露四阶段、token 预算红线、手搓一个可发布的 skill、发布自检清单</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>📖 新增 <a href="chapters/27-context-engineering/">第 27 章：上下文工程</a>：Context Rot 机理、一次轮次的 token 构成解剖（用户问题仅占 3%）、工具集 46→15 的账、压缩/笔记/子 Agent 三板斧</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>🧩 新增官方 Agent Skill 包 <a href="skills/agent-handbook/SKILL/"><code>skills/agent-handbook/</code></a>：装进客户端后 Agent 可直接查阅本手册 28 章</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>🛠️ 新增 <code>examples/10-agent-skill</code>：零依赖的 SKILL.md 规范校验器（20+ 项检查，可直接接 CI）+ 符合规范的最小样例</td>
+</tr>
+<tr>
+<td>2026-10-13</td>
+<td>📡 Radar 第 3 期发布：上下文变成产品（claude-mem 96K⭐ / context-mode / OptMem 三条路线）</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>🎯 <strong>v1.2.0 发布</strong>：保鲜与基建 — 新增 3 条 CI 工作流、26 章版本声明 frontmatter、术语表 +30 词、第 11 章 MCP 无状态化重写、Radar 第 2 期</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>🗺️ 新增 <a href="ROADMAP.md">ROADMAP.md</a>：季度迭代计划与执行看板，公开透明</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>🔧 新增 3 条 CI：内容新鲜度检查、示例冒烟测试、Stars 周更自动 PR</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>📖 第 11 章 MCP 重大更新：2026-07 无状态核心、SDK 迁移指引、Serverless 部署指南</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等）</td>
+</tr>
+<tr>
+<td>2026-10-06</td>
+<td>🧰 新增第 19 章占位：Agent 通用工具箱（规划中）</td>
+</tr>
+<tr>
+<td>2026-10-09</td>
+<td>📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起</td>
+</tr>
+<tr>
+<td>2026-10-02</td>
+<td>🆕 新增第 25 章：<a href="chapters/25-harness-engineering/">Harness Engineering 驾驭工程</a>——2026 年 Agent 工程核心竞争力</td>
+</tr>
+<tr>
+<td>2026-10-02</td>
+<td>🆕 新增「📡 Agent Radar」周刊栏目，<a href="radar/2026-W40/">第 1 期已发布</a></td>
+</tr>
+<tr>
+<td>2026-10-02</td>
+<td>🆕 新增 <a href="llms.txt">llms.txt</a>，让 AI 编码助手能正确索引本手册</td>
+</tr>
+<tr>
+<td>2026-10-02</td>
+<td>🔧 README 第一屏重构（新增 Banner）；修复 examples 目录重复编号</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>新增「Agent 工具详细教程」栏目：第 22 章 Continue、第 23 章 Aider、第 24 章 Trae IDE</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>新增「最新 Agent 实战指南」栏目：第 20 章 Codex CLI + 第 21 章 DeepSeek Harness</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>新增第 0 章新手快速入门（10分钟跑通第一个 Agent）</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>新增中英对照术语表（80+ 术语通俗解释）</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>新增 Docker 一键启动环境（docker-compose）</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>新增英文版目录（en/）</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>初始版本发布，覆盖 10+ 主流框架，18 章完整教程</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_25">📬 贡献指南<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>欢迎提交 PR！请先阅读 <a href="CONTRIBUTING/">CONTRIBUTING.md</a>，然后遵循以下规范：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 1. Fork 本仓库</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># 2. 创建特性分支</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/AmazingFeature
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># 3. 提交变更</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'Add some AmazingFeature'</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># 4. 推送</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/AmazingFeature
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># 5. 开启 Pull Request</span>
+</code></pre></div>
+<p>遇到问题？先查 <a href="https://xwh630.github.io/ai-agent-handbook/">在线文档</a>，或在 <a href="https://github.com/Xwh630/ai-agent-handbook/discussions">Discussions</a> 里提问。</p>
+<h3 id="_26">贡献类型<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>修复错别字</strong>：欢迎任何语言纠错</li>
+<li><strong>新增示例</strong>：为某个章节添加更详细的示例</li>
+<li><strong>完善文档</strong>：优化现有章节的解释</li>
+<li><strong>新增框架</strong>：如检测到新框架，欢迎添加</li>
+<li><strong>英文翻译</strong>：将中文章节翻译为英文（见 <a href="en/TRANSLATION_STATUS/">翻译状态</a>）</li>
+</ul>
+<hr />
+<h2 id="_27">📄 许可证<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p>本项目采用 <strong>MIT 许可证</strong> — 详见 <a href="LICENSE">LICENSE</a> 文件</p>
+<p>你可以自由使用、修改和分发本项目，只需保留许可证声明。</p>
+<hr />
+<h2 id="_28">🔗 相关链接<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://langchain-ai.github.io/langgraph/">LangGraph 官方文档</a></li>
+<li><a href="https://docs.crewai.com/">CrewAI 官方文档</a></li>
+<li><a href="https://microsoft.github.io/autogen/">AutoGen 官方文档</a></li>
+<li><a href="https://docs.dify.ai/">Dify 官方文档</a></li>
+<li><a href="https://docs.llamaindex.ai/">LlamaIndex 官方文档</a></li>
+<li><a href="https://modelcontextprotocol.io/">MCP 官方规范</a></li>
+<li><a href="https://github.com/openai/openai-agents-python">OpenAI Agents SDK</a></li>
+<li><a href="https://github.com/anthropics/claude-agent-sdk">Claude Agent SDK</a></li>
+</ul>
+<hr />
+<h2 id="_29">💬 交流<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<ul>
+<li>🐛 <strong>问题反馈</strong>：<a href="https://github.com/Xwh630/ai-agent-handbook/issues">GitHub Issues</a></li>
+<li>💡 <strong>功能建议</strong>：<a href="https://github.com/Xwh630/ai-agent-handbook/discussions">GitHub Discussions</a></li>
+<li>📧 <strong>联系作者</strong>：通过 GitHub Profile</li>
+</ul>
+<hr />
+<h2 id="star-history">⭐ Star History<a class="headerlink" href="#star-history" title="Permanent link">&para;</a></h2>
+<p>如果你发现这个项目对你有帮助，请给我们一个 Star！这是对我们最大的鼓励。</p>
+<p><a href="https://star-history.com/#Xwh630/ai-agent-handbook&amp;Date"><img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Xwh630/ai-agent-handbook&amp;type=Date" /></a></p>
+<hr />
+<blockquote>
+<p><strong>一句话总结</strong>：这本手册不是为了让你"会用"某个框架，而是为了让你理解 AI Agent 的本质，从而在任何框架面前都能游刃有余。</p>
+</blockquote>
+<hr />
+<div align="center">
+
+**Made with ❤️ by the AI Agent Community**
+
+[Report Bug](https://github.com/Xwh630/ai-agent-handbook/issues) · [Request Feature](https://github.com/Xwh630/ai-agent-handbook/issues)
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+        
+          
+          <a href="chapters/00-quickstart/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第 0 章 · 10 分钟快速上手">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                第 0 章 · 10 分钟快速上手
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      MIT License · AI Agent 实战手册
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
