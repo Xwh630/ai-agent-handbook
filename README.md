@@ -8,7 +8,7 @@
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 28+ 章完整教程 · 11+ 可运行示例 · 国产模型可跑 · 中英术语对照 · 可安装 Skill 包
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 28+ 章完整教程 · 12+ 可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -149,7 +149,7 @@
 
 | 章节 | 标题 | 难度 | 内容概要 |
 |------|------|------|----------|
-| 第 25 章 | [Harness Engineering 驾驭工程](chapters/25-harness-engineering.md) | ⭐⭐⭐ 进阶 | 任务边界、上下文管理、状态持久化、失败恢复、权限体系 |
+| 第 25 章 | [Harness Engineering 驾驭工程](chapters/25-harness-engineering.md) | ⭐⭐⭐ 进阶 | 任务边界、上下文管理、状态持久化、失败恢复、权限体系（[配套可运行示例](examples/11-mini-harness/)） |
 | 第 26 章 | [Agent Skills 编写实战](chapters/26-agent-skills.md) 🆕 | ⭐⭐⭐ 进阶 | SKILL.md 六字段规范、渐进式披露四阶段、手搓一个可发布的 skill |
 | 第 27 章 | [上下文工程 Context Engineering](chapters/27-context-engineering.md) 🆕 | ⭐⭐⭐ 进阶 | Context Rot 机理、token 构成解剖、压缩/笔记/子 Agent 三板斧 |
 
@@ -356,7 +356,7 @@ ai-agent-handbook/
 │       ├── SKILL.md               # 遵循 Agent Skills 开放规范
 │       └── references/
 │           └── chapter-index.md   # 28 章速查索引
-├── examples/                 # 可运行的代码示例（11 示例）
+├── examples/                 # 可运行的代码示例（12+ 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
 │   ├── 03-crewai-team/            # CrewAI 团队
@@ -546,7 +546,7 @@ python main.py --topic "AI Agent 发展趋势"
 | 指标 | 数值 |
 |------|------|
 | 章节数量 | 28 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
-| 示例代码 | 11+ 可运行示例（含一个零依赖的 Skill 校验器） |
+| 示例代码 | 12+ 可运行示例（含零依赖 Skill 校验器与 MiniHarness） |
 | 代码行数 | 4,100+ 行 |
 | 字数 | 145,000+ 字 |
 | 覆盖框架 | 10+ 主流框架 |
@@ -577,6 +577,9 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-16 | 🆕 新增 [MiniHarness 可运行示例](examples/11-mini-harness/)（第 25 章配套，五大支柱全覆盖） |
+| 2026-10-16 | 🌐 第 25 章英文版发布：[Harness Engineering (EN)](en/chapters/25-harness-engineering.md) |
+| 2026-10-16 | 📖 术语表扩充至 130+ 条，新增 Guardian Agent / Escalation / Sandbox / Circuit Breaker 等 |
 | 2026-10-02 | 🆕 新增第 25 章：[Harness Engineering 驾驭工程](chapters/25-harness-engineering.md)——2026 年 Agent 工程核心竞争力 |
 | 2026-10-02 | 🆕 新增「📡 Agent Radar」周刊栏目，[第 1 期已发布](radar/2026-W40.md) |
 | 2026-10-02 | 🆕 新增 [llms.txt](llms.txt)，让 AI 编码助手能正确索引本手册 |

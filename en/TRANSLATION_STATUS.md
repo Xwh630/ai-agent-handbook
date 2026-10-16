@@ -13,6 +13,7 @@
 | `chapters/00-quickstart.md` | ✅ Done | Beginner quickstart |
 | `chapters/01-fundamentals.md` | ✅ Done | Fundamentals |
 | `chapters/99-glossary.md` | ✅ Done | Glossary |
+| `chapters/25-harness-engineering.md` | ✅ Done | Harness Engineering (2026-10-16) |
 
 ---
 
