@@ -1,5 +1,21 @@
 name: Stars Snapshot
 
+# ⚠️ 为什么这个文件必须用 PAT 而不是 GITHUB_TOKEN
+#
+# GitHub 有一条硬性规则：由默认 GITHUB_TOKEN 触发的事件，不会再派生新的 workflow run
+# （防止无限递归）。这意味着：
+#   1. 用 GITHUB_TOKEN 建 PR → PR 的 pull_request 事件不会触发 Check Links / Smoke Test
+#   2. 必需检查永远停在 "expected / action_required"
+#   3. auto-merge 因为等不到绿灯而永不触发
+#   4. 于是每周五都留一个卡死的 PR（#21 就是这样产生的，此前 #18 / #19 / #20
+#      都是在打补丁，没有碰根因）
+#
+# 唯一彻底的解法：用一个 PAT 来建 PR 与合并。PAT 是真实用户身份，
+# 它触发的事件会正常派生 workflow run，必需检查能跑完，auto-merge 才会放行。
+#
+# 配置方式见 .github/CI_SETUP.md 的「SNAPSHOT_TOKEN 配置」。
+# 未配置时本 workflow 仍会跑，但会打出醒目 warning 并大概率留出待处理的 PR。
+
 on:
   schedule:
     - cron: "0 6 * * 5"  # 每周五 06:00 UTC
@@ -13,8 +29,25 @@ jobs:
   snapshot:
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve automation token
+        id: tok
+        run: |
+          if [ -n "${{ secrets.SNAPSHOT_TOKEN }}" ]; then
+            echo "token=${{ secrets.SNAPSHOT_TOKEN }}" >> "$GITHUB_OUTPUT"
+            echo "source=SNAPSHOT_TOKEN" >> "$GITHUB_OUTPUT"
+            echo "已使用 PAT，PR 会正常触发必需检查。"
+          else
+            echo "token=${{ secrets.GITHUB_TOKEN }}" >> "$GITHUB_OUTPUT"
+            echo "source=GITHUB_TOKEN" >> "$GITHUB_OUTPUT"
+            echo "::warning title=缺少 SNAPSHOT_TOKEN::未配置 secrets.SNAPSHOT_TOKEN，本次回退到 GITHUB_TOKEN。GITHUB_TOKEN 建的 PR 不会触发 Check Links / Smoke Test，auto-merge 会挂住。请在 Settings → Secrets and variables → Actions 添加名为 SNAPSHOT_TOKEN 的 PAT（权限：Contents 读写、Pull requests 读写、Actions 读写）。"
+          fi
+
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ steps.tok.outputs.token }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -24,27 +57,98 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Heal stale snapshot PR
+        id: heal
+        env:
+          GH_TOKEN: ${{ steps.tok.outputs.token }}
+        run: |
+          set +e
+          PR_NUM=$(gh pr list --state open --head chore/stars-snapshot \
+            --json number --jq '.[0].number' 2>/dev/null)
+
+          if [ -z "$PR_NUM" ]; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "没有遗留的 snapshot PR，跳过自愈。"
+            exit 0
+          fi
+
+          echo "found=true" >> "$GITHUB_OUTPUT"
+          echo "发现遗留 PR #${PR_NUM}，尝试自愈合并。"
+
+          # 先开 auto-merge：PAT 身份下 PR 检查会真正跑起来，绿灯后 GitHub 自动合入
+          gh pr merge "$PR_NUM" --auto --squash
+          # 再试一次立即合并：如果检查此刻已全部通过，就不用等下一个轮询
+          gh pr merge "$PR_NUM" --squash \
+            && echo "PR #${PR_NUM} 已直接合并。" \
+            || echo "PR #${PR_NUM} 暂不可合并（等待必需检查），已开启 auto-merge。"
+          exit 0
+
       - name: Run stars refresh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/refresh_stars.py
+          GITHUB_TOKEN: ${{ steps.tok.outputs.token }}
+        run: python scripts/refresh_stars.py
 
-      - name: Create Pull Request
+      - name: Publish snapshot branch
+        id: publish
+        env:
+          GH_TOKEN: ${{ steps.tok.outputs.token }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B chore/stars-snapshot origin/main
+
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "本周 stars 数据无变化，跳过提交。"
+            exit 0
+          fi
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git add data/ README.md
+          git commit -m "chore: weekly stars snapshot"
+          # 该分支由 bot 独占且内容每次全量重生成，force push 是安全的
+          git push --force origin chore/stars-snapshot
+          echo "推送 chore/stars-snapshot 完成。"
+
+      - name: Open or update Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: weekly stars snapshot"
-          branch: chore/stars-snapshot
-          delete-branch: true
-          title: "chore: weekly stars snapshot"
-          body: |
-            自动更新 stars 数据（data/stars.json、data/stars-history.csv、README badge）。
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.tok.outputs.token }}
+        run: |
+          set -e
+          EXISTING=$(gh pr list --state open --head chore/stars-snapshot \
+            --json number --jq '.[0].number' 2>/dev/null || true)
+
+          BODY='自动更新 stars 数据（data/stars.json、data/stars-history.csv、README badge）。
+
+          由 `stars-snapshot.yml` 生成，PAT 身份下必需检查跑绿后 auto-merge 自动合入。
+          长时间未合入通常意味着缺少 `secrets.SNAPSHOT_TOKEN`，详见 `.github/CI_SETUP.md`。'
+
+          if [ -n "$EXISTING" ]; then
+            echo "operation=updated" >> "$GITHUB_OUTPUT"
+            echo "number=$EXISTING" >> "$GITHUB_OUTPUT"
+            gh pr edit "$EXISTING" --title "chore: weekly stars snapshot" --body "$BODY"
+          else
+            gh pr create \
+              --base main \
+              --head chore/stars-snapshot \
+              --title "chore: weekly stars snapshot" \
+              --body "$BODY"
+            echo "operation=created" >> "$GITHUB_OUTPUT"
+            echo "number=$(gh pr view chore/stars-snapshot --json number --jq .number)" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Enable auto-merge
-        if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
-        run: |
-          gh pr merge --auto --squash "${{ steps.cpr.outputs.pull-request-number }}"
+        if: steps.publish.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.tok.outputs.token }}
+        run: |
+          set +e
+          gh pr merge "${{ steps.cpr.outputs.number }}" --auto --squash
+          gh pr merge "${{ steps.cpr.outputs.number }}" --squash \
+            && echo "已直接合并 PR #${{ steps.cpr.outputs.number }}。" \
+            || echo "检查仍在进行，auto-merge 已开启，绿灯后自动合入。"
+          exit 0
