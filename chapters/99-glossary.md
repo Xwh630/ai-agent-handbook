@@ -1,6 +1,6 @@
 ﻿---
 适配框架版本: 通用 N/A
-最后校验: 2026-10-06
+最后校验: 2026-10-16
 上游变更监控: N/A
 ---
 
@@ -157,6 +157,24 @@
 | **Token Composition** | 令牌构成 | 一次 Agent 轮次中各部分 token 的占比结构 | 用户真正的问题往往只占 3% |
 | **Agentic IDE** | AI 原生 IDE | 以 Agent 为核心（而非以编辑区为核心）的集成开发环境 | Trae、Windsurf 是代表形态 |
 | **Persistent Agent Memory** | 跨会话持久记忆 | 让 Agent 在一次会话中学到的东西能被下次会话复用的机制 | claude-mem（96K⭐）是该方向的现象级项目 |
+| **Guardian Agent** | 守护智能体 | 独立于主 Agent 之外、专门盯着主 Agent 行为并拦截风险的 Agent | 不做业务，只做审查，是 Prompt Injection 的结构性防线 |
+| **Escalation** | 升级/上报 | Agent 遇到无法自主推进的情况时，把控制权交还给人类的机制 | Harness 失败分级的最终兜底（对应第 25 章 L4） |
+| **Sandbox** | 沙箱 | 隔离的执行环境，Agent 的破坏性操作只能作用于沙箱内 | Container / VM / gVisor 是常见实现形态 |
+| **Circuit Breaker** | 熔断器 | 连续失败达到阈值后直接断开调用，避免持续烧钱或拖垮下游 | 借鉴微服务治理，Agent 场景同样适用 |
+| **Idempotency** | 幂等性 | 同一操作重复执行多次，结果与执行一次一致 | Agent 重试机制的必要前提，否则重试会造成重复扣款 |
+| **Idempotency Key** | 幂等键 | 标记一次请求的唯一标识，服务端据此识别重复请求 | 支付类 Agent 工具的标配参数 |
+| **Task Decomposition** | 任务分解 | 把一个大目标拆成若干可独立验证的子任务 | 是 Todo List / Planner 类 Agent 的核心能力 |
+| **Reflection** | 反思 | 让 Agent 回头审视自己上一轮的输出并给出改进意见 | Reflexion 论文提出的机制，与 Self-Critique 同源 |
+| **Loop Detection** | 循环检测 | 识别 Agent 是否在重复执行相同的动作并强行打断 | 步数上限之外的第二道防"转圈"措施 |
+| **Autonomy Level** | 自主度分级 | 把 Agent 的自主程度分成若干档（建议 → 半自动 → 全自动） | 同一套能力，不同场景开不同档位 |
+| **Egress Filter** | 出网过滤 | 限制 Agent 能访问哪些外部域名/接口，防止数据外泄 | 阻断"把内部数据发到攻击者服务器"的最后一道闸 |
+| **Allowlist / Denylist** | 白名单/黑名单 | 显式列出允许或禁止的对象（工具、域名、路径） | 权限最小化的落地形式 |
+| **Rollback** | 回滚 | 把系统状态恢复到某个历史检查点 | Git 是最常见的低成本回滚手段 |
+| **Dry Run** | 预演/空跑 | 只打印将要执行的操作而不真正执行 | 高危 Agent 上线前的必做检查 |
+| **Budget Guard** | 预算守卫 | 在每一步前检查步数/token/时间预算，超限立刻停机 | 第 25 章 MiniHarness 里的 `_check_budget()` |
+| **Session Replay** | 会话回放 | 把一次 Agent 运行的完整轨迹重放出来做调试或评测 | 等价于生产环境的"行车记录仪" |
+| **Tool Router** | 工具路由 | 工具过多时先用一个小模型/检索器挑出候选工具，再交给主模型 | 与 Progressive Disclosure 配合解决工具膨胀 |
+| **Context Caching** | 上下文缓存 | 把重复的上下文前缀缓存起来复用，降低首 token 延迟与成本 | Anthropic / DeepSeek 均支持，命中可省 90% 费用 |
 
 ---
 

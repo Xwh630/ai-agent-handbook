@@ -52,6 +52,10 @@ logs/
 .DS_Store
 Thumbs.db
 
+# Harness 示例运行产物
+.checkpoints/
+examples/*/output/
+
 # Jupyter
 .ipynb_checkpoints
 

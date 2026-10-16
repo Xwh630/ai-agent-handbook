@@ -207,6 +207,11 @@ def run_step_with_retry(step_fn, max_retries=3):
 
 把五大支柱组装起来，包裹本书第 2 章手写的 ReAct Agent：
 
+> 🚀 **可运行版本：[`examples/11-mini-harness/`](../examples/11-mini-harness/)**
+> 本章的代码片段是概念演示，仓库里有一份真正能跑的完整实现，涵盖全部五大支柱
+> （含三个 Unit 实验：断点恢复、权限拦截、预算守卫）。
+> 支持任意 OpenAI 兼容接口，**没有 API Key 也能用 `--offline` 模式跑通**。
+
 ```python
 import json, time
 from pathlib import Path
@@ -274,6 +279,10 @@ class MiniHarness:
 - 第 14 章（记忆系统）：跨任务的长期状态管理
 - 第 16 章（可观测性）：Harness 的"仪表盘"
 - 第 21 章（DeepSeek Harness）：一个工业级 Harness 的完整解剖
+
+### 配套代码
+
+- [`examples/11-mini-harness/`](../examples/11-mini-harness/) — 本章的可运行示例，五大支柱全覆盖
 
 ---
 
