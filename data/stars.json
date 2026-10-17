@@ -10,7 +10,7 @@
   {
     "name": "CrewAI",
     "repo": "crewAIInc/crewAI",
-    "stars": 59795,
+    "stars": 59794,
     "stars_formatted": "59.8K",
     "latest_release": "1.15.28",
     "snapshot_date": "2026-10-17"
@@ -26,7 +26,7 @@
   {
     "name": "Dify",
     "repo": "langgenius/dify",
-    "stars": 158701,
+    "stars": 158702,
     "stars_formatted": "158.7K",
     "latest_release": "1.17.1",
     "snapshot_date": "2026-10-17"
@@ -58,7 +58,7 @@
   {
     "name": "Ollama",
     "repo": "ollama/ollama",
-    "stars": 183582,
+    "stars": 183583,
     "stars_formatted": "183.6K",
     "latest_release": "v0.40.5",
     "snapshot_date": "2026-10-17"
@@ -74,7 +74,7 @@
   {
     "name": "DeepSeek Harness",
     "repo": "deepseek-ai/deepseek-harness",
-    "stars": 251807,
+    "stars": 251849,
     "stars_formatted": "251.8K",
     "latest_release": null,
     "snapshot_date": "2026-10-17"
@@ -82,7 +82,7 @@
   {
     "name": "hermes-agent",
     "repo": "NousResearch/hermes-agent",
-    "stars": 254583,
+    "stars": 254585,
     "stars_formatted": "254.6K",
     "latest_release": "v0.22.2",
     "snapshot_date": "2026-10-17"
@@ -90,7 +90,7 @@
   {
     "name": "firecrawl",
     "repo": "firecrawl/firecrawl",
-    "stars": 192379,
+    "stars": 192383,
     "stars_formatted": "192.4K",
     "latest_release": "v2.11.0",
     "snapshot_date": "2026-10-17"
@@ -98,15 +98,15 @@
   {
     "name": "ponytail",
     "repo": "DietrichGebert/ponytail",
-    "stars": 165636,
-    "stars_formatted": "165.6K",
+    "stars": 165686,
+    "stars_formatted": "165.7K",
     "latest_release": "v5.3.2",
     "snapshot_date": "2026-10-17"
   },
   {
     "name": "agency-agents",
     "repo": "msitarzewski/agency-agents",
-    "stars": 160767,
+    "stars": 160774,
     "stars_formatted": "160.8K",
     "latest_release": null,
     "snapshot_date": "2026-10-17"
@@ -114,7 +114,7 @@
   {
     "name": "Langflow",
     "repo": "langflow-ai/langflow",
-    "stars": 155768,
+    "stars": 155770,
     "stars_formatted": "155.8K",
     "latest_release": "v1.12.6",
     "snapshot_date": "2026-10-17"
