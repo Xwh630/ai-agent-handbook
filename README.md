@@ -25,7 +25,7 @@
 
 </div>
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.4K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.8K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.4K⭐ · [Dify](https://github.com/langgenius/dify) 158.7K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.9K⭐ · [Ollama](https://github.com/ollama/ollama) 183.6K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 251.8K⭐ · [hermes-agent](https://github.com/NousResearch/hermes-agent) 254.6K⭐ · [firecrawl](https://github.com/firecrawl/firecrawl) 192.4K⭐ · [ponytail](https://github.com/DietrichGebert/ponytail) 165.6K⭐ · [agency-agents](https://github.com/msitarzewski/agency-agents) 160.8K⭐ · [Langflow](https://github.com/langflow-ai/langflow) 155.8K⭐
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.4K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.8K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.4K⭐ · [Dify](https://github.com/langgenius/dify) 158.7K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.9K⭐ · [Ollama](https://github.com/ollama/ollama) 183.6K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 251.8K⭐ · [hermes-agent](https://github.com/NousResearch/hermes-agent) 254.6K⭐ · [firecrawl](https://github.com/firecrawl/firecrawl) 192.4K⭐ · [ponytail](https://github.com/DietrichGebert/ponytail) 165.7K⭐ · [agency-agents](https://github.com/msitarzewski/agency-agents) 160.8K⭐ · [Langflow](https://github.com/langflow-ai/langflow) 155.8K⭐
 
 > 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/README.md) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
 
@@ -278,7 +278,7 @@ python main.py
 | **MCP** | 标准协议 | 多语言 | 工具标准化连接 | 跨框架工具互通 | ⭐⭐⭐⭐⭐ |
 | **hermes-agent** | 254.6K ⭐ | Python | 成长型记忆 Agent | 个性化长期助手 | ⭐⭐⭐⭐⭐ |
 | **firecrawl** | 192.4K ⭐ | TypeScript | Agent 数据基建 | 网页转 LLM 语料、RAG | ⭐⭐⭐⭐⭐ |
-| **ponytail** | 165.6K ⭐ | JavaScript | 反过度工程人格 | AI 编码 Agent 调教 | ⭐⭐⭐⭐ |
+| **ponytail** | 165.7K ⭐ | JavaScript | 反过度工程人格 | AI 编码 Agent 调教 | ⭐⭐⭐⭐ |
 | **agency-agents** | 160.8K ⭐ | Shell | 角色 Subagent 军团 | 多角色协作开箱即用 | ⭐⭐⭐⭐ |
 | **Langflow** | 155.8K ⭐ | Python | 可视化编排画布 | 开发者低代码原型 | ⭐⭐⭐⭐ |
 | **System Prompts** | 144.1K ⭐ | 收录库 | 真实系统提示词语料 | 逆向学习大厂 Prompt | ⭐⭐⭐⭐⭐ |
