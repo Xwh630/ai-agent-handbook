@@ -2,7 +2,7 @@
   {
     "name": "LangGraph",
     "repo": "langchain-ai/langgraph",
-    "stars": 43396,
+    "stars": 43398,
     "stars_formatted": "43.4K",
     "latest_release": "1.2.16",
     "snapshot_date": "2026-10-17"
@@ -10,7 +10,7 @@
   {
     "name": "CrewAI",
     "repo": "crewAIInc/crewAI",
-    "stars": 59794,
+    "stars": 59795,
     "stars_formatted": "59.8K",
     "latest_release": "1.15.28",
     "snapshot_date": "2026-10-17"
@@ -18,7 +18,7 @@
   {
     "name": "AutoGen",
     "repo": "microsoft/autogen",
-    "stars": 61448,
+    "stars": 61449,
     "stars_formatted": "61.4K",
     "latest_release": "python-v0.7.5",
     "snapshot_date": "2026-10-17"
@@ -58,7 +58,7 @@
   {
     "name": "Ollama",
     "repo": "ollama/ollama",
-    "stars": 183583,
+    "stars": 183585,
     "stars_formatted": "183.6K",
     "latest_release": "v0.40.5",
     "snapshot_date": "2026-10-17"
@@ -74,15 +74,15 @@
   {
     "name": "DeepSeek Harness",
     "repo": "deepseek-ai/deepseek-harness",
-    "stars": 251849,
-    "stars_formatted": "251.8K",
+    "stars": 251871,
+    "stars_formatted": "251.9K",
     "latest_release": null,
     "snapshot_date": "2026-10-17"
   },
   {
     "name": "hermes-agent",
     "repo": "NousResearch/hermes-agent",
-    "stars": 254585,
+    "stars": 254591,
     "stars_formatted": "254.6K",
     "latest_release": "v0.22.2",
     "snapshot_date": "2026-10-17"
@@ -90,7 +90,7 @@
   {
     "name": "firecrawl",
     "repo": "firecrawl/firecrawl",
-    "stars": 192383,
+    "stars": 192388,
     "stars_formatted": "192.4K",
     "latest_release": "v2.11.0",
     "snapshot_date": "2026-10-17"
@@ -98,7 +98,7 @@
   {
     "name": "ponytail",
     "repo": "DietrichGebert/ponytail",
-    "stars": 165686,
+    "stars": 165707,
     "stars_formatted": "165.7K",
     "latest_release": "v5.3.2",
     "snapshot_date": "2026-10-17"
@@ -106,7 +106,7 @@
   {
     "name": "agency-agents",
     "repo": "msitarzewski/agency-agents",
-    "stars": 160774,
+    "stars": 160779,
     "stars_formatted": "160.8K",
     "latest_release": null,
     "snapshot_date": "2026-10-17"
@@ -114,7 +114,7 @@
   {
     "name": "Langflow",
     "repo": "langflow-ai/langflow",
-    "stars": 155770,
+    "stars": 155771,
     "stars_formatted": "155.8K",
     "latest_release": "v1.12.6",
     "snapshot_date": "2026-10-17"
