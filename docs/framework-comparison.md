@@ -30,3 +30,5 @@
 | TypeScript 全栈 | Mastra |
 | 本地私有部署 | Ollama + 任意框架 |
 | 企业级合规要求 | MAF (Microsoft) |
+
+> 🆕 **2026-10 热门新势力**：hermes-agent（254.6K ⭐）/ firecrawl（192.4K ⭐）/ ponytail（165.6K ⭐）/ agency-agents（160.8K ⭐）/ Langflow（155.8K ⭐）——它们不属于"框架层"，评估与组合方式见 [第 28 章：2026 热门项目全景](../chapters/28-trending-2026.md)。

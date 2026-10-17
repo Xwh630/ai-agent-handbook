@@ -2,81 +2,129 @@
   {
     "name": "LangGraph",
     "repo": "langchain-ai/langgraph",
-    "stars": 43364,
+    "stars": 43396,
     "stars_formatted": "43.4K",
-    "latest_release": "prebuilt==1.1.1",
-    "snapshot_date": "2026-10-16"
+    "latest_release": "1.2.16",
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "CrewAI",
     "repo": "crewAIInc/crewAI",
-    "stars": 59763,
+    "stars": 59795,
     "stars_formatted": "59.8K",
     "latest_release": "1.15.28",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "AutoGen",
     "repo": "microsoft/autogen",
-    "stars": 61442,
+    "stars": 61448,
     "stars_formatted": "61.4K",
     "latest_release": "python-v0.7.5",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "Dify",
     "repo": "langgenius/dify",
-    "stars": 158645,
-    "stars_formatted": "158.6K",
+    "stars": 158701,
+    "stars_formatted": "158.7K",
     "latest_release": "1.17.1",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "LlamaIndex",
     "repo": "run-llama/llama_index",
-    "stars": 52521,
+    "stars": 52535,
     "stars_formatted": "52.5K",
     "latest_release": "v0.14.25",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "OpenAI Agents SDK",
     "repo": "openai/openai-agents-python",
-    "stars": 30086,
+    "stars": 30099,
     "stars_formatted": "30.1K",
     "latest_release": "v0.24.0",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "Mastra",
     "repo": "mastra-ai/mastra",
-    "stars": 28851,
+    "stars": 28863,
     "stars_formatted": "28.9K",
     "latest_release": "@mastra/core@1.78.0",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "Ollama",
     "repo": "ollama/ollama",
-    "stars": 183443,
-    "stars_formatted": "183.4K",
+    "stars": 183582,
+    "stars_formatted": "183.6K",
     "latest_release": "v0.40.5",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "MCP",
     "repo": "modelcontextprotocol/specification",
-    "stars": 9460,
+    "stars": 9464,
     "stars_formatted": "9.5K",
     "latest_release": "2026-07-28",
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
   },
   {
     "name": "DeepSeek Harness",
     "repo": "deepseek-ai/deepseek-harness",
-    "stars": 251017,
-    "stars_formatted": "251.0K",
+    "stars": 251807,
+    "stars_formatted": "251.8K",
     "latest_release": null,
-    "snapshot_date": "2026-10-16"
+    "snapshot_date": "2026-10-17"
+  },
+  {
+    "name": "hermes-agent",
+    "repo": "NousResearch/hermes-agent",
+    "stars": 254583,
+    "stars_formatted": "254.6K",
+    "latest_release": "v0.22.2",
+    "snapshot_date": "2026-10-17"
+  },
+  {
+    "name": "firecrawl",
+    "repo": "firecrawl/firecrawl",
+    "stars": 192379,
+    "stars_formatted": "192.4K",
+    "latest_release": "v2.11.0",
+    "snapshot_date": "2026-10-17"
+  },
+  {
+    "name": "ponytail",
+    "repo": "DietrichGebert/ponytail",
+    "stars": 165636,
+    "stars_formatted": "165.6K",
+    "latest_release": "v5.3.2",
+    "snapshot_date": "2026-10-17"
+  },
+  {
+    "name": "agency-agents",
+    "repo": "msitarzewski/agency-agents",
+    "stars": 160767,
+    "stars_formatted": "160.8K",
+    "latest_release": null,
+    "snapshot_date": "2026-10-17"
+  },
+  {
+    "name": "Langflow",
+    "repo": "langflow-ai/langflow",
+    "stars": 155768,
+    "stars_formatted": "155.8K",
+    "latest_release": "v1.12.6",
+    "snapshot_date": "2026-10-17"
+  },
+  {
+    "name": "System Prompts",
+    "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
+    "stars": 144063,
+    "stars_formatted": "144.1K",
+    "latest_release": null,
+    "snapshot_date": "2026-10-17"
   }
 ]
