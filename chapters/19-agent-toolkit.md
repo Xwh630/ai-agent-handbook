@@ -26,6 +26,7 @@
 | 📊 成本追踪器 | 按 Agent/任务/工具维度的 token 计费 |
 | 🧪 回放与重放 | 基于轨迹的调试与回归测试 |
 | 🛡️ Guardrail 工具集 | 输入过滤、输出校验、越权检测 |
+| 🌐 数据基建 | [firecrawl](https://github.com/firecrawl/firecrawl)（192.4K ⭐）等"网页 → LLM 语料"工具的接入模式，见 [第 28 章](./28-trending-2026.md) |
 
 ---
 

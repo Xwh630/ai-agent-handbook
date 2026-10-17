@@ -8,7 +8,7 @@
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 28+ 章完整教程 · 12+ 可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 29+ 章完整教程 · 12+ 可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -25,7 +25,7 @@
 
 </div>
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.4K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.8K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.4K⭐ · [Dify](https://github.com/langgenius/dify) 158.6K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.9K⭐ · [Ollama](https://github.com/ollama/ollama) 183.4K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 251.0K⭐
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.4K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.8K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.4K⭐ · [Dify](https://github.com/langgenius/dify) 158.7K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.9K⭐ · [Ollama](https://github.com/ollama/ollama) 183.6K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 251.8K⭐ · [hermes-agent](https://github.com/NousResearch/hermes-agent) 254.6K⭐ · [firecrawl](https://github.com/firecrawl/firecrawl) 192.4K⭐ · [ponytail](https://github.com/DietrichGebert/ponytail) 165.6K⭐ · [agency-agents](https://github.com/msitarzewski/agency-agents) 160.8K⭐ · [Langflow](https://github.com/langflow-ai/langflow) 155.8K⭐
 
 > 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/README.md) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
 
@@ -152,6 +152,7 @@
 | 第 25 章 | [Harness Engineering 驾驭工程](chapters/25-harness-engineering.md) | ⭐⭐⭐ 进阶 | 任务边界、上下文管理、状态持久化、失败恢复、权限体系（[配套可运行示例](examples/11-mini-harness/)） |
 | 第 26 章 | [Agent Skills 编写实战](chapters/26-agent-skills.md) 🆕 | ⭐⭐⭐ 进阶 | SKILL.md 六字段规范、渐进式披露四阶段、手搓一个可发布的 skill |
 | 第 27 章 | [上下文工程 Context Engineering](chapters/27-context-engineering.md) 🆕 | ⭐⭐⭐ 进阶 | Context Rot 机理、token 构成解剖、压缩/笔记/子 Agent 三板斧 |
+| 第 28 章 | [2026 热门项目全景](chapters/28-trending-2026.md) 🆕 | ⭐⭐ 基础 | hermes-agent / firecrawl / ponytail / agency-agents / Langflow / System Prompts 六大顶流串联地图 |
 
 ### 📡 Agent Radar 周刊
 
@@ -268,13 +269,19 @@ python main.py
 | **LangGraph** | 43.4K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
 | **CrewAI** | 59.8K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
 | **AutoGen (MAF)** | 60.6K ⭐ | Python/.NET | 对话驱动协作 | 多 Agent 研究、迭代求解 | ⭐⭐⭐⭐ |
-| **Dify** | 158.6K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
+| **Dify** | 158.7K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
 | **LlamaIndex** | 52.5K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
 | **OpenAI Agents SDK** | 30.1K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
 | **Claude Agent SDK** | 8.0K ⭐ | Python | Anthropic 官方 | Claude Code 集成 | ⭐⭐⭐ |
 | **Mastra** | 28.9K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
-| **Ollama** | 183.4K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
+| **Ollama** | 183.6K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
 | **MCP** | 标准协议 | 多语言 | 工具标准化连接 | 跨框架工具互通 | ⭐⭐⭐⭐⭐ |
+| **hermes-agent** | 254.6K ⭐ | Python | 成长型记忆 Agent | 个性化长期助手 | ⭐⭐⭐⭐⭐ |
+| **firecrawl** | 192.4K ⭐ | TypeScript | Agent 数据基建 | 网页转 LLM 语料、RAG | ⭐⭐⭐⭐⭐ |
+| **ponytail** | 165.6K ⭐ | JavaScript | 反过度工程人格 | AI 编码 Agent 调教 | ⭐⭐⭐⭐ |
+| **agency-agents** | 160.8K ⭐ | Shell | 角色 Subagent 军团 | 多角色协作开箱即用 | ⭐⭐⭐⭐ |
+| **Langflow** | 155.8K ⭐ | Python | 可视化编排画布 | 开发者低代码原型 | ⭐⭐⭐⭐ |
+| **System Prompts** | 144.1K ⭐ | 收录库 | 真实系统提示词语料 | 逆向学习大厂 Prompt | ⭐⭐⭐⭐⭐ |
 
 > Stars 数据截至 2026 年 10 月，来自 GitHub。每周自动更新。
 
@@ -321,7 +328,7 @@ ai-agent-handbook/
 │   ├── README.md             # 英文 README
 │   ├── TRANSLATION_STATUS.md # 翻译进度
 │   └── chapters/             # 英文章节
-├── chapters/                 # 各章节完整教程（28 章）
+├── chapters/                 # 各章节完整教程（29 章）
 │   ├── 00-quickstart.md           # 🚀 新手快速入门（10分钟）
 │   ├── 01-fundamentals.md         # AI Agent 基础概念
 │   ├── 02-reaact-from-scratch.md  # 手写 ReAct Agent
@@ -355,7 +362,7 @@ ai-agent-handbook/
 │   └── agent-handbook/
 │       ├── SKILL.md               # 遵循 Agent Skills 开放规范
 │       └── references/
-│           └── chapter-index.md   # 28 章速查索引
+│           └── chapter-index.md   # 29 章速查索引
 ├── examples/                 # 可运行的代码示例（12+ 示例）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
@@ -545,7 +552,7 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 28 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题） |
+| 章节数量 | 29 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题 + 热门项目全景） |
 | 示例代码 | 12+ 可运行示例（含零依赖 Skill 校验器与 MiniHarness） |
 | 代码行数 | 4,100+ 行 |
 | 字数 | 145,000+ 字 |
@@ -577,6 +584,8 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-17 | 🆕 新增第 28 章：[2026 热门项目全景](chapters/28-trending-2026.md)——串联 hermes-agent / firecrawl / ponytail 等六大顶流与本书方法论 |
+| 2026-10-17 | 📊 框架速览表新增 6 个热门项目，纳入每周自动追踪；第 7/18/19/27 章完成交叉串联 |
 | 2026-10-16 | 🆕 新增 [MiniHarness 可运行示例](examples/11-mini-harness/)（第 25 章配套，五大支柱全覆盖） |
 | 2026-10-16 | 🌐 第 25 章英文版发布：[Harness Engineering (EN)](en/chapters/25-harness-engineering.md) |
 | 2026-10-16 | 📖 术语表扩充至 130+ 条，新增 Guardian Agent / Escalation / Sandbox / Circuit Breaker 等 |

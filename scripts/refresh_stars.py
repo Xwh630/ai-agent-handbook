@@ -27,6 +27,13 @@ FRAMEWORKS = [
     {"name": "Ollama", "repo": "ollama/ollama"},
     {"name": "MCP", "repo": "modelcontextprotocol/specification"},
     {"name": "DeepSeek Harness", "repo": "deepseek-ai/deepseek-harness"},
+    # 2026-10 热门项目全景（第 28 章），与 README 速览表新增行对应
+    {"name": "hermes-agent", "repo": "NousResearch/hermes-agent"},
+    {"name": "firecrawl", "repo": "firecrawl/firecrawl"},
+    {"name": "ponytail", "repo": "DietrichGebert/ponytail"},
+    {"name": "agency-agents", "repo": "msitarzewski/agency-agents"},
+    {"name": "Langflow", "repo": "langflow-ai/langflow"},
+    {"name": "System Prompts", "repo": "x1xhlol/system-prompts-and-models-of-ai-tools"},
 ]
 
 
@@ -83,7 +90,7 @@ def update_readme(repo_root: Path, stars_data: list[dict]):
         return match.group(0)
 
     content = re.sub(
-        r"\*\*(LangGraph|CrewAI|AutoGen \(MAF\)|Dify|LlamaIndex|OpenAI Agents SDK|Claude Agent SDK|Mastra|Ollama|MCP)\*\* \| [^|]+ ⭐",
+        r"\*\*(LangGraph|CrewAI|AutoGen \(MAF\)|Dify|LlamaIndex|OpenAI Agents SDK|Claude Agent SDK|Mastra|Ollama|MCP|hermes-agent|firecrawl|ponytail|agency-agents|Langflow|System Prompts)\*\* \| [^|]+ ⭐",
         replace_stars,
         content,
     )

@@ -284,6 +284,8 @@ GitHub 上有个项目叫 **`caveman`**，109K 星，日增 505。
 
 上下文工程之所以在 2026 年成为独立学科，不是因为学术界突然感兴趣——是因为**账太贵了**。
 
+还有一个更"正经"的佐证：[x1xhlol/system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)（144.1K ⭐）收录了 Cursor、Devin、Claude Code、CodeBuddy 等产品的**真实系统提示词**，3.4 万 fork。逐份读下去你会发现，这些千锤百炼的提示词里有相当大的篇幅在做的事就是本章的主题——**管理注意力**：声明工具格式约束、注入顺序、放弃话术、禁止行为。读完再回头看本章的六手段，会有"英雄所见略同"的踏实感。更系统的导读见 [第 28 章](./28-trending-2026.md)。
+
 ---
 
 ## 27.10 小结
