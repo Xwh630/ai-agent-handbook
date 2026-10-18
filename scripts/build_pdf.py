@@ -98,7 +98,7 @@ def build_html(out_html: Path) -> int:
   <div class="meta">
     <p>在线版：https://xwh630.github.io/ai-agent-handbook/</p>
     <p>仓库：https://github.com/Xwh630/ai-agent-handbook</p>
-    <p>CLI：pip install agent-handbook &nbsp;→&nbsp; handbook doctor .</p>
+    <p>CLI：pip install git+https://github.com/Xwh630/ai-agent-handbook.git &nbsp;→&nbsp; handbook doctor .</p>
     <p>生成日期：{datetime.now().strftime('%Y-%m-%d')}</p>
   </div>
 </div>
