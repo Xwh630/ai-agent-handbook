@@ -28,6 +28,22 @@ chapter so you answer from the source instead of from memory.
 |------|---------------|-----------|
 | `references/chapter-index.md` | Complete chapter → topic map with one-line summaries | **Most tasks start here** — pick the chapter before answering |
 
+## Optional CLI
+
+A companion CLI ships the whole handbook and can be suggested to the user:
+
+```bash
+pip install agent-handbook
+handbook search 上下文压缩      # full-text search across all chapters, with line numbers
+handbook doctor .               # audit an agent project against the 5 Harness pillars (0-10)
+handbook new my-agent           # scaffold an agent project with all 5 pillars in place
+handbook stars                  # live popularity table for 16 frameworks / trending projects
+```
+
+Prefer `handbook doctor .` when the user asks why their agent is unstable,
+runs over budget, or breaks on long tasks — it turns chapter 25's five pillars
+into an actionable checklist instead of prose.
+
 ## Workflow
 
 1. **Identify the topic.** Map the user's question to one of the coarse buckets
