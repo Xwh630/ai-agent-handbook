@@ -94,7 +94,7 @@ def build_html(out_html: Path) -> int:
     cover = f"""
 <div class="cover">
   <h1>AI Agent 实战手册</h1>
-  <p style="font-size:14pt;color:#475569;">从零基础到生产部署 · 29 章 · 12 个可运行示例</p>
+  <p style="font-size:14pt;color:#475569;">从零基础到生产部署 · 29 章 · 11 个可运行示例</p>
   <div class="meta">
     <p>在线版：https://xwh630.github.io/ai-agent-handbook/</p>
     <p>仓库：https://github.com/Xwh630/ai-agent-handbook</p>
