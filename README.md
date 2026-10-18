@@ -8,7 +8,7 @@
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 29+ 章完整教程 · 12+ 可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包 · **可 pip 安装的 CLI**
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 29+ 章完整教程 · 11 个可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包 · **可 pip 安装的 CLI**
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -78,7 +78,7 @@ handbook doctor .
 | 收获 | 具体是什么 |
 |------|-----------|
 | **判断力** | 看完能说清一个 Agent 项目缺什么——不是"感觉不稳"，而是"缺上下文压缩，超预算必炸" |
-| **动手能力** | 12 个可运行示例 + 一个能自检的 CLI，改改就能用在自己的项目里 |
+| **动手能力** | 11 个可运行示例 + 一个能自检的 CLI，改改就能用在自己的项目里 |
 | **工程品味** | 第 25–27 章的 Harness / Agent Skills / Context Engineering，是 2026 年把 Agent 从 demo 推到生产的分水岭 |
 | **中文语境** | 术语有中英对照，踩坑经验是中文圈真实的（模型选型、国产 API、网络环境） |
 ---
@@ -441,7 +441,7 @@ ai-agent-handbook/
 │       ├── SKILL.md               # 遵循 Agent Skills 开放规范
 │       └── references/
 │           └── chapter-index.md   # 29 章速查索引
-├── examples/                 # 可运行的代码示例（12+ 示例）
+├── examples/                 # 可运行的代码示例（11 个）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
 │   ├── 03-crewai-team/            # CrewAI 团队
@@ -631,7 +631,7 @@ python main.py --topic "AI Agent 发展趋势"
 | 指标 | 数值 |
 |------|------|
 | 章节数量 | 29 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题 + 热门项目全景） |
-| 示例代码 | 12+ 可运行示例（含零依赖 Skill 校验器与 MiniHarness） |
+| 示例代码 | 11 个可运行示例（含零依赖 Skill 校验器与 MiniHarness） |
 | 代码行数 | 4,100+ 行 |
 | 字数 | 145,000+ 字 |
 | 覆盖框架 | 10+ 主流框架 |
@@ -727,7 +727,7 @@ git push origin feature/AmazingFeature
   author = {Xwh630},
   year   = {2026},
   url    = {https://github.com/Xwh630/ai-agent-handbook},
-  note   = {29 章中文教程 + 12 个可运行示例 + agent-handbook CLI}
+  note   = {29 章中文教程 + 11 个可运行示例 + agent-handbook CLI}
 }
 ```
 
