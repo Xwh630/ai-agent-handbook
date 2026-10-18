@@ -51,7 +51,7 @@ projects/
 ## 体检分数
 
 ```bash
-pip install agent-handbook
+pip install git+https://github.com/Xwh630/ai-agent-handbook.git
 handbook doctor .
 ```
 

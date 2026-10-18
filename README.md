@@ -662,6 +662,7 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-18 | 🏆 Radar 新增「社区精选」固定栏目，[`projects/`](projects/README.md) 读者项目有了每期固定的展示位；CLI 改为可用的 git 安装（PyPI 上传中） |
 | 2026-10-17 | 📥 新增 [PDF 全本下载](https://github.com/Xwh630/ai-agent-handbook/releases/latest)（220 页，`scripts/build_pdf.py` 一键生成） |
 | 2026-10-17 | 🧪 新增 [`projects/`](projects/README.md) 读者项目收录机制（对标 hello-agents 的 Co-creation） |
 | 2026-10-17 | ✨ README 补「你将收获 / 如何学习 / 读者项目 / 引用」区块 |
