@@ -17,6 +17,19 @@
 - ⭐ **Star / 👁️ Watch 本仓库**：选择 `Releases only` 可在每期发布时收到通知
 - 💬 [Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions)：每期都开讨论帖，欢迎爆料与纠错
 
+## 🏆 社区精选（每期固定栏目）
+
+每期 Radar 都有一个固定不变的「社区精选」小节，从 [`projects/`](../projects/README.md)
+收录的读者项目里挑 1–3 个展示。它的存在是为了让「Co-creation」机制可预期：
+
+- **对读者**：提交项目 → 下一期周刊有固定位置展示，不是抽奖；
+- **对项目**：真实的 fork 和使用者比点赞更值钱（hello-agents 的 10,350 个 fork 就是这么来的）。
+
+没有新收录的那一期，栏目会明确写「本周暂无新收录——下一个位置留给第 1 位提交者」，
+而不是悄悄消失。
+
+---
+
 ## 📚 往期列表
 
 | 期数 | 日期 | 本期亮点 |
@@ -28,3 +41,5 @@
 ## 🤝 投稿
 
 发现值得收录的项目/论文/工具？直接开 [Issue](https://github.com/Xwh630/ai-agent-handbook/issues/new?title=Radar投稿：) 或在当期 Discussion 下留言，注明来源链接即可。
+
+**用本手册做出了东西？** 按 [`projects/README.md`](../projects/README.md) 的模板提 PR，下一期「社区精选」可能就是你的项目。
