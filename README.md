@@ -35,7 +35,7 @@
 > 这份手册不只是给你读的，现在也能**用**。
 
 ```bash
-pip install agent-handbook
+pip install git+https://github.com/Xwh630/ai-agent-handbook.git
 handbook doctor .
 ```
 
@@ -665,7 +665,7 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-17 | 📥 新增 [PDF 全本下载](https://github.com/Xwh630/ai-agent-handbook/releases/latest)（220 页，`scripts/build_pdf.py` 一键生成） |
 | 2026-10-17 | 🧪 新增 [`projects/`](projects/README.md) 读者项目收录机制（对标 hello-agents 的 Co-creation） |
 | 2026-10-17 | ✨ README 补「你将收获 / 如何学习 / 读者项目 / 引用」区块 |
-| 2026-10-17 | ⚡ **CLI 发布**：`pip install agent-handbook`，支持 `doctor` 五支柱体检 / `search` 全文检索 / `new` 生成 Harness 骨架（生成即 10 分） |
+| 2026-10-17 | ⚡ **CLI 发布**：`pip install git+https://github.com/Xwh630/ai-agent-handbook.git`（PyPI 上传中），支持 `doctor` 五支柱体检 / `search` 全文检索 / `new` 生成 Harness 骨架（生成即 10 分） |
 | 2026-10-17 | 🆕 新增第 28 章：[2026 热门项目全景](chapters/28-trending-2026.md)——串联 hermes-agent / firecrawl / ponytail 等六大顶流与本书方法论 |
 | 2026-10-17 | 📊 框架速览表新增 6 个热门项目，纳入每周自动追踪；第 7/18/19/27 章完成交叉串联 |
 | 2026-10-16 | 🆕 新增 [MiniHarness 可运行示例](examples/11-mini-harness/)（第 25 章配套，五大支柱全覆盖） |

@@ -1,6 +1,9 @@
 [build-system]
 requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+# in-tree 后端：构建时自动把 chapters/ 与 data/ 同步进包内，
+# 否则从 git 安装会得到没有章节数据的空壳 CLI。详见 build_backend.py
+build-backend = "build_backend"
+backend-path = ["."]
 
 [project]
 name = "agent-handbook"
