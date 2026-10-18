@@ -71,6 +71,28 @@ handbook doctor .
 
 零依赖、纯标准库、离线可用（章节数据随包安装）。源码在 [`src/agent_handbook/`](src/agent_handbook/)。
 
+📥 **不想在线读？** [下载整本 PDF（220 页 / 5.4 MB）](https://github.com/Xwh630/ai-agent-handbook/releases/latest) —— 通勤、断电、断网都能看，每个版本随 release 更新。---
+
+## ✨ 你将收获什么？
+
+| 收获 | 具体是什么 |
+|------|-----------|
+| **判断力** | 看完能说清一个 Agent 项目缺什么——不是"感觉不稳"，而是"缺上下文压缩，超预算必炸" |
+| **动手能力** | 12 个可运行示例 + 一个能自检的 CLI，改改就能用在自己的项目里 |
+| **工程品味** | 第 25–27 章的 Harness / Agent Skills / Context Engineering，是 2026 年把 Agent 从 demo 推到生产的分水岭 |
+| **中文语境** | 术语有中英对照，踩坑经验是中文圈真实的（模型选型、国产 API、网络环境） |
+---
+
+## 💡 如何学习（按你现在的水平选一条）
+
+| 你的情况 | 路径 | 预计耗时 |
+|----------|------|----------|
+| 🌱 **完全新手**，没碰过 Agent | 第 0 章 → 第 1 章 → 第 2 章 → 第 7 章 Dify | 一个下午 |
+| 💻 **会编程**，想深入原理 | 第 2 章 → 框架三选一（LangGraph / CrewAI / OpenAI Agents SDK）→ 第 25 章 | 一到两周 |
+| 🏢 **团队选型 / 带人** | 第 18 章选型指南 → 第 28 章顶流全景 → 拿手册做内部培训 | 一天 |
+
+> 💡 不确定从哪开始？先跑 `handbook doctor .` 看看你手上的项目缺哪根柱子，再按建议读对应章节——带着问题读，比从头读效率高得多。
+
 ---
 
 ---
@@ -640,6 +662,9 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-17 | 📥 新增 [PDF 全本下载](https://github.com/Xwh630/ai-agent-handbook/releases/latest)（220 页，`scripts/build_pdf.py` 一键生成） |
+| 2026-10-17 | 🧪 新增 [`projects/`](projects/README.md) 读者项目收录机制（对标 hello-agents 的 Co-creation） |
+| 2026-10-17 | ✨ README 补「你将收获 / 如何学习 / 读者项目 / 引用」区块 |
 | 2026-10-17 | ⚡ **CLI 发布**：`pip install agent-handbook`，支持 `doctor` 五支柱体检 / `search` 全文检索 / `new` 生成 Harness 骨架（生成即 10 分） |
 | 2026-10-17 | 🆕 新增第 28 章：[2026 热门项目全景](chapters/28-trending-2026.md)——串联 hermes-agent / firecrawl / ponytail 等六大顶流与本书方法论 |
 | 2026-10-17 | 📊 框架速览表新增 6 个热门项目，纳入每周自动追踪；第 7/18/19/27 章完成交叉串联 |
@@ -690,6 +715,24 @@ git push origin feature/AmazingFeature
 
 ---
 
+---
+
+## 🎓 引用
+
+如果这本手册帮到了你的项目、课程或文章，欢迎引用：
+
+```bibtex
+@misc{ai_agent_handbook2026,
+  title  = {AI Agent 实战手册 (AI Agent Handbook)},
+  author = {Xwh630},
+  year   = {2026},
+  url    = {https://github.com/Xwh630/ai-agent-handbook},
+  note   = {29 章中文教程 + 12 个可运行示例 + agent-handbook CLI}
+}
+```
+
+---
+
 ## 📄 许可证
 
 本项目采用 **MIT 许可证** — 详见 [LICENSE](LICENSE) 文件
@@ -716,6 +759,18 @@ git push origin feature/AmazingFeature
 - 🐛 **问题反馈**：[GitHub Issues](https://github.com/Xwh630/ai-agent-handbook/issues)
 - 💡 **功能建议**：[GitHub Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions)
 - 📧 **联系作者**：通过 GitHub Profile
+
+---
+
+---
+
+## 🧪 读者项目
+
+用这本手册做出东西之后，把它收录进 [`projects/`](projects/README.md)——**你的项目会成为下一个读者的起点**。
+
+对标一下这个机制的天花板：Datawhale 的 hello-agents（83.5K ⭐）正是靠读者项目拿到 **10,350 个 fork**。
+命名规范 `GitHub用户名-项目名`，提个 PR 就行，模板在 [`projects/README.md`](projects/README.md)。
+第一个提交者会被写进下一期 Radar 周刊头条 + README 致谢墙。
 
 ---
 
