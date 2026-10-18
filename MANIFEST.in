@@ -1,0 +1,14 @@
+# sdist 必须自带构建后端与数据源，否则从 sdist 安装会退回空壳 CLI
+include build_backend.py
+include pyproject.toml
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include llms.txt
+recursive-include chapters *.md
+recursive-include data *.json *.csv
+recursive-include src *.py
+prune dist
+prune site
+global-exclude __pycache__
+global-exclude *.py[cod]
