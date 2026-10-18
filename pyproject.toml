@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-handbook"
+version = "0.1.0"
+description = "AI Agent 实战手册的命令行工具：29 章全文检索、Harness 健康度体检、Agent 项目脚手架"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Xwh630", email = "hi@xwh630.dev" }]
+keywords = ["ai", "agent", "llm", "harness", "cli", "chinese", "handbook"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "build", "twine"]
+
+[project.urls]
+Homepage = "https://github.com/Xwh630/ai-agent-handbook"
+Documentation = "https://xwh630.github.io/ai-agent-handbook/"
+Repository = "https://github.com/Xwh630/ai-agent-handbook"
+Issues = "https://github.com/Xwh630/ai-agent-handbook/issues"
+
+[project.scripts]
+handbook = "agent_handbook.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agent_handbook = ["chapters/*.md", "data/*.json", "data/*.csv"]

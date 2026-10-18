@@ -44,6 +44,7 @@
 - [第 25 章：Harness Engineering 驾驭工程](chapters/25-harness-engineering.md)：任务边界、上下文管理、状态持久化、失败恢复、权限体系
 - [第 26 章：Agent Skills 编写实战](chapters/26-agent-skills.md)：SKILL.md 六字段规范、渐进式披露四阶段、token 预算红线、手搓一个可发布的 skill、发布自检清单
 - [第 27 章：上下文工程 Context Engineering](chapters/27-context-engineering.md)：Context Rot 机理、token 构成解剖、工具集收敛、压缩/笔记/子 Agent 三板斧
+- [第 28 章：2026 热门项目全景](chapters/28-trending-2026.md)：hermes-agent / firecrawl / ponytail / agency-agents / Langflow / System Prompts 六大顶流与本书串联地图
 
 ## 官方 Agent Skill 包
 

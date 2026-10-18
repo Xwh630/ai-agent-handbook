@@ -8,7 +8,7 @@
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 29+ 章完整教程 · 12+ 可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 29+ 章完整教程 · 12+ 可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包 · **可 pip 安装的 CLI**
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -28,6 +28,62 @@
 > **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.4K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.8K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.4K⭐ · [Dify](https://github.com/langgenius/dify) 158.7K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.9K⭐ · [Ollama](https://github.com/ollama/ollama) 183.6K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 251.9K⭐ · [hermes-agent](https://github.com/NousResearch/hermes-agent) 254.6K⭐ · [firecrawl](https://github.com/firecrawl/firecrawl) 192.4K⭐ · [ponytail](https://github.com/DietrichGebert/ponytail) 165.7K⭐ · [agency-agents](https://github.com/msitarzewski/agency-agents) 160.8K⭐ · [Langflow](https://github.com/langflow-ai/langflow) 155.8K⭐
 
 > 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/README.md) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
+---
+
+## ⚡ 30 秒：给你的 Agent 项目做个体检
+
+> 这份手册不只是给你读的，现在也能**用**。
+
+```bash
+pip install agent-handbook
+handbook doctor .
+```
+
+```
+🩺 Harness 体检报告 · /path/to/your-agent
+
+支柱        得分      状态          证据
+--------------------------------------------------------------------
+任务边界      ●●      ✅ 扎实        main.py:86, main.py:89, main.py:91
+上下文管理     ○○      ❌ 缺失        —
+状态持久化     ●○      ⚠️ 薄弱        main.py:180
+失败恢复      ○○      ❌ 缺失        —
+权限体系      ○○      ❌ 缺失        —
+--------------------------------------------------------------------
+总分 3/10  ·  评级 D  ·  裸 Agent：模型直接裸奔，崩溃/超预算/越权全靠运气
+
+👉 最该先补：上下文管理 —— 看手册 25.3 上下文管理
+```
+
+**为什么值得装**：大多数「Agent 跑不稳」不是模型不行，而是第 25 章那五根柱子
+少了几根。`doctor` 静态扫描你的代码，告诉你缺哪根、该读哪一节——把方法论变成可执行检查。
+
+### 全部命令
+
+| 命令 | 干什么 |
+|------|--------|
+| `handbook doctor .` | 按 Harness 五支柱给 Agent 项目体检（0–10 分 + 补齐建议） |
+| `handbook search 上下文压缩` | 29 章全文检索，直接给章节 + 行号 + 片段 |
+| `handbook new my-agent` | 生成自带五支柱的 Agent 骨架（生成即满分，可跑） |
+| `handbook list` | 列出全部 29 章及行数 |
+| `handbook stars` | 打印 16 个框架/顶流项目的实时热度表 |
+| `handbook open 25` | 给出某章的本地路径与在线地址 |
+
+零依赖、纯标准库、离线可用（章节数据随包安装）。源码在 [`src/agent_handbook/`](src/agent_handbook/)。
+
+---
+
+---
+
+## 👦 关于作者
+
+这是一个**在校学生利用课余时间维护**的项目——写代码、查资料、跟 CI 打架，都在放学后和周末。
+
+有人在 issue 里问过「这真是学生写的？」。答案在仓库里：提交记录横跨晚自习和周末，
+CI 修过四轮才跑通，第 25 章的 MiniHarness 是手写调试出来的。
+
+如果这份手册帮到了你，点亮一颗 Star 就是对我最大的激励 ⭐ —— 它决定了下个周末我是继续写第 30 章，
+还是去写作业。
 
 ---
 
@@ -584,6 +640,7 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-17 | ⚡ **CLI 发布**：`pip install agent-handbook`，支持 `doctor` 五支柱体检 / `search` 全文检索 / `new` 生成 Harness 骨架（生成即 10 分） |
 | 2026-10-17 | 🆕 新增第 28 章：[2026 热门项目全景](chapters/28-trending-2026.md)——串联 hermes-agent / firecrawl / ponytail 等六大顶流与本书方法论 |
 | 2026-10-17 | 📊 框架速览表新增 6 个热门项目，纳入每周自动追踪；第 7/18/19/27 章完成交叉串联 |
 | 2026-10-16 | 🆕 新增 [MiniHarness 可运行示例](examples/11-mini-harness/)（第 25 章配套，五大支柱全覆盖） |

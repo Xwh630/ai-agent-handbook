@@ -80,3 +80,8 @@ site-content/
 # 推广物料（本地使用，不提交）
 promotion/
 assets/*.png
+# CLI 打包时同步进来的数据副本（构建产物）
+src/agent_handbook/chapters/
+src/agent_handbook/data/
+dist/
+*.egg-info/

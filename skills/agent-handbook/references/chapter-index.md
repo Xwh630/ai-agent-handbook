@@ -107,3 +107,5 @@
 | 线上出问题怎么排查？ | `16-observability.md` → `appendix/error-troubleshooting.md` |
 | 想要一个完整项目参考？ | `17-fullstack-project.md` |
 | 想找能直接用的 CLI/IDE 工具？ | `20` ~ `24` 章 |
+| 2026 年哪些顶流项目值得看？ | `28-trending-2026.md`（hermes-agent / firecrawl / ponytail / agency-agents / Langflow / System Prompts） |
+| 想体检一个 Agent 项目？ | `25-harness-engineering.md` 五支柱 + `handbook doctor .` CLI |
