@@ -25,7 +25,7 @@
 
 </div>
 
-> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.4K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 59.8K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.4K⭐ · [Dify](https://github.com/langgenius/dify) 158.7K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.5K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 28.9K⭐ · [Ollama](https://github.com/ollama/ollama) 183.6K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 251.9K⭐ · [hermes-agent](https://github.com/NousResearch/hermes-agent) 254.6K⭐ · [firecrawl](https://github.com/firecrawl/firecrawl) 192.4K⭐ · [ponytail](https://github.com/DietrichGebert/ponytail) 165.7K⭐ · [agency-agents](https://github.com/msitarzewski/agency-agents) 160.8K⭐ · [Langflow](https://github.com/langflow-ai/langflow) 155.8K⭐
+> **框架覆盖**：[LangGraph](https://github.com/langchain-ai/langgraph) 43.8K⭐ · [CrewAI](https://github.com/crewAIInc/crewAI) 60.0K⭐ · [AutoGen](https://github.com/microsoft/autogen) 61.5K⭐ · [Dify](https://github.com/langgenius/dify) 159.3K⭐ · [LlamaIndex](https://github.com/run-llama/llama_index) 52.6K⭐ · [OpenAI Agents](https://github.com/openai/openai-agents-python) 28.9K⭐ · [Mastra](https://github.com/mastra-ai/mastra) 29.0K⭐ · [Ollama](https://github.com/ollama/ollama) 184.4K⭐ · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 258.9K⭐ · [hermes-agent](https://github.com/NousResearch/hermes-agent) 256.4K⭐ · [firecrawl](https://github.com/firecrawl/firecrawl) 194.5K⭐ · [ponytail](https://github.com/DietrichGebert/ponytail) 174.3K⭐ · [agency-agents](https://github.com/msitarzewski/agency-agents) 163.4K⭐ · [Langflow](https://github.com/langflow-ai/langflow) 156.0K⭐
 
 > 📡 **新增「Agent Radar」周刊**：[每周一期，追踪 Agent 圈最新动态](radar/README.md) · 🏗️ **新增[第 25 章：Harness Engineering](chapters/25-harness-engineering.md)** —— 2026 年 Agent 工程的核心竞争力
 ---
@@ -344,22 +344,22 @@ python main.py
 
 | 框架 | GitHub Stars | 语言 | 定位 | 最佳场景 | 推荐指数 |
 |------|--------------|------|------|----------|----------|
-| **LangGraph** | 43.4K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
-| **CrewAI** | 59.8K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
+| **LangGraph** | 43.8K ⭐ | Python/TS | 图状态机编排 | 复杂工作流、生产级系统 | ⭐⭐⭐⭐⭐ |
+| **CrewAI** | 60.0K ⭐ | Python | 角色化多 Agent | 快速原型、团队协作模拟 | ⭐⭐⭐⭐⭐ |
 | **AutoGen (MAF)** | 60.6K ⭐ | Python/.NET | 对话驱动协作 | 多 Agent 研究、迭代求解 | ⭐⭐⭐⭐ |
-| **Dify** | 158.7K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
-| **LlamaIndex** | 52.5K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
-| **OpenAI Agents SDK** | 30.1K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
+| **Dify** | 159.3K ⭐ | Python/TS | 低代码可视化 | 产品验证、非技术人员 | ⭐⭐⭐⭐⭐ |
+| **LlamaIndex** | 52.6K ⭐ | Python | RAG 数据接入 | 知识库问答、文档检索 | ⭐⭐⭐⭐⭐ |
+| **OpenAI Agents SDK** | 30.2K ⭐ | Python | 轻量级多 Agent | 快速开发、OpenAI 生态 | ⭐⭐⭐⭐ |
 | **Claude Agent SDK** | 8.0K ⭐ | Python | Anthropic 官方 | Claude Code 集成 | ⭐⭐⭐ |
-| **Mastra** | 28.9K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
-| **Ollama** | 183.6K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
+| **Mastra** | 29.0K ⭐ | TypeScript | TS 优先 Agent | 前端/全栈开发者 | ⭐⭐⭐ |
+| **Ollama** | 184.4K ⭐ | Go | 本地大模型运行 | 隐私保护、离线场景 | ⭐⭐⭐⭐⭐ |
 | **MCP** | 标准协议 | 多语言 | 工具标准化连接 | 跨框架工具互通 | ⭐⭐⭐⭐⭐ |
-| **hermes-agent** | 254.6K ⭐ | Python | 成长型记忆 Agent | 个性化长期助手 | ⭐⭐⭐⭐⭐ |
-| **firecrawl** | 192.4K ⭐ | TypeScript | Agent 数据基建 | 网页转 LLM 语料、RAG | ⭐⭐⭐⭐⭐ |
-| **ponytail** | 165.7K ⭐ | JavaScript | 反过度工程人格 | AI 编码 Agent 调教 | ⭐⭐⭐⭐ |
-| **agency-agents** | 160.8K ⭐ | Shell | 角色 Subagent 军团 | 多角色协作开箱即用 | ⭐⭐⭐⭐ |
-| **Langflow** | 155.8K ⭐ | Python | 可视化编排画布 | 开发者低代码原型 | ⭐⭐⭐⭐ |
-| **System Prompts** | 144.1K ⭐ | 收录库 | 真实系统提示词语料 | 逆向学习大厂 Prompt | ⭐⭐⭐⭐⭐ |
+| **hermes-agent** | 256.4K ⭐ | Python | 成长型记忆 Agent | 个性化长期助手 | ⭐⭐⭐⭐⭐ |
+| **firecrawl** | 194.5K ⭐ | TypeScript | Agent 数据基建 | 网页转 LLM 语料、RAG | ⭐⭐⭐⭐⭐ |
+| **ponytail** | 174.3K ⭐ | JavaScript | 反过度工程人格 | AI 编码 Agent 调教 | ⭐⭐⭐⭐ |
+| **agency-agents** | 163.4K ⭐ | Shell | 角色 Subagent 军团 | 多角色协作开箱即用 | ⭐⭐⭐⭐ |
+| **Langflow** | 156.0K ⭐ | Python | 可视化编排画布 | 开发者低代码原型 | ⭐⭐⭐⭐ |
+| **System Prompts** | 144.2K ⭐ | 收录库 | 真实系统提示词语料 | 逆向学习大厂 Prompt | ⭐⭐⭐⭐⭐ |
 
 > Stars 数据截至 2026 年 10 月，来自 GitHub。每周自动更新。
 
