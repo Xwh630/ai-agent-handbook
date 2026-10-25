@@ -1,0 +1,64 @@
+name: Publish to PyPI
+
+# 在 GitHub Release 发布（或手动触发）时，把 CLI 包发布到 PyPI。
+#
+# 一次性配置（Trusted Publishing，仓库不需要存任何 PyPI token）：
+#   1. 登录 pypi.org → Account Settings → Publishing → Add a new pending publisher
+#   2. 填写：
+#        PyPI project name:  agent-handbook
+#        Owner:              Xwh630
+#        Repository:         ai-agent-handbook
+#        Workflow filename:  publish-pypi.yml
+#        Environment name:   pypi
+#   3. 仓库 Settings → Environments → New environment → 名称填 pypi
+#   4. 打一个 release（或去 Actions 手动跑本工作流）即自动发布
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build
+        run: python -m pip install --upgrade build
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Verify package is not an empty shell
+        run: |
+          python -m pip install dist/*.whl
+          handbook list | head -5
+          handbook search MCP | head -3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write   # Trusted Publishing 必需
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

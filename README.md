@@ -224,7 +224,7 @@ CI 修过四轮才跑通，第 25 章的 MiniHarness 是手写调试出来的。
 | 第 11 章 | MCP 协议完全指南 | ⭐⭐⭐ 进阶 | 标准化工具连接协议 |
 | 第 15 章 | Token 成本优化策略 | ⭐⭐ 基础 | 生产环境成本控制 |
 | 第 18 章 | 选型决策树与最佳实践 | ⭐⭐ 基础 | 如何选择合适的框架 |
-| 第 19 章 | Agent 通用工具箱 | ⏳ 规划中 | 工具注册、审批网关、成本追踪等 |
+| 第 19 章 | [Agent 通用工具箱](chapters/19-agent-toolkit.md) 🆕 | ⭐⭐⭐ 进阶 | 工具注册中心 / 审批网关 / 成本追踪 / 回放重放 / Guardrails / 数据基建——与框架无关的六件套 |
 
 ### 高级篇
 
@@ -445,7 +445,7 @@ ai-agent-handbook/
 │   ├── 16-observability.md        # 可观测性
 │   ├── 17-fullstack-project.md    # 全栈实战
 │   ├── 18-selection-guide.md      # 选型指南
-│   ├── 19-agent-toolkit.md        # 🧰 Agent 通用工具箱（规划中）
+│   ├── 19-agent-toolkit.md        # 🧰 Agent 通用工具箱
 │   └── 99-glossary.md             # 📖 中英对照术语表（115+ 术语）
 │   ├── 20-codex-cli.md            # 🛠️ OpenAI Codex CLI 详解
 │   ├── 21-deepseek-harness.md     # 🛠️ DeepSeek Harness（dsh）
@@ -684,12 +684,14 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-25 | 🧰 第 19 章从占位转正：[Agent 通用工具箱](chapters/19-agent-toolkit.md)——工具注册中心 / 审批网关 / 成本追踪 / 回放重放 / Guardrails / 数据基建六件套 |
+| 2026-10-25 | 🚀 新增 [PyPI 自动发布流水线](.github/workflows/publish-pypi.yml)（Trusted Publishing，打 Release 即发布，无需存 token） |
 | 2026-10-25 | 💼 **全面大更新**：新增第 29 章 [Agent 经济与商业化](chapters/29-agent-economy.md)（x402 / AP2 / Agent Identity + 变现路线图）、第 30 章 [Agent 评测体系](chapters/30-agent-evals.md)（EDD + 三层评测金字塔）；README 新增「进阶内容预告」；全书口径同步至 31 章 |
-| 2026-10-18 | 🏆 Radar 新增「社区精选」固定栏目，[`projects/`](projects/README.md) 读者项目有了每期固定的展示位；CLI 改为可用的 git 安装（PyPI 上传中） |
+| 2026-10-18 | 🏆 Radar 新增「社区精选」固定栏目，[`projects/`](projects/README.md) 读者项目有了每期固定的展示位；CLI 改为可用的 git 安装 |
 | 2026-10-17 | 📥 新增 [PDF 全本下载](https://github.com/Xwh630/ai-agent-handbook/releases/latest)（220 页，`scripts/build_pdf.py` 一键生成） |
 | 2026-10-17 | 🧪 新增 [`projects/`](projects/README.md) 读者项目收录机制（对标 hello-agents 的 Co-creation） |
 | 2026-10-17 | ✨ README 补「你将收获 / 如何学习 / 读者项目 / 引用」区块 |
-| 2026-10-17 | ⚡ **CLI 发布**：`pip install git+https://github.com/Xwh630/ai-agent-handbook.git`（PyPI 上传中），支持 `doctor` 五支柱体检 / `search` 全文检索 / `new` 生成 Harness 骨架（生成即 10 分） |
+| 2026-10-17 | ⚡ **CLI 发布**：`pip install git+https://github.com/Xwh630/ai-agent-handbook.git`，支持 `doctor` 五支柱体检 / `search` 全文检索 / `new` 生成 Harness 骨架（生成即 10 分） |
 | 2026-10-17 | 🆕 新增第 28 章：[2026 热门项目全景](chapters/28-trending-2026.md)——串联 hermes-agent / firecrawl / ponytail 等六大顶流与本书方法论 |
 | 2026-10-17 | 📊 框架速览表新增 6 个热门项目，纳入每周自动追踪；第 7/18/19/27 章完成交叉串联 |
 | 2026-10-16 | 🆕 新增 [MiniHarness 可运行示例](examples/11-mini-harness/)（第 25 章配套，五大支柱全覆盖） |

@@ -461,6 +461,8 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
 
 ### 9.2 后续铺垫清单（按依赖顺序）
 
+- [x] 第 19 章「Agent 通用工具箱」从占位转正（2026-10-25）
+- [x] PyPI Trusted Publishing 工作流就绪（publish-pypi.yml，待 PyPI 后台配置后打 Release 触发）
 - [ ] Discussions 开「进阶内容投票」帖，2 周后统计付费意愿（目标 ≥ 30 条回复）
 - [ ] 评测用例沉淀进 `eval/` 目录并接入 CI（为付费「行业评测集」打底）
 - [ ] stars ≥ 100：开启 GitHub Sponsors

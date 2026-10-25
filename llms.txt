@@ -65,6 +65,7 @@ SKILL.md → Agent ↔ 领域知识     （跨客户端可复用，见第 26 章
 
 ## Agent 工具教程（Coding Agents）
 
+- [第 19 章：Agent 通用工具箱](chapters/19-agent-toolkit.md)：工具注册中心 / 审批网关 / 成本追踪 / 回放重放 / Guardrails / 数据基建
 - [第 20 章：OpenAI Codex CLI](chapters/20-codex-cli.md)
 - [第 21 章：DeepSeek Harness（dsh）](chapters/21-deepseek-harness.md)
 - [第 22 章：Continue 编辑器](chapters/22-continue-editor.md)
