@@ -117,7 +117,7 @@ CI 修过四轮才跑通，第 25 章的 MiniHarness 是手写调试出来的。
   - **行业评测集与 rubric**：客服 / 数据 / 代码场景的私有评测方案
   - **答疑社群与项目 Review**：你的 Agent 项目由手册作者做一次 doctor 深度体检
 
-> 不想等的读者什么都不用做——免费层已经是全网最完整的中文 Agent 体系。想第一时间了解进阶层进度，[Watch 本仓库](https://github.com/Xwh630/ai-agent-handbook/watchers) 或在 [Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions) 留下你最想要的内容。
+> 不想等的读者什么都不用做——免费层已经是全网最完整的中文 Agent 体系。想第一时间了解进阶层进度，[点右上角 Watch 关注本仓库](https://github.com/Xwh630/ai-agent-handbook)，或在 [Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions) 留下你最想要的内容。
 
 ---
 
