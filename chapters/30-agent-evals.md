@@ -97,7 +97,7 @@ Agent 的过程（trajectory）比结果更能定位问题：
 | [OpenAI Evals](https://github.com/openai/evals) | OpenAI 官方框架 | 已深度绑定 OpenAI 的团队 | 生态成熟但绑定较深 |
 | [DeepEval](https://github.com/confident-ai/deepeval) | pytest 风格的 LLM 评测 | Python 重度团队 | 把评测写进单测，与 CI 天然融合 |
 | [Langfuse](https://github.com/langfuse/langfuse) | 可观测 + 在线评测 | 生产环境 | 与第 16 章可观测性无缝衔接 |
-| [braintrust](https://github.com/braintrustdata/braintrust) | 商业化评测平台 | 企业级 | 功能全、收费 |
+| Braintrust | 商业化评测平台 | 企业级 | 功能全、收费 |
 
 **建议路径**：个人项目用 promptfoo 起步（半天接入 CI）；上线后接 Langfuse 做线上评测回流；团队化后再考虑商业平台。
 
