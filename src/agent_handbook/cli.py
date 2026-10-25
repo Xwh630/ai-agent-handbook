@@ -121,12 +121,12 @@ def cmd_stars(args):
 def build_parser():
     ap = argparse.ArgumentParser(
         prog="handbook",
-        description="AI Agent 实战手册命令行工具：检索 29 章、给 Agent 项目体检、生成 Harness 骨架",
+        description="AI Agent 实战手册命令行工具：检索 31 章、给 Agent 项目体检、生成 Harness 骨架",
     )
     ap.add_argument("-v", "--version", action="version", version=BANNER)
     sub = ap.add_subparsers(dest="cmd")
 
-    p = sub.add_parser("search", help="29 章全文检索")
+    p = sub.add_parser("search", help="31 章全文检索")
     p.add_argument("query", help="关键词，空格分词")
     p.add_argument("-n", "--limit", type=int, default=8)
     p.set_defaults(func=cmd_search)
