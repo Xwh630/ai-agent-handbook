@@ -1,6 +1,6 @@
 # AI Agent 实战手册（Chinese AI Agent Handbook）
 
-> 面向中文开发者的 AI Agent 系统学习指南（中文为主）。从零基础到生产部署，涵盖 10+ 主流框架、28 章完整教程、11 个可运行示例、一个可安装的 Agent Skill 包。本文件供 AI 助手（Copilot / Cursor / Claude / Codex 等）索引本仓库内容使用。
+> 面向中文开发者的 AI Agent 系统学习指南（中文为主）。从零基础到生产部署，涵盖 10+ 主流框架、31 章完整教程、11 个可运行示例、一个可安装的 Agent Skill 包。本文件供 AI 助手（Copilot / Cursor / Claude / Codex 等）索引本仓库内容使用。
 
 - 仓库：https://github.com/Xwh630/ai-agent-handbook
 - 在线文档：https://xwh630.github.io/ai-agent-handbook/
@@ -45,11 +45,13 @@
 - [第 26 章：Agent Skills 编写实战](chapters/26-agent-skills.md)：SKILL.md 六字段规范、渐进式披露四阶段、token 预算红线、手搓一个可发布的 skill、发布自检清单
 - [第 27 章：上下文工程 Context Engineering](chapters/27-context-engineering.md)：Context Rot 机理、token 构成解剖、工具集收敛、压缩/笔记/子 Agent 三板斧
 - [第 28 章：2026 热门项目全景](chapters/28-trending-2026.md)：hermes-agent / firecrawl / ponytail / agency-agents / Langflow / System Prompts 六大顶流与本书串联地图
+- [第 29 章：Agent 经济与商业化](chapters/29-agent-economy.md)：x402 微支付 / AP2 可问责支付 / Agent Identity 三大协议，开发者变现四级火箭
+- [第 30 章：Agent 评测体系](chapters/30-agent-evals.md)：评测驱动开发（EDD）、三层评测金字塔、LLM-as-Judge 校准、评测即商业壁垒
 
 ## 官方 Agent Skill 包
 
 - [skills/agent-handbook/SKILL.md](skills/agent-handbook/SKILL.md)：把整本手册打包成符合 Agent Skills 开放规范的能力包；装进客户端后，Agent 可直接查阅本手册对应章节
-- [skills/agent-handbook/references/chapter-index.md](skills/agent-handbook/references/chapter-index.md)：28 章速查索引
+- [skills/agent-handbook/references/chapter-index.md](skills/agent-handbook/references/chapter-index.md)：31 章速查索引
 
 ## 2026 协议分层速查
 

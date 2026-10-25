@@ -8,7 +8,7 @@
 
 **面向中文开发者的 AI Agent 系统学习指南** · 从零搭建到生产部署
 
-🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 29+ 章完整教程 · 11 个可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包 · **可 pip 安装的 CLI**
+🚀 10 分钟零基础上手 · 10+ 框架全覆盖 · 31+ 章完整教程 · 11 个可运行示例 · 130+ 中英术语对照 · 可安装 Skill 包 · **可 pip 安装的 CLI**
 
 [![GitHub Stars](https://img.shields.io/github/stars/Xwh630/ai-agent-handbook?style=flat-square&color=blue)](https://github.com/Xwh630/ai-agent-handbook)
 [![GitHub Forks](https://img.shields.io/github/forks/Xwh630/ai-agent-handbook?style=flat-square&color=green)](https://github.com/Xwh630/ai-agent-handbook/fork)
@@ -63,9 +63,9 @@ handbook doctor .
 | 命令 | 干什么 |
 |------|--------|
 | `handbook doctor .` | 按 Harness 五支柱给 Agent 项目体检（0–10 分 + 补齐建议） |
-| `handbook search 上下文压缩` | 29 章全文检索，直接给章节 + 行号 + 片段 |
+| `handbook search 上下文压缩` | 31 章全文检索，直接给章节 + 行号 + 片段 |
 | `handbook new my-agent` | 生成自带五支柱的 Agent 骨架（生成即满分，可跑） |
-| `handbook list` | 列出全部 29 章及行数 |
+| `handbook list` | 列出全部 31 章及行数 |
 | `handbook stars` | 打印 16 个框架/顶流项目的实时热度表 |
 | `handbook open 25` | 给出某章的本地路径与在线地址 |
 
@@ -104,8 +104,20 @@ handbook doctor .
 有人在 issue 里问过「这真是学生写的？」。答案在仓库里：提交记录横跨晚自习和周末，
 CI 修过四轮才跑通，第 25 章的 MiniHarness 是手写调试出来的。
 
-如果这份手册帮到了你，点亮一颗 Star 就是对我最大的激励 ⭐ —— 它决定了下个周末我是继续写第 30 章，
+如果这份手册帮到了你，点亮一颗 Star 就是对我最大的激励 ⭐ —— 它决定了下个周末我是继续写第 32 章，
 还是去写作业。
+
+## 💼 支持本书 / 进阶内容预告
+
+手册核心**永久免费开源（MIT）**。为了让项目长期「自我保鲜」，后续计划分两层：
+
+- 🆓 **免费层（本仓库）**：31 章完整教程、11 个可运行示例、CLI、Radar 周刊——永远是完整的自学路径。
+- 💎 **进阶层（规划中）**：面向「已学完免费层、想拿这套方法赚钱」的读者，筹备中的内容包：
+  - **生产级 Agent 模板库**：开箱即用的编排 + Harness + 评测三合一项目骨架
+  - **行业评测集与 rubric**：客服 / 数据 / 代码场景的私有评测方案
+  - **答疑社群与项目 Review**：你的 Agent 项目由手册作者做一次 doctor 深度体检
+
+> 不想等的读者什么都不用做——免费层已经是全网最完整的中文 Agent 体系。想第一时间了解进阶层进度，[点右上角 Watch 关注本仓库](https://github.com/Xwh630/ai-agent-handbook)，或在 [Discussions](https://github.com/Xwh630/ai-agent-handbook/discussions) 留下你最想要的内容。
 
 ---
 
@@ -231,6 +243,13 @@ CI 修过四轮才跑通，第 25 章的 MiniHarness 是手写调试出来的。
 | 第 26 章 | [Agent Skills 编写实战](chapters/26-agent-skills.md) 🆕 | ⭐⭐⭐ 进阶 | SKILL.md 六字段规范、渐进式披露四阶段、手搓一个可发布的 skill |
 | 第 27 章 | [上下文工程 Context Engineering](chapters/27-context-engineering.md) 🆕 | ⭐⭐⭐ 进阶 | Context Rot 机理、token 构成解剖、压缩/笔记/子 Agent 三板斧 |
 | 第 28 章 | [2026 热门项目全景](chapters/28-trending-2026.md) 🆕 | ⭐⭐ 基础 | hermes-agent / firecrawl / ponytail / agency-agents / Langflow / System Prompts 六大顶流串联地图 |
+
+### 💼 商业篇（2026 独有 · 中文首发）
+
+| 章节 | 标题 | 难度 | 内容概要 |
+|------|------|------|----------|
+| 第 29 章 | [Agent 经济与商业化](chapters/29-agent-economy.md) 🆕 | ⭐⭐⭐ 进阶 | x402 微支付 / AP2 可问责支付 / Agent Identity 三大协议 + 开发者变现四级火箭（内容 → 收款 → 机器可付费端点 → 企业交付） |
+| 第 30 章 | [Agent 评测体系](chapters/30-agent-evals.md) 🆕 | ⭐⭐⭐ 进阶 | 评测驱动开发（EDD）、三层评测金字塔、LLM-as-Judge 校准、把评测变成商业壁垒 |
 
 ### 📡 Agent Radar 周刊
 
@@ -406,7 +425,7 @@ ai-agent-handbook/
 │   ├── README.md             # 英文 README
 │   ├── TRANSLATION_STATUS.md # 翻译进度
 │   └── chapters/             # 英文章节
-├── chapters/                 # 各章节完整教程（29 章）
+├── chapters/                 # 各章节完整教程（31 章）
 │   ├── 00-quickstart.md           # 🚀 新手快速入门（10分钟）
 │   ├── 01-fundamentals.md         # AI Agent 基础概念
 │   ├── 02-reaact-from-scratch.md  # 手写 ReAct Agent
@@ -435,12 +454,15 @@ ai-agent-handbook/
 │   └── 24-trae-ide.md             # 🛠️ Trae IDE
 │   ├── 25-harness-engineering.md  # 🏗️ Harness Engineering
 │   ├── 26-agent-skills.md         # 🧩 Agent Skills 编写实战
-│   └── 27-context-engineering.md  # 🧠 上下文工程
+│   ├── 27-context-engineering.md  # 🧠 上下文工程
+│   ├── 28-trending-2026.md        # 🌍 2026 热门项目全景
+│   ├── 29-agent-economy.md        # 💰 Agent 经济与商业化
+│   └── 30-agent-evals.md          # 🧪 Agent 评测体系
 ├── skills/                   # 🧩 官方 Agent Skill 包（可安装）
 │   └── agent-handbook/
 │       ├── SKILL.md               # 遵循 Agent Skills 开放规范
 │       └── references/
-│           └── chapter-index.md   # 29 章速查索引
+│           └── chapter-index.md   # 31 章速查索引
 ├── examples/                 # 可运行的代码示例（11 个）
 │   ├── 01-react-agent/            # 基础 ReAct
 │   ├── 02-langgraph-workflow/     # LangGraph 示例
@@ -630,7 +652,7 @@ python main.py --topic "AI Agent 发展趋势"
 
 | 指标 | 数值 |
 |------|------|
-| 章节数量 | 29 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题 + 热门项目全景） |
+| 章节数量 | 31 章（含新手快速入门 + 术语表 + Agent 工具教程 + 工程化专题 + 热门项目全景） |
 | 示例代码 | 11 个可运行示例（含零依赖 Skill 校验器与 MiniHarness） |
 | 代码行数 | 4,100+ 行 |
 | 字数 | 145,000+ 字 |
@@ -662,6 +684,7 @@ python main.py --topic "AI Agent 发展趋势"
 | 2026-10-06 | 📚 术语表新增 30 个 2026 前沿术语（SKILL.md、Context Engineering、A2A、Harness 等） |
 | 2026-10-06 | 🧰 新增第 19 章占位：Agent 通用工具箱（规划中） |
 | 2026-10-09 | 📡 Radar 第 2 期发布：Skills 时代开启、MCP 无状态化、上下文工程崛起 |
+| 2026-10-25 | 💼 **全面大更新**：新增第 29 章 [Agent 经济与商业化](chapters/29-agent-economy.md)（x402 / AP2 / Agent Identity + 变现路线图）、第 30 章 [Agent 评测体系](chapters/30-agent-evals.md)（EDD + 三层评测金字塔）；README 新增「进阶内容预告」；全书口径同步至 31 章 |
 | 2026-10-18 | 🏆 Radar 新增「社区精选」固定栏目，[`projects/`](projects/README.md) 读者项目有了每期固定的展示位；CLI 改为可用的 git 安装（PyPI 上传中） |
 | 2026-10-17 | 📥 新增 [PDF 全本下载](https://github.com/Xwh630/ai-agent-handbook/releases/latest)（220 页，`scripts/build_pdf.py` 一键生成） |
 | 2026-10-17 | 🧪 新增 [`projects/`](projects/README.md) 读者项目收录机制（对标 hello-agents 的 Co-creation） |
@@ -728,7 +751,7 @@ git push origin feature/AmazingFeature
   author = {Xwh630},
   year   = {2026},
   url    = {https://github.com/Xwh630/ai-agent-handbook},
-  note   = {29 章中文教程 + 11 个可运行示例 + agent-handbook CLI}
+  note   = {31 章中文教程 + 11 个可运行示例 + agent-handbook CLI}
 }
 ```
 

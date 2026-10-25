@@ -446,3 +446,23 @@ pipx install git+https://github.com/Xwh630/ai-agent-handbook#subdirectory=mcp-se
 
 > 📄 本文件随 v0.2.0 起纳入仓库，每月最后一个周五更新一次进度。
 > 维护者更新记录见 `MAINTAINERS.md`。
+
+---
+
+## Part 9 · 商业化铺垫（2026-10-25 增补）
+
+> 原则：**免费层永远完整、永远 MIT**。商业化的前提是免费层先成为不可替代的中文 Agent 基础设施。
+
+### 9.1 本次更新（v1.4 方向）已落地
+
+- [x] 第 29 章「Agent 经济与商业化」：x402 / AP2 / Agent Identity 三大协议 + 变现四级火箭（中文首发，差异化护城河）
+- [x] 第 30 章「Agent 评测体系」：EDD + 三层评测金字塔 + LLM-as-Judge 校准（敢收费的底气）
+- [x] README 新增「支持本书 / 进阶内容预告」区块，收集付费意愿信号（Watch / Discussions）
+
+### 9.2 后续铺垫清单（按依赖顺序）
+
+- [ ] Discussions 开「进阶内容投票」帖，2 周后统计付费意愿（目标 ≥ 30 条回复）
+- [ ] 评测用例沉淀进 `eval/` 目录并接入 CI（为付费「行业评测集」打底）
+- [ ] stars ≥ 100：开启 GitHub Sponsors
+- [ ] stars ≥ 200：发布「生产级模板库」Beta（免费 1 个 + 付费 N 个的结构）
+- [ ] stars ≥ 500：进阶层正式定价（模板库 / 评测集 / 项目 Review 三档）

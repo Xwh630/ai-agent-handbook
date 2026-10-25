@@ -1,6 +1,6 @@
 # 章节索引（Chapter Index）
 
-《AI Agent 实战手册》全 28 章速查表。按主题分组，每行一句概括。
+《AI Agent 实战手册》全 31 章速查表。按主题分组，每行一句概括。
 
 > 在线版：<https://xwh630.github.io/ai-agent-handbook/>
 > 仓库：<https://github.com/Xwh630/ai-agent-handbook>
@@ -78,6 +78,15 @@
 
 ---
 
+## 商业篇
+
+| 文件 | 章节 | 一句话 |
+|------|------|--------|
+| `29-agent-economy.md` | 第 29 章 · Agent 经济与商业化 | x402 / AP2 / Agent Identity 三大协议 + 开发者变现四级火箭 |
+| `30-agent-evals.md` | 第 30 章 · Agent 评测体系 | 评测驱动开发、三层评测金字塔、LLM-as-Judge 与商业壁垒 |
+
+---
+
 ## 附录与文档
 
 | 文件 | 内容 |
@@ -109,3 +118,5 @@
 | 想找能直接用的 CLI/IDE 工具？ | `20` ~ `24` 章 |
 | 2026 年哪些顶流项目值得看？ | `28-trending-2026.md`（hermes-agent / firecrawl / ponytail / agency-agents / Langflow / System Prompts） |
 | 想体检一个 Agent 项目？ | `25-harness-engineering.md` 五支柱 + `handbook doctor .` CLI |
+| 想让 Agent 会收款/会付费？ | `29-agent-economy.md`（x402 / AP2 / Stripe Toolkit） |
+| 怎么证明我的 Agent 真的好用？ | `30-agent-evals.md`（EDD + 三层评测金字塔） |
