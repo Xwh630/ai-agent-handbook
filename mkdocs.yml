@@ -96,6 +96,7 @@ nav:
       - 第 2 期 · 2026-10-09: radar/2026-W41.md
       - 第 1 期 · 2026-10-02: radar/2026-W40.md
   - 🛠️ Agent 工具详细教程:
+      - 第 19 章 · Agent 通用工具箱: chapters/19-agent-toolkit.md
       - 第 20 章 · OpenAI Codex CLI: chapters/20-codex-cli.md
       - 第 21 章 · DeepSeek Harness（dsh）: chapters/21-deepseek-harness.md
       - 第 22 章 · Continue 编辑器: chapters/22-continue-editor.md
