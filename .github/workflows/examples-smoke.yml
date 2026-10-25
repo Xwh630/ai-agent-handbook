@@ -67,7 +67,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_BADGE_TOKEN || secrets.GITHUB_TOKEN }}
-          gistID: examples-badge
+          gistID: e1ced648b0eba3144c9c6920d5d8f933
           filename: examples.json
           label: Examples
           message: ${{ needs.smoke-test.result == 'success' && 'passing' || 'failing' }}
