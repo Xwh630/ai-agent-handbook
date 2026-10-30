@@ -1,0 +1,97 @@
+{
+  "snapshot": "2026-10-30",
+  "tool": "agent-handbook doctor",
+  "note": "第一版口径：全仓 Python 文件 + 关键词存在性。样本显示该口径在成熟仓库上饱和（8 个有效样本平均 9.6），详见 README 复盘。",
+  "rows": [
+    {
+      "name": "OpenHands",
+      "repo": "All-Hands-AI/OpenHands",
+      "status": "ok",
+      "total": 8,
+      "grade": "B",
+      "files": 12,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 0},
+      "weakest": "权限体系"
+    },
+    {
+      "name": "SWE-agent",
+      "repo": "SWE-agent/SWE-agent",
+      "status": "ok",
+      "total": 9,
+      "grade": "A",
+      "files": 77,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 1, "失败恢复": 2, "权限体系": 2},
+      "weakest": "状态持久化"
+    },
+    {
+      "name": "AutoGen",
+      "repo": "microsoft/autogen",
+      "status": "ok",
+      "total": 10,
+      "grade": "A",
+      "files": 442,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 2},
+      "weakest": "任务边界"
+    },
+    {
+      "name": "CrewAI",
+      "repo": "crewAIInc/crewAI",
+      "status": "clone_failed"
+    },
+    {
+      "name": "LangGraph",
+      "repo": "langchain-ai/langgraph",
+      "status": "ok",
+      "total": 10,
+      "grade": "A",
+      "files": 279,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 2},
+      "weakest": "任务边界"
+    },
+    {
+      "name": "LlamaIndex",
+      "repo": "run-llama/llama_index",
+      "status": "clone_failed"
+    },
+    {
+      "name": "OpenAI Agents SDK",
+      "repo": "openai/openai-agents-python",
+      "status": "ok",
+      "total": 10,
+      "grade": "A",
+      "files": 595,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 2},
+      "weakest": "任务边界"
+    },
+    {
+      "name": "Claude Agent SDK",
+      "repo": "anthropics/claude-agent-sdk-python",
+      "status": "ok",
+      "total": 10,
+      "grade": "A",
+      "files": 54,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 2},
+      "weakest": "任务边界"
+    },
+    {
+      "name": "MetaGPT",
+      "repo": "geekan/MetaGPT",
+      "status": "ok",
+      "total": 10,
+      "grade": "A",
+      "files": 640,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 2},
+      "weakest": "任务边界"
+    },
+    {
+      "name": "AutoGPT",
+      "repo": "Significant-Gravitas/AutoGPT",
+      "status": "ok",
+      "total": 10,
+      "grade": "A",
+      "files": 3339,
+      "pillars": {"任务边界": 2, "上下文管理": 2, "状态持久化": 2, "失败恢复": 2, "权限体系": 2},
+      "weakest": "任务边界"
+    }
+  ]
+}

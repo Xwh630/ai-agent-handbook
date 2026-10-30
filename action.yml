@@ -1,0 +1,76 @@
+name: "Agent Harness Doctor"
+description: "给你的 Agent 项目做 Harness 五支柱体检（任务边界 / 上下文 / 状态 / 恢复 / 权限），分数低于阈值就让 CI 变红"
+author: "Xwh630"
+branding:
+  icon: "activity"
+  color: "purple"
+
+inputs:
+  path:
+    description: "要体检的项目路径（相对仓库根）"
+    required: false
+    default: "."
+  min-score:
+    description: "通过线（0–10）。低于它本 action 失败；设 0 则只报告不拦"
+    required: false
+    default: "0"
+  python-version:
+    description: "Python 版本"
+    required: false
+    default: "3.12"
+  comment:
+    description: "是否把 Markdown 报告贴到 PR 评论（'true'/'false'）"
+    required: false
+    default: "true"
+
+outputs:
+  score:
+    description: "总分（0–10）"
+    value: ${{ steps.doctor.outputs.score }}
+  grade:
+    description: "评级（A–F）"
+    value: ${{ steps.doctor.outputs.grade }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install agent-handbook
+      shell: bash
+      # 从当前仓库源码装，保证 action 与 action.yml 同版本（不依赖 PyPI 是否已发布）
+      run: python -m pip install --quiet --disable-pip-version-check "${{ github.action_path }}"
+
+    - name: Run doctor
+      id: doctor
+      shell: bash
+      run: |
+        set -o pipefail
+        handbook doctor "${{ inputs.path }}" --md | tee /tmp/doctor-report.md
+        cat /tmp/doctor-report.md >> "$GITHUB_STEP_SUMMARY"
+        if ! handbook doctor "${{ inputs.path }}" --json > /tmp/doctor.json; then
+          echo "::error::doctor 执行失败"
+          exit 1
+        fi
+        SCORE="$(python -c 'import json;print(json.load(open("/tmp/doctor.json"))["total"])')"
+        GRADE="$(python -c 'import json;print(json.load(open("/tmp/doctor.json"))["grade"])')"
+        echo "score=$SCORE" >> "$GITHUB_OUTPUT"
+        echo "grade=$GRADE" >> "$GITHUB_OUTPUT"
+        echo "Harness 得分 $SCORE/10（$GRADE 级）"
+        MIN="${{ inputs.min-score }}"
+        if [ "$MIN" != "0" ] && [ "$SCORE" -lt "$MIN" ]; then
+          echo "::error::Harness 得分 $SCORE 低于通过线 $MIN，见第 25 章五支柱"
+          exit 1
+        fi
+
+    - name: Comment on PR
+      if: ${{ inputs.comment == 'true' && github.event_name == 'pull_request' }}
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        gh pr comment "${{ github.event.pull_request.number }}" \
+          --body-file /tmp/doctor-report.md --edit-last --create-if-none || true
