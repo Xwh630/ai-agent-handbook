@@ -73,16 +73,27 @@ def cmd_doctor(args):
     report = doctor_mod.scan_project(root)
     if args.md:
         print(doctor_mod.to_markdown(report))
-        return 0
-    print(doctor_mod.render(report))
+        return exit_code_for(report, args)
     if args.json:
+        # --json 只吐机器可读结果（给人看的那份走默认输出或 --md），
+        # 这样 `handbook doctor . --json | jq .total` 才能真正跑通，也方便 GitHub Action 取值。
         print(json.dumps({
             "total": report["total"],
+            "max": report["max"],
             "grade": report["grade"],
+            "verdict": report["verdict"],
+            "files": report["files"],
             "pillars": {r["pillar"]: r["score"] for r in report["results"]},
+            "weakest": report["weakest"]["pillar"],
         }, ensure_ascii=False, indent=2))
-    if args.exit_code:
-        # 给 CI 用：低于阈值就红。默认关闭，避免本地随手一跑就非零退出。
+        return exit_code_for(report, args)
+    print(doctor_mod.render(report))
+    return exit_code_for(report, args)
+
+
+def exit_code_for(report, args):
+    """给 CI 用：低于阈值就红。默认关闭，避免本地随手一跑就非零退出。"""
+    if getattr(args, "exit_code", False):
         return 0 if report["total"] >= args.min_score else 1
     return 0
 

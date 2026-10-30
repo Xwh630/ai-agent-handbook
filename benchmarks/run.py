@@ -19,6 +19,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
 from pathlib import Path
 
@@ -70,9 +71,9 @@ def _via_tarball(repo: str, dest: Path) -> bool:
         for tpl in MIRRORS:
             url = tpl.format(repo=repo, branch=branch)
             r = subprocess.run(
-                ["curl", "-sSL", "--retry", "1", "-m", "300", "-o", str(tar_path),
+                ["curl", "-sSL", "--retry", "1", "-m", "600", "-o", str(tar_path),
                  "-w", "%{http_code}", url],
-                capture_output=True, text=True, timeout=340,
+                capture_output=True, text=True, timeout=660,
             )
             size = tar_path.stat().st_size if tar_path.exists() else 0
             if r.stdout.strip().endswith("200") and size > 1024:
@@ -110,17 +111,51 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--table", action="store_true", help="打印 Markdown 表格")
     ap.add_argument("--only", type=int, default=0, help="只跑前 N 个")
-    ap.add_argument("--keep", action="store_true", help="保留临时克隆目录")
+    ap.add_argument("--jobs", type=int, default=3, help="并发下载数，默认 3（太高会被镜像限流）")
+    ap.add_argument("--use-local", metavar="DIR", help="不联网：把 DIR 下的每个子目录当成一个项目体检")
+    ap.add_argument("--keep", action="store_true", help="保留临时下载目录")
     args = ap.parse_args()
 
     workdir = Path(tempfile.mkdtemp(prefix="hb-bench-"))
-    rows = []
-    targets = TARGETS[: args.only] if args.only else TARGETS
 
+    if args.use_local:
+        base = Path(args.use_local).resolve()
+        if not base.is_dir():
+            print(f"目录不存在：{base}", file=sys.stderr)
+            return 1
+        local = [d for d in sorted(base.iterdir()) if d.is_dir() and not d.name.startswith(".")]
+        targets = [(d.name, "") for d in local]
+        dests = {name: d for (name, _), d in zip(targets, local)}
+        print(f"本地模式：{len(targets)} 个目录", flush=True)
+    else:
+        targets = TARGETS[: args.only] if args.only else TARGETS
+        dests = {}
+
+    # 先并发下载，再串行体检：下载是网络瓶颈（国内镜像几十~几百 KB/s），
+    # 体检是纯本地 CPU，串行反而更快且不会互相拖慢。
+    if not args.use_local:
+        print(f"并下载 {len(targets)} 个仓库（jobs={args.jobs}）…", flush=True)
+        with ThreadPoolExecutor(max_workers=max(1, args.jobs)) as pool:
+            futs = {
+                pool.submit(clone, repo, workdir / repo.split("/")[-1]): (name, repo)
+                for name, repo in targets
+            }
+            for fut in as_completed(futs):
+                name, repo = futs[fut]
+                ok = False
+                try:
+                    ok = fut.result()
+                except Exception as e:  # noqa: BLE001
+                    print(f"  [跳过] {repo} 异常：{e}", file=sys.stderr)
+                if ok:
+                    dests[repo] = workdir / repo.split("/")[-1]
+                    print(f"  ✓ {name}", flush=True)
+
+    rows = []
     for name, repo in targets:
-        print(f"→ {name} ({repo})")
-        dest = workdir / repo.split("/")[-1]
-        if not clone(repo, dest):
+        print(f"→ {name} ({repo or '本地'})", flush=True)
+        dest = dests.get(repo) or dests.get(name)
+        if dest is None:
             rows.append({"name": name, "repo": repo, "status": "clone_failed"})
             continue
         if not has_python(dest):
@@ -137,7 +172,7 @@ def main() -> int:
             "pillars": {r["pillar"]: r["score"] for r in report["results"]},
             "weakest": report["weakest"]["pillar"],
         })
-        print(f"  {report['total']}/10  {report['grade']}  最缺：{report['weakest']['pillar']}")
+        print(f"  {report['total']}/10  {report['grade']}  最缺：{report['weakest']['pillar']}", flush=True)
 
     out = ROOT / "benchmarks" / "bench-results.json"
     payload = {"snapshot": date.today().isoformat(), "tool": "agent-handbook doctor", "rows": rows}
@@ -154,7 +189,8 @@ def main() -> int:
         print("|---|------|------|---------|--------|------|------|------|------|")
         for i, r in enumerate(sorted(ok, key=lambda x: -x["total"]), 1):
             p = r["pillars"]
-            print(f"| {i} | [{r['name']}](https://github.com/{r['repo']}) | **{r['total']}** | "
+            label = f"[{r['name']}](https://github.com/{r['repo']})" if r["repo"] else r["name"]
+            print(f"| {i} | {label} | **{r['total']}** | "
                   f"{p['任务边界']} | {p['上下文管理']} | {p['状态持久化']} | "
                   f"{p['失败恢复']} | {p['权限体系']} | {r['weakest']} |")
 

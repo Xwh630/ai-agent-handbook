@@ -86,5 +86,3 @@ src/agent_handbook/data/
 dist/
 *.egg-info/
 
-# 体检榜原始结果由 CI/本地跑分生成，跑完再提交
-benchmarks/bench-results.json

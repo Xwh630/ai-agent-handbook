@@ -39,6 +39,16 @@ uvx agent-handbook doctor .
 
 零依赖、纯标准库、离线可用（章节数据随包安装）。
 
+### 放进 CI：分数掉了就让 PR 变红
+
+```yaml
+- uses: Xwh630/ai-agent-handbook@main
+  with:
+    min-score: 6          # 低于 6 分本步骤失败（默认 0 = 只报告不拦）
+```
+
+它会把 `--md` 报告贴进 PR 评论，并在 Job Summary 里留一份，评审时能直接看到这次改动动了哪根柱子。
+
 ---
 
 ## 这本手册解决什么

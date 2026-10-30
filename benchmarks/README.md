@@ -22,30 +22,50 @@
 
 ---
 
-## 榜单（等你填第一版）
+## 第一版结果（2026-10-30，8 个有效样本）
 
-```bash
-# 1. 把候选项目克隆到一个目录（浅克隆就够）
-mkdir -p /tmp/hb && cd /tmp/hb
-git clone --depth 1 https://github.com/<owner>/<repo>.git
+跑分器：`python benchmarks/run.py --only 10 --jobs 4 --table`（原始数据见 [`bench-results.json`](bench-results.json)）
 
-# 2. 一条命令拿分数
-uvx agent-handbook doctor ./<repo>
-
-# 3. 想要能直接贴进表格的 Markdown
-uvx agent-handbook doctor ./<repo> --md
-```
-
-把这个脚本跑完，把结果贴回下面这张表：
-
-```bash
-python benchmarks/run.py            # 自动克隆 → 体检 → 生成 bench-results.json
-python benchmarks/run.py --table    # 顺手打印 Markdown 表格
-```
-
-| # | 项目 | 语言 | 总分 | 任务边界 | 上下文 | 状态 | 恢复 | 权限 | 最缺 |
+| # | 项目 | 扫描 py 文件 | 总分 | 任务边界 | 上下文 | 状态 | 恢复 | 权限 | 最缺 |
 |---|------|------|------|---------|--------|------|------|------|------|
-| — | _待填_ | | | | | | | | |
+| 1 | [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | 3339 | **10** | 2 | 2 | 2 | 2 | 2 | — |
+| 2 | [AutoGen](https://github.com/microsoft/autogen) | 442 | **10** | 2 | 2 | 2 | 2 | 2 | — |
+| 3 | [LangGraph](https://github.com/langchain-ai/langgraph) | 279 | **10** | 2 | 2 | 2 | 2 | 2 | — |
+| 4 | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | 595 | **10** | 2 | 2 | 2 | 2 | 2 | — |
+| 5 | [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) | 54 | **10** | 2 | 2 | 2 | 2 | 2 | — |
+| 6 | [MetaGPT](https://github.com/geekan/MetaGPT) | 640 | **10** | 2 | 2 | 2 | 2 | 2 | — |
+| 7 | [SWE-agent](https://github.com/SWE-agent/SWE-agent) | 77 | **9** | 2 | 2 | 1 | 2 | 2 | 状态持久化 |
+| 8 | [OpenHands](https://github.com/All-Hands-AI/OpenHands) | 12 | **8** | 2 | 2 | 2 | 2 | 0 | 权限体系 |
+
+未计入：CrewAI、LlamaIndex（源码包 12 MB / 150 MB，两次镜像下载均超时，标记为 `clone_failed`，不是 0 分）。
+
+---
+
+## 复盘：这一版打分器饱和了，而且这是个有用的结果
+
+平均 **9.6/10**，八个样本里六个满分。作为「排名」这张表毫无信息量——所以下面这三条比表格本身值钱：
+
+**1. 饱和的原因是真实的：五根柱子已经是成熟项目的标配。**
+只要仓库里任何位置出现两个不同的实现痕迹，打分器就给满。而 3000 个 Python 文件里凑出两个重试关键词，几乎不可能失败。
+换句话说：**在「有没有」这一层，行业已经卷完了。** 这条对读者反而是好消息——你的项目拿 3 分，不是因为你落后于行业平均水平，而是因为你还没开始建。
+
+**2. 只扫文件名和关键词，看不见「接没接上」。**
+OpenHands 只扫到 12 个 py 文件（主仓已大面积转向别的语言/结构），Claude Agent SDK 只有 54 个——一个 54 文件的 SDK 和一个 3339 文件的应用拿同分，说明这个口径本身没有区分度。
+
+**3. 下一版打分器只扫「Agent 主循环」。**
+判定条件：一个文件里同时出现 LLM 调用与工具分发，才算主循环文件；只扫这些文件里的五根柱子。纯 SDK / 框架直接标「不适用」而不是给分。
+这样分数才回答真问题：**你的主循环有没有被这五根柱子包住**，而不是「你仓库里有没有出现过 `retry` 这个词」。
+
+> 这一版就先留着当基线：它至少证明了 `doctor` 能在大仓库上跑完、能稳定复现、能把「框架」和「应用」混在一起时暴露口径问题。等主循环口径上线，再发正式榜单。
+
+---
+
+## 怎么自己跑
+
+```bash
+python benchmarks/run.py --only 10 --jobs 4 --table   # 下载 → 体检 → 打印表格
+python benchmarks/run.py --use-local /path/to/repo    # 已下载的项目，不联网
+```
 
 ---
 
