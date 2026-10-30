@@ -6,24 +6,30 @@ build-backend = "build_backend"
 backend-path = ["."]
 
 [project]
+# ⚠️ 名字里不能出现 "agent-handbook" 之外的变体都不行：
+# PyPI 对「连字符 / 下划线 / 点」做归一化，agent-handbook、agent_handbook、
+# agent.handbook 视为同一个项目名。若与其它包撞名，Trusted Publishing 会直接 403。
 name = "agent-handbook"
-version = "0.1.0"
-description = "AI Agent 实战手册的命令行工具：29 章全文检索、Harness 健康度体检、Agent 项目脚手架"
+# 与 GitHub Release 标签保持一致：tag vX.Y.Z → 版本 X.Y.Z
+version = "1.6.0"
+description = "AI Agent 实战手册命令行工具：一行命令给任何 Agent 项目做 Harness 五支柱体检 + 31 章全文检索 + 项目脚手架"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [{ name = "Xwh630", email = "hi@xwh630.dev" }]
-keywords = ["ai", "agent", "llm", "harness", "cli", "chinese", "handbook"]
+keywords = ["ai", "agent", "llm", "harness", "doctor", "cli", "chinese", "handbook"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries :: Application Frameworks",
 ]
 dependencies = []
@@ -36,6 +42,7 @@ Homepage = "https://github.com/Xwh630/ai-agent-handbook"
 Documentation = "https://xwh630.github.io/ai-agent-handbook/"
 Repository = "https://github.com/Xwh630/ai-agent-handbook"
 Issues = "https://github.com/Xwh630/ai-agent-handbook/issues"
+Changelog = "https://github.com/Xwh630/ai-agent-handbook/releases"
 
 [project.scripts]
 handbook = "agent_handbook.cli:main"
