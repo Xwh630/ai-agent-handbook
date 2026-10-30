@@ -123,6 +123,8 @@ def scan_project(root: Path):
     results = []
 
     for name, patterns, chapter_ref in PILLARS:
+        # ⚠️ 证据必须按柱子分别扫描：_scan 的入参是「这一根柱子的模式」，
+        # 早期写成扫全部 PILLARS 会导致五根柱子分数永远一样。
         ev = _scan(patterns, files)
         # 不同关键词的多样性体现深度
         distinct = {e[2].lower() for e in ev}
@@ -190,3 +192,27 @@ def render(report) -> str:
         lines.append("   在线：https://xwh630.github.io/ai-agent-handbook/")
     lines.append("")
     return "\n".join(lines)
+
+
+def to_markdown(report) -> str:
+    """把体检结果渲染成一段可以直接贴进 GitHub issue / PR / README 的 Markdown 表格。
+
+    `handbook doctor . --md` 就是给「体检榜」和「给别人提 issue」用的：
+    复制即引用，不用手抄分数。
+    """
+    out = []
+    out.append(f"**🩺 Harness 体检 · {report['total']}/{report['max']} · {report['grade']} 级**")
+    out.append("")
+    out.append("| 支柱 | 得分 | 状态 | 证据 |")
+    out.append("|------|------|------|------|")
+    for r in report["results"]:
+        ev = ", ".join(f"`{n}:{ln}`" for n, ln, _ in r["evidence"]) or "—"
+        bar = "●" * r["score"] + "○" * (2 - r["score"])
+        out.append(f"| {r['pillar']} | `{bar}` {r['score']}/2 | {r['status']} | {ev} |")
+    out.append("")
+    w = report["weakest"]
+    if w["score"] < 2:
+        out.append(f"最该先补：**{w['pillar']}** —— 手册 {w['ref']}")
+    out.append("")
+    out.append("> 由 [agent-handbook](https://github.com/Xwh630/ai-agent-handbook) 生成：`uvx agent-handbook doctor .`")
+    return "\n".join(out)

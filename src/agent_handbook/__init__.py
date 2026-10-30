@@ -9,6 +9,6 @@
   handbook open <章节>        给出该章的在线地址 / 本地路径
 """
 
-__version__ = "0.1.0"
+__version__ = "1.6.0"
 __repo__ = "https://github.com/Xwh630/ai-agent-handbook"
 __site__ = "https://xwh630.github.io/ai-agent-handbook/"

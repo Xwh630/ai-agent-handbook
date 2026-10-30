@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" font-family="'Cascadia Mono',Consolas,'Courier New',monospace">
+  <rect width="1280" height="420" rx="14" fill="#0f1117"/>
+  <rect width="1280" height="38" rx="14" fill="#1b1f29"/>
+  <rect y="24" width="1280" height="14" fill="#1b1f29"/>
+  <line x1="0" y1="38" x2="1280" y2="38" stroke="#262b36" stroke-width="1"/>
+  <circle cx="26" cy="19" r="5.5" fill="#ff5f57"/>
+  <circle cx="48" cy="19" r="5.5" fill="#febc2e"/>
+  <circle cx="70" cy="19" r="5.5" fill="#28c840"/>
+  <text x="96" y="24" fill="#8b94a7" font-size="12.5">handbook doctor . / agent-handbook CLI</text>
+
+  <text x="26" y="80" font-size="15">
+    <tspan fill="#4ade80">$</tspan><tspan fill="#e6e9ef"> uvx agent-handbook doctor ./my-agent</tspan>
+  </text>
+
+  <g font-size="14.5">
+    <text x="26" y="112" fill="#6b7688">Harness 体检报告 · ./my-agent</text>
+    <text x="26" y="138" fill="#6b7688">   扫描 Python 文件 3 个</text>
+
+    <line x1="26" y1="156" x2="626" y2="156" stroke="#39404f" stroke-width="1"/>
+    <text x="26" y="178" fill="#6b7688">支柱</text>
+    <text x="150" y="178" fill="#6b7688">得分</text>
+    <text x="230" y="178" fill="#6b7688">状态</text>
+    <text x="360" y="178" fill="#6b7688">证据</text>
+    <line x1="26" y1="190" x2="626" y2="190" stroke="#39404f" stroke-width="1"/>
+
+    <text x="26" y="212" fill="#cfd6e4">任务边界</text>
+    <text x="150" y="212" fill="#4ade80">●●</text>
+    <text x="230" y="212" fill="#4ade80">扎实</text>
+    <text x="360" y="212" fill="#6b7688">main.py:86, main.py:89</text>
+
+    <text x="26" y="238" fill="#cfd6e4">上下文管理</text>
+    <text x="150" y="238" fill="#f87171">○○</text>
+    <text x="230" y="238" fill="#f87171">缺失</text>
+    <text x="360" y="238" fill="#6b7688">—</text>
+
+    <text x="26" y="264" fill="#cfd6e4">状态持久化</text>
+    <text x="150" y="264" fill="#fbbf24">●○</text>
+    <text x="230" y="264" fill="#fbbf24">薄弱</text>
+    <text x="360" y="264" fill="#6b7688">main.py:180</text>
+
+    <text x="26" y="290" fill="#cfd6e4">失败恢复</text>
+    <text x="150" y="290" fill="#f87171">○○</text>
+    <text x="230" y="290" fill="#f87171">缺失</text>
+    <text x="360" y="290" fill="#6b7688">—</text>
+
+    <text x="26" y="316" fill="#cfd6e4">权限体系</text>
+    <text x="150" y="316" fill="#f87171">○○</text>
+    <text x="230" y="316" fill="#f87171">缺失</text>
+    <text x="360" y="316" fill="#6b7688">—</text>
+
+    <line x1="26" y1="330" x2="626" y2="330" stroke="#39404f" stroke-width="1"/>
+
+    <text x="26" y="358" fill="#e6e9ef" font-weight="600">总分 3/10</text>
+    <text x="124" y="358" fill="#cfd6e4"> ·  评级 </text>
+    <text x="188" y="358" fill="#fbbf24" font-weight="600">D</text>
+    <text x="208" y="358" fill="#6b7688"> ·  裸 Agent：崩溃 / 超预算 / 越权全靠运气</text>
+
+    <text x="26" y="392" fill="#7dd3fc">→ 最该先补：上下文管理 —— 看手册第 25.3 节</text>
+  </g>
+</svg>

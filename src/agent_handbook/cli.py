@@ -71,6 +71,9 @@ def cmd_doctor(args):
         print(f"路径不存在：{root}")
         return 1
     report = doctor_mod.scan_project(root)
+    if args.md:
+        print(doctor_mod.to_markdown(report))
+        return 0
     print(doctor_mod.render(report))
     if args.json:
         print(json.dumps({
@@ -78,6 +81,9 @@ def cmd_doctor(args):
             "grade": report["grade"],
             "pillars": {r["pillar"]: r["score"] for r in report["results"]},
         }, ensure_ascii=False, indent=2))
+    if args.exit_code:
+        # 给 CI 用：低于阈值就红。默认关闭，避免本地随手一跑就非零退出。
+        return 0 if report["total"] >= args.min_score else 1
     return 0
 
 
@@ -141,6 +147,9 @@ def build_parser():
     p = sub.add_parser("doctor", help="按 Harness 五支柱给 Agent 项目体检")
     p.add_argument("path", nargs="?", default=".", help="项目路径，默认当前目录")
     p.add_argument("--json", action="store_true", help="额外输出机器可读结果")
+    p.add_argument("--md", action="store_true", help="输出 Markdown 表格（可直接贴进 issue / README）")
+    p.add_argument("--exit-code", action="store_true", help="总分低于阈值时以非零码退出（给 CI 用）")
+    p.add_argument("--min-score", type=int, default=6, help="配合 --exit-code 的阈值，默认 6/10")
     p.set_defaults(func=cmd_doctor)
 
     p = sub.add_parser("new", help="生成一个自带 Harness 的 Agent 项目")
